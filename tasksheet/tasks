@@ -9,37 +9,49 @@ M5 Stack (Arduino recommended. Java/C allowed)
 6.	[EXT]Build a page to navigate recent orders
 7.	[EXT]A page to display meal deals
 8.	[EXT] Help section(TBD)
+
 Website (Javascript/CSS/HTML required)
 9.	[CORE] A page that displays a table of restaurants
 10.	[CORE] A page that adds/deletes restaurants from the table
 11.	[EXT] A page to generate/return a random 6-digit alphanumeric id
 12.	[EXT] A page to process/approve new restaurants
+
 Desktop (Processing/Java allowed)
 13.	[CORE] A page to send the restaurant’s menu to the website
 14.	[CORE] A page to edit/add the restaurant menu
 15.	[EXT] A page to register as a new user on the website
+
 Any Language(C/Processing/Arduino/Javascript/Java)
 16.	[CORE]Build a JSON interpreter 
- 
+
+------------------------------------------------------------------------
 Section 2: Task Breakdown
+
 [CORE]Main menu
 1.	Build a homepage for the m5 stack. 
-•	[Basic]Write a page that shows at list of at least two interactable options: ‘Preferences’ and ‘New Meal’. Each option, when selected, will navigate to a new page on the m5 program using the following functions: navNewMeal() and navRecent().
-•	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions, respectively, are navPref() and navHelp().
+ -	[Basic]Write a page that shows at list of at least two interactable options: ‘Preferences’ and ‘New Meal’. Each option, when selected, will navigate to a new page on the m5 program using the following functions: navNewMeal() and navRecent().
+ -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions, respectively, are navPref() and navHelp().
 2.	Difficulty: Easy
+
 [CORE]A page to save/set dietary preferences
-3.	Build a page on the m5 stack to save and edit the user’s dietary preferences. 
-•	[Basic]Write a page that shows at list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’.
-i.	‘Kcal per meal’ is an integer value. 
-ii.	‘Vegetarian’, ‘Gluten-free’, ‘Nuts’ are Booleans (true/false)
-•	[Extend]Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. This file should also now be loaded and displayed by default when a user accesses the page.
-4.	Difficulty: Hard
+1.	Build a page on the m5 stack to save and edit the user’s dietary preferences. 
+ -	[Basic]Write a page that shows at list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’.
+  *‘Kcal per meal’ is an integer value. 
+  *‘Vegetarian’, ‘Gluten-free’, ‘Nuts’ are Booleans (true/false)
+ -	[Extend]Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. This file should also now be loaded and displayed by default when a user accesses the page.
+2.	Difficulty: Hard
+
 [CORE]A page to select menu items
-5.	Build a page that navigates and selects from a list of menu items. 
-•	[Basic] Create a menu{} object that is infact a list/array of objects called food{}. Each food{} object contains the following elements: Name(string); Calories (int); Vegetarian(bool); Gluten-free(bool); Nuts(bool). 
-•	Extend:
-i.	Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions, respectively, are navPref() and navHelp().
-6.	Difficulty: Easy
+1.	Build a page that navigates and selects from a list of menu items. 
+ -	[Basic] Create a navigatable and selectible menu{} object that is infact a list/array of objects called food{}. Each food{} item selected should be copied to a new array called order{}. When saved, the order{} should be sent to a function called saveOrder() (a blank function for now). Each food{} object contains the following elements: 
+  *Name(string); 
+  *Calories (int); 
+  *Vegetarian(bool); 
+  *Gluten-free(bool); 
+  *Nuts(bool). 
+ -	[Extend] Implement loading dietary preferences. During initialization, the page should load the file containing the user's preferences. These preferences will be used to determine what food{} items are not suitable for the user to consume. You have freedom to decide how to most clearly/effectively highlight incompatible menu items. An easy example might be highlighting invalid items in red.
+ - [Extend] Implement the saveOrder() function. saveOrder() should write the user's order to an external savefile, to be accessed by other functionalities in the program.
+6.	Difficulty: Hard
 
 [EXT]A page for loading
 [EXT]A page to navigate a list of restaurants
