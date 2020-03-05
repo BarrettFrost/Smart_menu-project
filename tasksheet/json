@@ -1,0 +1,20 @@
+type packet struct{
+  QueryID: int // 0:Request restaurants; 1:Return restaurants; 2:
+  Restaurants[]: *restaurant 
+  Restaurant: *restaurant // Depreciated once restaurant list implemented
+}
+
+type restaurant struct{
+  RestaurantID: string
+  RestaurantName: string
+  Menu[]: *food
+  MenuSize: int
+}
+
+type food struct{
+  FoodName: string
+  Calories: int
+  Vegetarian: boolean
+  Gluten: boolean
+  Nuts: boolean
+}
