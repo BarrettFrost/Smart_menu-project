@@ -7,20 +7,20 @@ M5 Stack (Arduino recommended. Java/C allowed)
 4.	[EXT]A page for loading
 5.	[EXT]A page to navigate a list of restaurants
 6.	[EXT]Build a page to navigate recent orders
-8.	[EXT] Help section(TBD)
+7.	[EXT] Help section(TBD)
 
 Website (Javascript/CSS/HTML required)
-9.	[CORE] A page that displays a table of restaurants
-10.	[CORE] A page that adds/deletes restaurants from the table
-11.	[EXT] A page to generate/return a random 6-digit alphanumeric id
-12.	[EXT] A page to process/approve new restaurants
+8.	[CORE] A page that displays a table of restaurants
+9.	[CORE] A page that adds/deletes restaurants from the table
+10.	[EXT] A page to generate/return a random 6-digit alphanumeric id
+11.	[EXT] A page to process/approve new restaurants
 
 Desktop (Processing recommended. Java allowed)
-13.	[CORE] A restaurant menu page
-15.	[EXT] A page to register as a new user on the website
+12.	[CORE] A restaurant menu page
+13.	[EXT] A page to register as a new user on the website
 
 Any Language(C/Processing/Arduino/Javascript/Java)
-16.	[CORE]Build a JSON interpreter 
+14.	[CORE]Build a JSON interpreter 
 
 ------------------------------------------------------------------------
 Section 2: Misc Info
@@ -43,33 +43,33 @@ Section 3: Task Breakdown
 
 ----M5----
 [M5][CORE]Main menu
- -	[Basic]Create a page that shows a list with two choices called ‘Preferences’ and ‘New Meal’. Implement the necessary functions to 
+ -	Create a page that shows a list with two choices called ‘Preferences’ and ‘New Meal’. Implement the necessary functions to 
  cause selecting an option to draw a new page (the navigation functions could be named navPref() and navMeal()). For example, 
  selecting 'Preferences' should execute a function called navPref() that loads the dietary preferences page;
- -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation 
+ -	Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation 
  functions are, respectively, navRecent() and navHelp().
 
 [M5][CORE]A page to save/set dietary preferences
- -	[Basic]Design a page that shows a list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’. 
+ -	Design a page that shows a list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’. 
  The page should display the preferences on screen as a basic table, and implement the necessary functions to edit them.
   *‘Kcal per meal’ is an integer value. 
   *‘Vegetarian’, ‘Gluten-free’, ‘Nuts’ are Booleans (true/false)
- -	[Extend]Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. 
+ -	Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. 
  This file should also now be loaded by default when a user accesses the page, if available.
 
 [M5][CORE]A page to select menu items
- -	[Basic] Design a page that navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
+ -	Design a page that navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
  Each food{} object contains the following elements: 
   *Name(string); 
   *Calories (int); 
   *Vegetarian(bool); 
   *Gluten-free(bool); 
   *Nuts(bool). 
- - [Basic] Implement the feature of loading a restaurant's menu. This functionality should, at minimum, consist of a getMenu() function 
+ - Implement the feature of loading a restaurant's menu. This functionality should, at minimum, consist of a getMenu() function 
  that calls requests for a menu JSON file from the web, that is used to populate the menu{} object on the device. **IMPORTANT** This 
  functionality should not crash if a valid menu file is not received. It should instead default to an empty table.
- -	[Extend]Implement loading dietary preferences. During initialization, the page should load the file containing the user's preferences. These preferences will be used to determine what food{} items are not suitable for the user to consume. You have freedom to decide how to most clearly/effectively highlight incompatible menu items. An easy example might be highlighting invalid items in red. **IMPORTANT**: the feature must not cause a crash in the event that no valid pref file is found. Instead, the loader should be configured with default values (eg. Max Cal could be set to '9999' by default). Alternatively, the device could throw a warning to alert the user that preferences have not been set
- - [Extend]Implement the saveOrder() function. saveOrder() should write the user's order to an external savefile, to be used by other 
+ -	Implement loading dietary preferences. During initialization, the page should load the file containing the user's preferences. These preferences will be used to determine what food{} items are not suitable for the user to consume. You have freedom to decide how to most clearly/effectively highlight incompatible menu items. An easy example might be highlighting invalid items in red. **IMPORTANT**: the feature must not cause a crash in the event that no valid pref file is found. Instead, the loader should be configured with default values (eg. Max Cal could be set to '9999' by default). Alternatively, the device could throw a warning to alert the user that preferences have not been set
+ - Implement the saveOrder() function. saveOrder() should write the user's order to an external savefile, to be used by other 
  functionalities in the program. An example implementation of this functionality is to have each food{} item selected be copied to a 
  new array called order{}. When saved, the order{} should be sent to the saveOrder() function, which writes the external file. 
 
@@ -81,39 +81,44 @@ loading page should be checking for a JSON packet that says it's a restaurant me
 no reply is received in a set amount of time (1 minute), it should throw a 'request failed' message and reload the last page.
 This is a safety step to prevent undefined behaviour in the event that networking issues arise between the devices, e.g. if there's a 
 malfunction on another device, or the wifi connection fails.
-- This page could be extended to have a loading graphic to indicate clearly to the user that there's something in progress.
+- Extend to have a loading graphic to indicate clearly to the user that there's something in progress.
 
 [M5][EXT]A page to navigate a list of restaurants
 [M5][EXT]Build a page to navigate recent orders
 [M5][EXT]Help section
 
 ----WEBSITE----
-[WEB][CORE] A page that displays a table of restaurants
-[WEB][CORE] A page that adds/deletes restaurants from the table
-[WEB][EXT] A page to generate/return a random 6-digit alphanumeric id
-[WEB][EXT] A page to process/approve new restaurants
+[WEB][CORE] A table of restaurants
+ - Design a page to display a table of saved restaurants
+ - Extend to allow deleting of restaurants from the table
+[WEB][EXT] A page to handle new restaurant registrations.
+ - Design a page to catch new restaurant registrations. The incoming packet should contain a restaurant name and menu. The page should
+ generate a unique alphanumeric identifier 'restaurantID' and return it to the restaurant.
+ - Extend to allow an 'approve/reject' step to the registration process to prevent database spamming/undefined behaviour
 
 ----DESKTOP----
 [DESKTOP][CORE] A restaurant menu page
- -	[Basic]Design a page to navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
+ -	Design a page to navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
  This list/array should be displayed as a table on the page. Each food{} object contains the following elements: 
   *Name(string); 
   *Calories (int); 
   *Vegetarian(bool); 
   *Gluten-free(bool); 
   *Nuts(bool).  
- - [Basic]Implement the necessary functions to edit the menu. There should be at least two basic functions: adding new food{} and 
+ - Implement the necessary functions to edit the menu. There should be at least two basic functions: adding new food{} and 
  editing existing food{}. 
- - [Extend]Implement a function that sends menu{}, 'restaurantId'(String), and 'restaurantName' (String) as a JSON packet.
- - [Extend]Implement a saveMenu() function where the menu is saved to an external file. The page should now also load a saved menu{} 
+ - Implement a function that sends menu{}, 'restaurantId'(String), and 'restaurantName' (String) as a JSON packet.
+ - Implement a saveMenu() function where the menu is saved to an external file. The page should now also load a saved menu{} 
  file when initializing (if available), rather than starting with a blank menu table every time. **IMPORTANT**: the feature must not 
  cause a crash in the event that no valid menu file is found. Instead, the loader should be default to showing a blank table.
 
-[DESKTOP][EXT] A page to register as a new user on the website
+[DESKTOP][EXT] A page to handle registration with the web database
+- Design a page to request to register the restaurant with the web server. The restaurantName and menu{} should be sent to the server as 
+a JSON packet. A restaurantID value should be returned.
+- Extend to check whether the request was approved or rejected. this should be contained in the JSON packet.
 
 ----ANY----
-[ANY][CORE]Build a JSON stringifier
-[ANY][CORE]Build a JSON interpreter 
+14.	[CORE]Build a JSON interpreter 
 
 
 
