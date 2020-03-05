@@ -27,12 +27,12 @@ Any Language(C/Processing/Arduino/Javascript/Java)
 ------------------------------------------------------------------------
 Section 2: Task Breakdown
 
+----M5----
 [M5][CORE]Main menu
  - Difficulty: Easy
- -	[Basic]Write a page that shows at list of at least two interactable options: ‘Preferences’ and ‘New Meal’. Each option, when selected, will navigate to a new page on the m5 program using the following functions: navNewMeal() and navRecent().
- -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions, respectively, are navPref() and navHelp().
+ -	[Basic]Create a page to navigate a list with two choices called ‘Preferences’ and ‘New Meal’. Selecting 'Preferences' should execute a function called navPref() that loads the dietary preferences page; Selecting 'New Meal' should execute a function called navMeal() that loads the New Meal page
+ -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions are, respectively, navRecent() and navHelp().
 
-----M5----
 [M5][CORE]A page to save/set dietary preferences
  - Difficulty: Hard
  -	[Basic]Write a page that shows at list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’.
@@ -75,6 +75,9 @@ Section 2: Task Breakdown
  - [Extend]Implement a saveMenu() function where the menu is saved to an external file. The page should now also load a saved menu{} file when initializing (if available), rather than starting with a blank menu table every time.
  
 [DESKTOP][CORE] A page to edit/add the restaurant menu
+ - Difficulty: Easy
+ - [Basic]Create a page to edit the menu{} object on the website. There should be at least two basic functions: adding new food{} and editing existing food{}. 
+ 
 [DESKTOP][EXT] A page to register as a new user on the website
 
 ----ANY----
