@@ -28,9 +28,6 @@ class List
           M5.Lcd.fillRoundRect(15, cursor_height, 10, 10, 5, BLUE);
         }
       }
-      int get_cursorHeight(){
-        return cursor_height;
-      }
       bool is_selected(){
         return selection;
       }
