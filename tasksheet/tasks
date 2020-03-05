@@ -16,7 +16,7 @@ Website (Javascript/CSS/HTML required)
 11.	[EXT] A page to generate/return a random 6-digit alphanumeric id
 12.	[EXT] A page to process/approve new restaurants
 
-Desktop (Processing/Java allowed)
+Desktop (Processing recommended. Java allowed)
 13.	[CORE] A restaurant menu page
 14.	[CORE] A page to edit/add the restaurant menu
 15.	[EXT] A page to register as a new user on the website
@@ -25,16 +25,33 @@ Any Language(C/Processing/Arduino/Javascript/Java)
 16.	[CORE]Build a JSON interpreter 
 
 ------------------------------------------------------------------------
-Section 2: Task Breakdown
+Section 2: Misc Info
+
+*The tasks are designed as best as possible to be INDEPENDENT. The idea is that even if you aren't the main lead 
+(M5 - Barrett, Website - Sam, Desktop - Haomin), your piece of code can easily be added to the final version with no hassle
+*For the above reason, taking a modular approach to your code is ESSENTIAL. Like in the noughts and crosses assignment, declare 
+clear 'access point' functions like 'getx()' or 'setx()'. Functions like these make it very clear and easy for another 
+programmer to access/edit elements in your code without having to spend a lot of time figuring out exactly how your code works, which is
+especially important to assembling a final product from multiple people.
+*Anything involving JSON will be paused until a JSON stringifier/decoder is built for all 3 systems. It is very important but work 
+on other things in the meantime.
+*For any project that has 'recommended' and 'allowed' languages: The final product will be built in the 'recommended' system. HOWEVER
+that system is mostly compatible with the 'allowed' languages' syntax/functions. So even if you complete one of the tasks in an 'allowed' language rather 
+than the 'recommended' one (maybe because you don't want to learn a new system), it's still fine because the final compiling user can 
+easily copy/convert your code later.
+
+------------------------------------------------------------------------
+Section 3: Task Breakdown
 
 ----M5----
 [M5][CORE]Main menu
- - Difficulty: Easy
- -	[Basic]Create a page that shows a list with two choices called ‘Preferences’ and ‘New Meal’. Implement the necessary functions to cause selecting an option to draw a new page (the navigation functions could be named navPref() and navMeal()). For example, selecting 'Preferences' should execute a function called navPref() that loads the dietary preferences page;
- -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation functions are, respectively, navRecent() and navHelp().
+ -	[Basic]Create a page that shows a list with two choices called ‘Preferences’ and ‘New Meal’. Implement the necessary functions to 
+ cause selecting an option to draw a new page (the navigation functions could be named navPref() and navMeal()). For example, 
+ selecting 'Preferences' should execute a function called navPref() that loads the dietary preferences page;
+ -	[Extend]Extend the list and interactions to include two more options: ‘Recent Activity’ and ‘Help’. The pages’ navigation 
+ functions are, respectively, navRecent() and navHelp().
 
 [M5][CORE]A page to save/set dietary preferences
- - Difficulty: Hard
  -	[Basic]Design a page that shows a list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’. 
  The page should display the preferences on screen as a basic table, and implement the necessary functions to edit them.
   *‘Kcal per meal’ is an integer value. 
@@ -43,7 +60,6 @@ Section 2: Task Breakdown
  This file should also now be loaded by default when a user accesses the page, if available.
 
 [M5][CORE]A page to select menu items
- - Difficulty: Hard
  -	[Basic] Design a page that navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
  Each food{} object contains the following elements: 
   *Name(string); 
@@ -60,9 +76,17 @@ Section 2: Task Breakdown
  new array called order{}. When saved, the order{} should be sent to the saveOrder() function, which writes the external file. 
 
 [M5][EXT]A page for loading
+- Implement a loading page that ensures that a JSON query (success/fail) is resolved before proceeding to the next page. An idea as to how this page 
+might work is as follows: whenever the device requests a JSON packet, the loading page is set up to 'catch' any incoming traffic. The
+loading page checks for a return packet with the correct id corresponding to the request (e.g. if the getMenu() function was called, the 
+loading page should be checking for a JSON packet that says it's a restaurant menu) before proceeding to the next page. In the event that 
+no reply is received in a set amount of time (1 minute), it should throw a 'request failed' message and reload the last page.
+This is a safety step to prevent undefined behaviour in the event that networking issues arise between the devices, e.g. if there's a 
+malfunction on another device, or the wifi connection fails.
+- This page could be extended to have a loading graphic to indicate clearly to the user that there's something in progress.
+
 [M5][EXT]A page to navigate a list of restaurants
 [M5][EXT]Build a page to navigate recent orders
-[M5][EXT]A page to display meal deals
 [M5][EXT]Help section
 
 ----WEBSITE----
@@ -73,7 +97,6 @@ Section 2: Task Breakdown
 
 ----DESKTOP----
 [DESKTOP][CORE] A restaurant menu page
- - Difficulty: Hard
  -	[Basic]Design a page to navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
  This list/array should be displayed as a table on the page. Each food{} object contains the following elements: 
   *Name(string); 
@@ -93,6 +116,7 @@ Section 2: Task Breakdown
 ----ANY----
 [ANY][CORE]Build a JSON stringifier
 [ANY][CORE]Build a JSON interpreter 
+
 
 
 
