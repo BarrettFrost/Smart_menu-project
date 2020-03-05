@@ -7,7 +7,6 @@ M5 Stack (Arduino recommended. Java/C allowed)
 4.	[EXT]A page for loading
 5.	[EXT]A page to navigate a list of restaurants
 6.	[EXT]Build a page to navigate recent orders
-7.	[EXT]A page to display meal deals
 8.	[EXT] Help section(TBD)
 
 Website (Javascript/CSS/HTML required)
@@ -18,7 +17,6 @@ Website (Javascript/CSS/HTML required)
 
 Desktop (Processing recommended. Java allowed)
 13.	[CORE] A restaurant menu page
-14.	[CORE] A page to edit/add the restaurant menu
 15.	[EXT] A page to register as a new user on the website
 
 Any Language(C/Processing/Arduino/Javascript/Java)
