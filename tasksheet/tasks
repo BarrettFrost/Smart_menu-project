@@ -35,22 +35,29 @@ Section 2: Task Breakdown
 
 [M5][CORE]A page to save/set dietary preferences
  - Difficulty: Hard
- -	[Basic]Design a page that shows a list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’. The page should display the preferences on screen as a basic table, and implement the necessary functions to edit them.
+ -	[Basic]Design a page that shows a list of the following editable options: ‘Kcal per meal’, ‘Vegetarian’, ‘Gluten-free’, ‘Nuts’. 
+ The page should display the preferences on screen as a basic table, and implement the necessary functions to edit them.
   *‘Kcal per meal’ is an integer value. 
   *‘Vegetarian’, ‘Gluten-free’, ‘Nuts’ are Booleans (true/false)
- -	[Extend]Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. This file should also now be loaded by default when a user accesses the page, if available.
+ -	[Extend]Add the ability to save the user’s preferences. When clicked, it saves the user’s preferences to an external file. 
+ This file should also now be loaded by default when a user accesses the page, if available.
 
 [M5][CORE]A page to select menu items
  - Difficulty: Hard
- -	[Basic] Design a page that navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. Each food{} object contains the following elements: 
+ -	[Basic] Design a page that navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
+ Each food{} object contains the following elements: 
   *Name(string); 
   *Calories (int); 
   *Vegetarian(bool); 
   *Gluten-free(bool); 
   *Nuts(bool). 
- - [Basic] Implement the feature of loading a restaurant's menu. This functionality should, at minimum, consist of a getMenu() function that calls requests for a menu JSON file from the web, that is used to populate the menu{} object on the device. **IMPORTANT** This functionality should not crash if a valid menu file is not received. It should instead default to an empty table
+ - [Basic] Implement the feature of loading a restaurant's menu. This functionality should, at minimum, consist of a getMenu() function 
+ that calls requests for a menu JSON file from the web, that is used to populate the menu{} object on the device. **IMPORTANT** This 
+ functionality should not crash if a valid menu file is not received. It should instead default to an empty table.
  -	[Extend]Implement loading dietary preferences. During initialization, the page should load the file containing the user's preferences. These preferences will be used to determine what food{} items are not suitable for the user to consume. You have freedom to decide how to most clearly/effectively highlight incompatible menu items. An easy example might be highlighting invalid items in red. **IMPORTANT**: the feature must not cause a crash in the event that no valid pref file is found. Instead, the loader should be configured with default values (eg. Max Cal could be set to '9999' by default). Alternatively, the device could throw a warning to alert the user that preferences have not been set
- - [Extend]Implement the saveOrder() function. saveOrder() should write the user's order to an external savefile, to be used by other functionalities in the program. An example implementation of this functionality is to have each food{} item selected be copied to a new array called order{}. When saved, the order{} should be sent to the saveOrder() function, which writes the external file. 
+ - [Extend]Implement the saveOrder() function. saveOrder() should write the user's order to an external savefile, to be used by other 
+ functionalities in the program. An example implementation of this functionality is to have each food{} item selected be copied to a 
+ new array called order{}. When saved, the order{} should be sent to the saveOrder() function, which writes the external file. 
 
 [M5][EXT]A page for loading
 [M5][EXT]A page to navigate a list of restaurants
@@ -67,21 +74,20 @@ Section 2: Task Breakdown
 ----DESKTOP----
 [DESKTOP][CORE] A restaurant menu page
  - Difficulty: Hard
- -	[Basic]Design a page to navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. This list/array should be displayed as a table on the page. Each food{} object contains the following elements: 
+ -	[Basic]Design a page to navigate a restaurant menu object called menu{}. Menu{} is infact a list/array of objects called food{}. 
+ This list/array should be displayed as a table on the page. Each food{} object contains the following elements: 
   *Name(string); 
   *Calories (int); 
   *Vegetarian(bool); 
   *Gluten-free(bool); 
   *Nuts(bool).  
- - [Basic]Implement the necessary functions to edit the menu. There should be at least two basic functions: adding new food{} and editing existing food{}. 
- - [Extend]Implement a 'Submit' feature that sends the latest menu as a JSON packet. 
- - [Extend]Implement a saveMenu() function where the menu is saved to an external file. The page should now also load a saved menu{} file when initializing (if available), rather than starting with a blank menu table every time. **IMPORTANT**: the feature must not cause a crash in the event that no valid menu file is found. Instead, the loader should be default to showing a blank table.
+ - [Basic]Implement the necessary functions to edit the menu. There should be at least two basic functions: adding new food{} and 
+ editing existing food{}. 
+ - [Extend]Implement a function that sends menu{}, 'restaurantId'(String), and 'restaurantName' (String) as a JSON packet.
+ - [Extend]Implement a saveMenu() function where the menu is saved to an external file. The page should now also load a saved menu{} 
+ file when initializing (if available), rather than starting with a blank menu table every time. **IMPORTANT**: the feature must not 
+ cause a crash in the event that no valid menu file is found. Instead, the loader should be default to showing a blank table.
 
- 
-[DESKTOP][CORE] A page to edit/add the restaurant menu
- - Difficulty: Easy
- - [Basic]Create a page to edit the menu{} object on the website. 
- 
 [DESKTOP][EXT] A page to register as a new user on the website
 
 ----ANY----
