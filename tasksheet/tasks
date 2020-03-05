@@ -27,10 +27,10 @@ Section 2: Misc Info
 
 *The tasks are designed as best as possible to be INDEPENDENT. The idea is that even if you aren't the main lead 
 (M5 - Barrett, Website - Sam, Desktop - Haomin), your piece of code can easily be added to the final version with no hassle
-*For the above reason, taking a modular approach to your code is ESSENTIAL. Like in the noughts and crosses assignment, declare 
-clear 'access point' functions like 'getx()' or 'setx()'. Functions like these make it very clear and easy for another 
-programmer to access/edit elements in your code without having to spend a lot of time figuring out exactly how your code works, which is
-especially important to assembling a final product from multiple people.
+*For the above reason, taking a modular approach to your code is ESSENTIAL. Like in the noughts and crosses assignment, build accessible 
+code with clear 'access point' functions like 'getx()' or 'setx()'. Functions like these make it very clear and easy for another 
+programmer to access/change elements in your code without having to spend a lot of time figuring out exactly how your code works, 
+which is especially important to assembling a final product from multiple people.
 *Anything involving JSON will be paused until a JSON stringifier/decoder is built for all 3 systems. It is very important but work 
 on other things in the meantime.
 *For any project that has 'recommended' and 'allowed' languages: The final product will be built in the 'recommended' system. HOWEVER
