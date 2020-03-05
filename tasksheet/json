@@ -1,5 +1,5 @@
 type packet struct{
-  QueryID: int // 0:Request restaurants; 1:Return restaurants; 2:
+  QueryID: int // 0:Request restaurants(M5); 1:Return restaurants(WEB); 2:Submit Restaurant(DESKTOP); 3: Return Restaurant ID(WEB)
   Restaurants[]: *restaurant 
   Restaurant: *restaurant // Depreciated once restaurant list implemented
 }
