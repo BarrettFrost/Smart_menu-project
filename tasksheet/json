@@ -1,7 +1,12 @@
 type packet struct{
-  QueryID: int // 0:Request restaurants(M5); 1:Return restaurants(WEB); 2:Submit Restaurant(DESKTOP); 3: Return Restaurant ID(WEB)
-  Restaurants[]: *restaurant 
-  Restaurant: *restaurant // Depreciated once restaurant list implemented
+  // 10 - Request RestaurantList(M5);
+  // 11 - Return #10;
+  // 20 - Request RestaurantUnique(M5);
+  // 21 - Return #20;
+  // 30 - Register Restaurant, i.e. send RestaurantUnique(DESKTOP);
+  // 31 - Return #30, i.e. return RestaurantID;
+  RestaurantList[]: *restaurant //List of stored restaurants for m5 search function. ONLY id and names.Used in QueryID #10
+  RestaurantUnique: *restaurant //Full file for a single restaurant (ID,name,Menu,MenuSize). Used by QueryID #20 & #30
 }
 
 type restaurant struct{
