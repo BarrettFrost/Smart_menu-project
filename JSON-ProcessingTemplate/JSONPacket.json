@@ -1,0 +1,28 @@
+{
+  "resList": [{
+    "resName": "KFC",
+    "menuSize": 1,
+    "menu": [{
+      "foodName": "Fried Chicken",
+      "containsGluten": true,
+      "containsNuts": true,
+      "calories": 600,
+      "vegan": false
+    }],
+    "resID": "AA32"
+  }],
+  "restaurantSingle": {
+    "resName": "KFC",
+    "menuSize": 1,
+    "menu": [{
+      "foodName": "Fried Chicken",
+      "containsGluten": true,
+      "containsNuts": true,
+      "calories": 600,
+      "vegan": false
+    }],
+    "resID": "AA32"
+  },
+  "listSize": 1,
+  "queryID": 10
+}
