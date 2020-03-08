@@ -35,7 +35,7 @@ int menu_size;
 Preferences save;
 
 uint8_t guestMacAddress[6] = {0xF0, 0x79, 0x60, 0x7E, 0xC9, 0x52};
-const char* ssid = "Glide";                 // Set name of Wifi Network
+const char* ssid = "UoB Guest";                 // Set name of Wifi Network
 const char* password = "";                      // No password for UoB Guest
 // MQTT Settings
 const char* MQTT_clientname = "Smart_menu"; // Make up a short name
