@@ -8,15 +8,17 @@ class List
     int cursor_height;
     int cursor_width;
     int row_number;
-    bool selection;
+    int selection;
+    int id;
     
     public:
-    void intial (int row, String pname){
+    void intial (int row, String pname, int identity, int tf){
       name = pname;
       row_number = row;
        cursor_height = (50*row);
        cursor_width  = 50;
-       selection = false; 
+       selection = tf; 
+       id = identity;
       }
       void display_item(){
         M5.Lcd.setCursor(cursor_width, cursor_height);
@@ -24,19 +26,19 @@ class List
         M5.Lcd.setTextSize(2);
         M5.Lcd.print(name);
         M5.Lcd.drawRoundRect(15, cursor_height, 10, 10, 5, BLUE);
-        if(selection){
+        if(selection == 1){
           M5.Lcd.fillRoundRect(15, cursor_height, 10, 10, 5, BLUE);
         }
       }
-      bool is_selected(){
+      int is_selected(){
         return selection;
       }
       void select(){
-        if(selection){
-          selection = false;
+        if(selection == 1){
+          selection = 0;
         }
         else{
-          selection = true;
+          selection = 1;
         }
       }
       String get_name(){
@@ -44,6 +46,9 @@ class List
       }
       int get_row(){
         return row_number;
+      }
+      int get_id(){
+        return id;
       }
      
 }; 
