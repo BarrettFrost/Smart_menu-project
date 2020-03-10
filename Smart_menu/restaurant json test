@@ -1,0 +1,7 @@
+{
+  "resList": [{
+    "resName": "KFC",
+    "resID": 12
+  },{"resName": "Macdonald", "resID": 14}], "listSize": 2,
+  "queryID": 11
+}
