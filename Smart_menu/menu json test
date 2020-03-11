@@ -1,6 +1,12 @@
-{"restaurantSingle": {"resName": "KFC","menuSize": 1,"menu": [{"foodName": "Fried Chicken","containsGluten": true,"containsNuts": true,
+{"restaurantSingle": {"resName": "KFC","menuSize": 3,"menu": [{"foodName": "Fried Chicken","containsGluten": true,"containsNuts": true,
      "calories": 600,
       "vegan": false
+    }, {"foodName": "Salad","containsGluten": false,"containsNuts": false,
+     "calories": 200,
+      "vegan": true
+    },{"foodName": "Pasta dish","containsGluten": true,"containsNuts": false,
+     "calories": 400,
+      "vegan": true
     }],
     "resID": "AA32"
   },
