@@ -50,6 +50,8 @@ class List
       int get_id(){
         return id;
       }
-     
+      void select_false(){
+        selection = 0;
+      }
 }; 
 #endif

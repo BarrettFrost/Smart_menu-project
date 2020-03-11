@@ -23,19 +23,22 @@ int veg;
 int gluten;
 int allergy;
 List diet[3];
-List restaur[5];
-String JSON;
+List *restaur;
+Menu *food;
+char *JSON;
 int total_cal;
 int cursor_row;
-String restaurant;
+const char* restaurant;
 int rest_id;
 int rest_size;
+String rest_name;
 int menu_size;
+int queryID;
 
 Preferences save;
 
 uint8_t guestMacAddress[6] = {0xF0, 0x79, 0x60, 0x7E, 0xC9, 0x52};
-const char* ssid = "UoB Guest";                 // Set name of Wifi Network
+const char* ssid = "Glide";                 // Set name of Wifi Network
 const char* password = "";                      // No password for UoB Guest
 // MQTT Settings
 const char* MQTT_clientname = "Smart_menu"; // Make up a short name
@@ -46,7 +49,11 @@ const char* MQTT_pub_topic = "Smart_menu"; // You might want to create your own
 const char* server = "broker.mqttdashboard.com";
 const int port = 1883;
 
-StaticJsonDocument<50> doc;
+const int capacity = JSON_ARRAY_SIZE(10)
++ 3*JSON_OBJECT_SIZE(3);
+
+StaticJsonDocument<200> doc;
+DynamicJsonDocument recieve(capacity);
 
 void setup() {
   M5.begin();
@@ -62,22 +69,24 @@ void setup() {
   veg = save.getUInt("veg");
   gluten = save.getUInt("gluten");
   allergy = save.getUInt("allergy");
-  
+
   diet[0].intial(1, "vegan(V)", 0, veg);
   diet[1].intial(2, "gluten free(GF)", 0, gluten);
   diet[2].intial(3, "contains nuts(N)", 0, allergy);
+  JSON = (char*)malloc(10000*sizeof(char));
+  restaur = (List*)malloc(4*sizeof(List));
   width = 320;
   cursor_row = 1;
-    setupWifi();
-    setupMQTT();
+  setupWifi();
+  setupMQTT();
 }
 
 void loop() {
 
-   if (!ps_client.connected()) {
+  if (!ps_client.connected()) {
     reconnect();
-    }
-    ps_client.loop();
+  }
+  ps_client.loop();
 
   switch (state) {
     case 0 :
@@ -119,24 +128,37 @@ void newmeal() {
     M5.Lcd.setCursor(235, 180);
     M5.Lcd.printf("Orders");
     draw_buttons();
+    JSONRecieve_rest();
     if (M5.BtnA.wasReleased()) {
       state = state_set;
     }
     if (M5.BtnB.wasReleased()) {
-      state = state_rest;
-      //wifi stuff
-       JSON_rest();
+      //state = state_rest;
+      JSONPublish_rest();
     }
     delay (5);
   }
 }
-void JSON_rest(){
-  
-  doc["queryId"] = 10;
-//  doc.printTo(Serial);
+void JSONPublish_rest() {
+
+  doc["queryID"] = 10;
+  //  doc.printTo(Serial);
   String output;
   serializeJson(doc, output);
   publishMessage(output);
+}
+void JSONRecieve_rest() {
+  if(queryID == 11){
+    rest_size = recieve["listSize"];
+    for(int i = 0; i < rest_size; i++){
+      JsonObject rest = recieve["resList"][i];
+      restaurant = rest["resName"];
+      rest_id = rest["resID"];
+      String name = String(restaurant);
+      restaur[i].intial(i+1, name, rest_id, 0);
+    }
+    state = state_rest;
+  }
 }
 void set_cal() {
   M5.Lcd.clear(WHITE);
@@ -217,20 +239,18 @@ void rest() {
   for (int i = 0; i < 40; i++) {
     M5.update();
     display_rest();
-    line_cursor(3);
+    line_cursor(rest_size);
     if (M5.BtnA.wasReleased()) {
-        for(int j = 0; j < 5; j++){
-           if(restaur[i].is_selected()){
-            restaur[i].select();
-           }
-        }
-        restaur[cursor_row -1].select();
+      for (int j = 0; j < rest_size; j++) {
+          restaur[j].select_false();
+      }
+      restaur[cursor_row - 1].select();
     }
     if (M5.BtnB.wasReleased()) {
-      state = state_menu;
-      //wifi stuff
+      save_rest();
+      JSON_menu();
     }
-    delay(20);
+    delay(10);
   }
 }
 void display_rest() {
@@ -238,7 +258,7 @@ void display_rest() {
   M5.Lcd.setTextSize(2);
   M5.Lcd.printf("Restaurants");
   M5.Lcd.drawFastHLine(0, 40, width , BLACK);
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < rest_size; i++) {
     restaur[i].display_item();
   }
   draw_buttons();
@@ -250,7 +270,28 @@ void display_rest() {
   M5.Lcd.setCursor(235, 220);
   M5.Lcd.printf("Move");
 }
-
+void save_rest(){
+  for(int i = 0; i < rest_size; i++){
+    if(restaur[i].is_selected() == 1){
+      rest_id = restaur[i].get_id();
+      rest_name = restaur[i].get_name();
+      Serial.println(rest_name);
+    }
+  }
+}
+void JSON_menu(){
+  doc.clear();
+  doc["queryID"] = 20;
+  char name[40];
+  JsonArray arr = doc.createNestedArray("restaurantSingle");
+  JsonObject obj1 = arr.createNestedObject();
+  rest_name.toCharArray(name, 40);
+  obj1["resName"] = name;
+  obj1["resID"] = rest_id;
+  String output;
+  serializeJson(doc, output);
+  publishMessage(output);
+}
 void line_cursor(int size) {
   M5.Lcd.drawFastVLine(8, (cursor_row * 50), 15 , BLACK);
   if (M5.BtnC.wasReleased()) {
@@ -322,7 +363,7 @@ void publishMessage(String message) { // edit this function
 
       // Convert to char array
       char msg[ message.length() ];
-      message.toCharArray( msg, message.length()+1 );
+      message.toCharArray( msg, message.length() + 1 );
 
 
       // Send
@@ -340,15 +381,20 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print(topic);
   Serial.print("] ");
 
-  String in_str = "";
-
   // Copy chars to a String for convenience.
   // Also prints to USB serial for debugging
   for (int i = 0; i < length; i++) {
-    in_str += (char)payload[i];
+    JSON[i] = (char)payload[i];
     Serial.print((char)payload[i]);
   }
   Serial.println();
+  DeserializationError err = deserializeJson(recieve, JSON);
+  if (err) {
+    Serial.print(F("deserializeJson() failed with code "));
+    Serial.println(err.c_str());
+  }
+  queryID = recieve["queryID"];
+  Serial.println(queryID);
 }
 void setupMQTT() {
   ps_client.setServer(server, port);
@@ -368,8 +414,10 @@ void setupWifi() {
   Serial.println("IP address allocated: " + String(WiFi.localIP()));
 }
 void reconnect() {
-
+   M5.Lcd.clear(WHITE);
   // Loop until we're reconnected
+  M5.Lcd.clear(WHITE);
+  M5.Lcd.print("Connecting");
   while (!ps_client.connected()) {
 
     Serial.print("Attempting MQTT connection...");
