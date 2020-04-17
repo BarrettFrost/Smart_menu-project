@@ -27,6 +27,8 @@ String Order1;
 String Order2;
 String Order3;
 String Order4;
+String Order5;
+String Order6;
 
 List diet[3];
 List *restaur;
@@ -36,7 +38,8 @@ char *JSON;
 int total_cal;
 int cursor_row;
 const char* restaurant;
-int rest_id;
+const char* identity;
+String rest_id;
 int rest_size;
 String rest_name;
 int menu_size;
@@ -46,8 +49,8 @@ int queryID;
 Preferences save;
 
 uint8_t guestMacAddress[6] = {0xF0, 0x79, 0x60, 0x7E, 0xC9, 0x52};
-const char* ssid = "Glide";                 // Set name of Wifi Network
-const char* password = "";                      // No password for UoB Guest
+const char* ssid = "VM4922289";                 // Set name of Wifi Network
+const char* password = "dvk4pdfdVvcs";                      // No password for UoB Guest
 // MQTT Settings
 const char* MQTT_clientname = "Smart_menu"; // Make up a short name
 const char* MQTT_sub_topic = "Smart_menu"; // pub/sub topics
@@ -82,17 +85,19 @@ void setup() {
   Order2 =save.getString("Order2");
   Order3 =save.getString("Order3");
   Order4 =save.getString("Order4");
-
-  diet[0].intial(1, "vegan(V)", 0, veg);
-  diet[1].intial(2, "gluten free(GF)", 0, gluten);
-  diet[2].intial(3, "nut allergy(N)", 0, allergy);
+  Order5 =save.getString("Order5");
+  Order6 =save.getString("Order6");
+    
+  diet[0].intial(1, "vegan(V)", "", veg);
+  diet[1].intial(2, "gluten free(GF)", "", gluten);
+  diet[2].intial(3, "nut allergy(N)", "", allergy);
   JSON = (char*)malloc(10000 * sizeof(char));
   restaur = (List*)malloc(4 * sizeof(List));
   food = (Menu*)malloc(10 * sizeof(Menu));
   order = (Menu*)malloc(10 * sizeof(Menu));
   width = 320;
   cursor_row = 1;
-  setupWifi();
+  setupWifiWithPassword();
   setupMQTT();
 }
 
@@ -162,9 +167,8 @@ void newmeal() {
   }
 }
 void JSONPublish_rest() {
-
+  doc.clear();
   doc["queryID"] = 10;
-  //  doc.printTo(Serial);
   String output;
   serializeJson(doc, output);
   publishMessage(output);
@@ -175,8 +179,9 @@ void JSONRecieve_rest() {
     for (int i = 0; i < rest_size; i++) {
       JsonObject rest = recieve["resList"][i];
       restaurant = rest["resName"];
-      rest_id = rest["resID"];
+      identity = rest["resID"];
       String name = String(restaurant);
+      rest_id = String(identity);
       restaur[i].intial(i + 1, name, rest_id, 0);
     }
     state = state_rest;
@@ -254,8 +259,10 @@ void rest() {
       restaur[cursor_row - 1].select();
     }
     if (M5.BtnB.wasReleased()) {
+      if(isResSelected()){
       save_rest();
       JSONPublish_menu();
+      }
     }
     delay(10);
   }
@@ -270,6 +277,14 @@ void display_rest() {
   }
   M5.Lcd.setTextSize(1);
   draw_buttons("Select", "Confirm", "Move");
+}
+bool isResSelected(){
+  for (int i = 0; i < rest_size; i++) {
+    if(restaur[i].is_selected() == 1){
+      return true;
+    }
+  }
+  return false;
 }
 void save_rest() {
   for (int i = 0; i < rest_size; i++) {
@@ -426,6 +441,8 @@ void save_order(){
   save.putString("Order2", " ");
   save.putString("Order3", " ");
   save.putString("Order4", " ");
+  save.putString("Order5", " ");
+  save.putString("Order6", " ");
   save.putString("rest_name", rest_name);
   if(order_size > 0){
   save.putString("Order1", order[0].get_name());
@@ -439,11 +456,19 @@ void save_order(){
   if(order_size > 3){
   save.putString("Order4", order[3].get_name());
   }
+  if(order_size > 4){
+  save.putString("Order5", order[4].get_name());
+  }
+  if(order_size > 5){
+  save.putString("Order6", order[5].get_name());
+  }
   rest_name = save.getString("rest_name");
   Order1 = save.getString("Order1");
   Order2 =save.getString("Order2");
   Order3 =save.getString("Order3");
   Order4 =save.getString("Order4");
+  Order5 =save.getString("Order5");
+  Order6 =save.getString("Order6");
   Serial.println(rest_name);
 }
 void saved_order(){
@@ -454,7 +479,7 @@ void saved_order(){
     if (M5.BtnA.wasReleased()) {
        state = state_new;
     }
-    if (M5.BtnC.wasReleased()) {
+    if (M5.BtnB.wasReleased()) {
        clear_order();
        state = state_new;
     }
@@ -489,10 +514,14 @@ void clear_order(){
   save.remove("Order2");
   save.remove("Order3");
   save.remove("Order4");
+  save.remove("Order5");
+  save.remove("Order6");
   Order1 = " ";
   Order2 = " ";
   Order3 = " ";
   Order4 = " ";
+  Order5 = " ";
+  Order6 = " ";
   rest_name = " ";
 }
 void draw_buttons(String a, String b, String c) {
@@ -562,6 +591,22 @@ void setupWifi() {
   while (WiFi.status() != WL_CONNECTED) delay(500);
   Serial.println("IP address allocated: " + String(WiFi.localIP()));
 }
+
+void setupWifiWithPassword( ) {
+
+    byte mac[6];
+    Serial.println("Original MAC address: " + String(WiFi.macAddress()));
+    esp_base_mac_addr_set(guestMacAddress);
+    Serial.println("Borrowed MAC address: " + String(WiFi.macAddress()));
+
+    Serial.println("Connecting to network: " + String(ssid));
+    WiFi.begin(ssid, password);
+
+    while (WiFi.status() != WL_CONNECTED) delay(500);
+    Serial.println("IP address allocated: " + String(WiFi.localIP()));
+
+}
+
 void reconnect() {
   M5.Lcd.clear(WHITE);
   // Loop until we're reconnected
