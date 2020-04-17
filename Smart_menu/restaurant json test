@@ -1,1 +1,1 @@
-{"resList": [{"resName": "KFC", "resID": 12},{"resName": "Macdonald","resID":14},{"resName": "Burger King","resID":13}],"listSize": 3,"queryID":11}
+{"resList": [{"resName": "KFC", "resID": "12"},{"resName": "Macdonald","resID":"14"},{"resName": "Burger King","resID":"13"}],"listSize": 3,"queryID":11}
