@@ -5,9 +5,11 @@ ControlP5 cp5;
 MQTTClient client;
 View view;
 Menu menu;
+ViewType currentView;
 
 void setup() {
     cp5 = new ControlP5(this);
+     
     size(900, 700);
     
     menu = loadMenu();
@@ -28,4 +30,9 @@ void setup() {
 void draw() {
     background(0);
 
+    if(currentView != null){
+      view.toView(currentView);
+      view.update();
+      currentView = null;
+    }
 }

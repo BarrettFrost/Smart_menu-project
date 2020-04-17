@@ -24,13 +24,20 @@ void messageReceived(String topic, byte[] payload) {
       if(action.equals("register")){
         //register
         
-        Restaurant res = new Restaurant(data.getString("name"), "restaurant" + random(1, 100));
+        Restaurant res = new Restaurant(data.getString("name"), "restaurant" + (int)random(1, 100));
         saveJSONObject(res.toJson(), pathRestaurant);
         
-        Menu m = new Menu(data.getJSONArray("menu"));
-        saveJSONArray(m.toJson(), pathMenu);
+        menu = new Menu(data.getJSONArray("menu"));
+        saveJSONArray(menu.toJson(), pathMenu);
         
         view.toView(ViewType.OrderList);
+        view.update();
+      }else if(action.equals("delete")){
+        //delete order
+        int index = data.getInt("index");
+        menu.remove(index);
+        saveJSONArray(menu.toJson(), pathMenu);
+        
         view.update();
       }else if(action.equals("add")){
         //add order
