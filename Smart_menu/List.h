@@ -9,10 +9,10 @@ class List
     int cursor_width;
     int row_number;
     int selection;
-    int id;
+    String id;
     
     public:
-    void intial (int row, String pname, int identity, int tf){
+    void intial (int row, String pname, String identity, int tf){
       name = pname;
       row_number = row;
        cursor_height = (50*row);
@@ -47,7 +47,7 @@ class List
       int get_row(){
         return row_number;
       }
-      int get_id(){
+      String get_id(){
         return id;
       }
       void select_false(){
