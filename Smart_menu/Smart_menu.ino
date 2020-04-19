@@ -299,8 +299,7 @@ void JSONPublish_menu() {
   doc.clear();
   doc["queryID"] = 20;
   char name[40];
-  JsonArray arr = doc.createNestedArray("restaurantSingle");
-  JsonObject obj1 = arr.createNestedObject();
+  JsonObject obj1 = doc.createNestedObject("restaurantSingle");
   rest_name.toCharArray(name, 40);
   obj1["resName"] = name;
   obj1["resID"] = rest_id;
