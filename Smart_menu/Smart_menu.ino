@@ -23,6 +23,8 @@ int calorie;
 int veg;
 int gluten;
 int allergy;
+int conID;
+int reConID;
 String Order1;
 String Order2;
 String Order3;
@@ -74,7 +76,7 @@ void setup() {
   delay(10);
   Serial.println("*** RESET ***\n");
   state = state_new;
-
+  reConID = 1001;
   save.begin("data", false);
   calorie = save.getUInt("cal");
   veg = save.getUInt("veg");
@@ -157,6 +159,7 @@ void newmeal() {
     }
     if (M5.BtnB.wasReleased()) {
       //state = state_rest;
+      conID = random(1,1000);
       JSONPublish_rest();
     }
      if (M5.BtnC.wasReleased()) {
@@ -166,15 +169,17 @@ void newmeal() {
     delay (5);
   }
 }
+
 void JSONPublish_rest() {
   doc.clear();
   doc["queryID"] = 10;
+  doc["conID"] = conID;
   String output;
   serializeJson(doc, output);
   publishMessage(output);
 }
 void JSONRecieve_rest() {
-  if (queryID == 11) {
+  if (queryID == 11 && reConID == conID) {
     rest_size = recieve["listSize"];
     for (int i = 0; i < rest_size; i++) {
       JsonObject rest = recieve["resList"][i];
@@ -301,6 +306,7 @@ void save_rest() {
 void JSONPublish_menu() {
   doc.clear();
   doc["queryID"] = 20;
+  doc["conID"] = conID;
   char name[40];
   JsonObject obj1 = doc.createNestedObject("restaurantSingle");
   rest_name.toCharArray(name, 40);
@@ -311,7 +317,7 @@ void JSONPublish_menu() {
   publishMessage(output);
 }
 void JSONRecieveMenu() {
-  if (queryID == 21) {
+  if (queryID == 21 && reConID == conID) {
     int cal;
     bool containsGluten;
     bool containsNuts;
@@ -402,6 +408,7 @@ void myorder() {
     if (M5.BtnC.wasReleased()) {
        save_order();
        state = state_new;
+       conID = 0;
     }
   }
   delay(10);
@@ -574,7 +581,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.println(err.c_str());
   }
   queryID = recieve["queryID"];
+  reConID = recieve["conID"];
   Serial.println(queryID);
+  Serial.println(reConID);
+  Serial.println(conID);
 }
 void setupMQTT() {
   ps_client.setServer(server, port);
@@ -594,7 +604,7 @@ void setupWifi() {
   Serial.println("IP address allocated: " + String(WiFi.localIP()));
 }
 
-void setupWifiWithPassword( ) {
+void setupWifiWithPassword() {
 
     byte mac[6];
     Serial.println("Original MAC address: " + String(WiFi.macAddress()));
