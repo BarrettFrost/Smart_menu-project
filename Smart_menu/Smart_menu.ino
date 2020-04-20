@@ -229,6 +229,9 @@ void pref() {
       save.putUInt("veg", diet[0].is_selected());
       save.putUInt("gluten", diet[1].is_selected());
       save.putUInt("allergy", diet[2].is_selected());
+      veg = diet[0].is_selected();
+      gluten = diet[1].is_selected();
+      allergy = diet[2].is_selected();
     }
     line_cursor(3, 50, 0);
     delay(20);
@@ -478,11 +481,11 @@ void saved_order(){
     if (M5.BtnA.wasReleased()) {
        state = state_new;
     }
-    if (M5.BtnB.wasReleased()) {
+    if (M5.BtnC.wasReleased()) {
        clear_order();
        state = state_new;
     }
-    if (M5.BtnC.wasReleased()) {
+    if (M5.BtnB.wasReleased()) {
        //maybe pay
     }
   }
@@ -505,7 +508,7 @@ void display_saveOrder(){
   M5.Lcd.print(Order3);
   M5.Lcd.setCursor(40, 130);
   M5.Lcd.print(Order4);
-  draw_buttons("Return", "Clear", "");
+  draw_buttons("Return", "", "Clear");
 }
 void clear_order(){
   save.remove("rest_name");
@@ -610,6 +613,8 @@ void reconnect() {
   M5.Lcd.clear(WHITE);
   // Loop until we're reconnected
   M5.Lcd.clear(WHITE);
+  M5.Lcd.setCursor(50, 75);
+   M5.Lcd.setTextSize(3);
   M5.Lcd.print("Connecting");
   while (!ps_client.connected()) {
 
