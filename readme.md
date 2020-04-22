@@ -1,7 +1,5 @@
 Smart_Menu
 
-The smart menu is a lightweight Internet-of-Things(IoT)
-
 ////Preliminary Draft
 
 System Design [1000 words]:
