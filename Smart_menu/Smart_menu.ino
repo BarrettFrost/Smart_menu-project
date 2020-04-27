@@ -77,6 +77,7 @@ void setup() {
   Serial.println("*** RESET ***\n");
   state = state_new;
   reConID = 1001;
+  conID = 0;
   save.begin("data", false);
   calorie = save.getUInt("cal");
   veg = save.getUInt("veg");
