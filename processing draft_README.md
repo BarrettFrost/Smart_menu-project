@@ -3,14 +3,17 @@ ACCEPT ANY KINDS OF ADVICE^_^
 ------------------------------------------------------------------------------------------------
 
 *^_^*PROJECT OVERVIEW - PROCESSING
+
 This desktop app is for restaurant chef, which can implement a little bit functions: add new dishes, delete existed menu, send new items to web and register a new restaurant. It could use JSON Package to communicate with the web database, and send the information of dishes including food name, food calories, if it is vegetarian food(use boolean), if contains nuts, if contains gluten(use boolean) as well as restaurant name and ID.
 
 DATA COMMUNICATION:
+
 We use json package to exchange data and information. In the web of MQTT, we use different query id to communicate kinds of information, for example:
 [when M5 stack communicate with Web]
 As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
 
 OBJECT ORIENTED DIESGN:
+
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 So there are at least three main object:
     class Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
@@ -23,15 +26,18 @@ We use these items to make the sytem of a restaurant_menu:
 - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
 
 PROCESSING ARCHITECTURE AROUND OBJECTS
+
 1.api.pde
 - doRegister();
 - doDelete();
 - doAdd();
 - doUpdate();
+
 2.database.pde
 - hasLocalRestaurant();
 - loadRestaurant();
 - loadMenu();
+
 3.events_gui.pde
 - registration();
 - cancel();
@@ -42,6 +48,7 @@ PROCESSING ARCHITECTURE AROUND OBJECTS
 - edit_item();
 
 EVOLUTION OF UI 
+
 - EDITION 1.0: have 2 pages for desktop app 
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
@@ -54,6 +61,7 @@ EVOLUTION OF UI
     - A registration page
     
 DATA PERSISTANCE
+
 We have the need of persist data about menu and single restaurant in the daily life.
 We use json file (menu.json, restaurant.json) as API instead of real database. 
 In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
