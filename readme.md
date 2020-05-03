@@ -8,8 +8,11 @@ An Overview
 
 A simple summary of the Smart_Menu pipeline across the three platforms (desktop, web, m5 Stack) is as follows:
 
+
   a. Desktop: This is the restaurants' end. Restaurants register with the service and upload their menu to the web server.
+
   b. Web: This is the developer/service provider end. The web service registers restaurants(generates the unique restaurant ID) and stores the database to be accessed by users.
+
   c. m5 Stack: This is the users' end. Users set their dietary preferences on the app, which then provides assistance when navigating the restaurants registered on the service as they plan their order (e.g. by highlighting dishes that exceed their intended calorie intake or dietary restrictions).
 
 1. System Design [1000 words]:
@@ -49,7 +52,7 @@ The project was a success, so far as achieving its intended goals. We successful
 
 Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial product but was excluded in our project scope. This would likely be a sim. Another significant additional function would be a feedback/report system. There is currently no built in form of communication between the intended user groups. While it was excluded on the grounds that it's not a core feature, this functionality is important in any commercial ready product to collect userbase feedback and communicate sentiment/service disruptions. Finally, significant additional UI/UX work could be made to make the product more visually appealing.
 
-The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles from the very start, steadily building up our product in layers and organizing 'functionality test' meetings regularly. 
+The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles from the very start, steadily building up our product in layers and organizing 'functionality test' meetings regularly.
 
 
 ////Unedited Assignment Brief
