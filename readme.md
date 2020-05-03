@@ -15,6 +15,9 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 1. System Design [1000 words]:
 
   a. Architecture of the entire system
+
+
+
   b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web Application etc.)
   c. Requirements of key sub-systems (in the form of selected user stories)
   d. The evolution of UI wireframes for key sub-systems
@@ -24,6 +27,15 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 
 2. System Implementation [1000 words]:
   a. Breakdown of project into sprints (showing the users stories implemented in each).
+
+The project first began with work on the users' (m5) end. Once we settled on the general direction of our project (a combined menu browser + diet tracker) we started to outline what 'front-end' features such an interface would include. We initially envisioned a system that worked locally in the restaurant, where participating restaurants would encode the food date onto a unique identifier on each dish (conceptually, a QR code, or colored plate e.g. a sushi bar), to be scanned by restaurant patrons when ordering. This is captured by the captured footage of the paper prototype:
+
+This idea was quickly scrapped and we moved to a fully online system. Among other reasons, we considered the burden of implementation for restaurants to be far too high. We also realized that the physical step was unnecessary. Put simply, they would achieve the intended result of recording their meal by saving it from the menu on the app, without the need for local verification.
+
+[Something about the stages of designing the basic layout of the m5]
+
+
+
   b. Details of how you evaluated your designs (techniques used & awareness of their limitations)
   c. Discussion of Social and Ethical implications of the work
 
