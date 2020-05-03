@@ -29,6 +29,7 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
   g. Details of web technologies in use (including a rational for your choice)
 
 (b. Object-Oriented design of key sub-systems)
+
 M5 Object oriented design
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements. 
@@ -36,15 +37,23 @@ The smart menu design featured the List and menu classes. Since the menu must be
 DESKTOP Object oriented design
 
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
+
 So there are at least three main object:
     class Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
+    
     class Food - which contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
+    
     class Menu - which contains an arraylist, Food[] foods.
+    
 These functions make the system of a restaurant_menu:
-  - adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
-  - editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
-  - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
-  - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
+
+  · adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
+  
+  · editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
+  
+  · deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
+  
+  · doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
   
   
  (f. Details of the data persistence mechanisms in use)
@@ -55,9 +64,13 @@ These functions make the system of a restaurant_menu:
  DESKTOP Data persistence 
  
  We have the need of persist data about menu and single restaurant in the daily life.
+ 
  We use json file (menu.json, restaurant.json) as API instead of real database. 
+ 
  In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
+ 
  When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
+ 
   ATTENTION: *Data Structure in json* is uploaded in processing/data folder, you can also see it in processing draft@^ ^@
 
 
