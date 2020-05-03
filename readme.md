@@ -30,9 +30,11 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 
 (b. Object-Oriented design of key sub-systems)
 M5 Object oriented design
+
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements. 
 
 DESKTOP Object oriented design
+
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 So there are at least three main object:
     class Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
@@ -47,9 +49,11 @@ These functions make the system of a restaurant_menu:
   
  (f. Details of the data persistence mechanisms in use)
  M5 Data persistence 
+ 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
  DESKTOP Data persistence 
+ 
  We have the need of persist data about menu and single restaurant in the daily life.
  We use json file (menu.json, restaurant.json) as API instead of real database. 
  In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
