@@ -7,6 +7,10 @@ function resTable_add(x){
   resTable.push(x);
 }
 
+function resTable_remove(x){
+  resTable.splice(x,1);
+}
+
 //creating table
 function createTable(){
   //Write headers of restaurant file
@@ -207,15 +211,15 @@ function updateRes(res){
         p.setQueryID(41);
         resTable[i].setResName(res.resName);
         for(var j=0;j<resTable[i].getMenuSize();j++){
-          resTable.remove(j);
+          resTable[i].removeFromMenu(j);
         }
-        for(var j=0;i<res.menu.length;i++){
+        for(var j=0;j<res.menu.length;j++){
           var f = new Food();
-          f.setFoodName(res.menu[i].foodName);
-          f.setCalories(res.menu[i].calories);
-          f.setVegan(res.menu[i].vegan);
-          f.setContainsNuts(res.menu[i].containsNuts);
-          f.setContainsGluten(res.menu[i].containsGluten);
+          f.setFoodName(res.menu[j].foodName);
+          f.setCalories(res.menu[j].calories);
+          f.setVegan(res.menu[j].vegan);
+          f.setContainsNuts(res.menu[j].containsNuts);
+          f.setContainsGluten(res.menu[j].containsGluten);
           resTable[i].addtoMenu(f);
         }
         found = true;
@@ -234,8 +238,8 @@ function main(){
 
 //test function
 function test(){
-  send(testObj3);
-  send(testObj4);
-  send(testObj1);
+  //send(testObj3);
+  //send(testObj4);
+  //send(testObj1);
   return;
 }
