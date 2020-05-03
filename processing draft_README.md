@@ -1,4 +1,4 @@
-This is a draft for desktop app; I uploaded that just in case maybe some information would be more proper in the other parts of the README.md
+This is a draft for desktop app; I uploaded that just in case maybe some information would be more proper in the other parts of our README.md file
 
 ACCEPT ANY KINDS OF ADVICE^_^
 -----------------------------
