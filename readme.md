@@ -31,11 +31,11 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 
 (b. Object-Oriented design of key sub-systems)
 
-#M5 Object oriented design#
+*M5 Object oriented design
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements. 
 
-#DESKTOP Object oriented design# 
+*DESKTOP Object oriented design
 
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 
@@ -67,11 +67,11 @@ As for the desktop app, the users usually send the data containing menu of food 
 
 (f. Details of the data persistence mechanisms in use)
 
-- M5 Data persistence 
+*M5 Data persistence
  
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
  
-- DESKTOP Data persistence 
+*DESKTOP Data persistence
  
  - We have the need of persist data about menu and single restaurant in the daily life.
  - We use json file (menu.json, restaurant.json) as API instead of real database. 
@@ -98,11 +98,11 @@ As for the desktop app, the users usually send the data containing menu of food 
   }
   
 
-Brief Overview of M5
+*Brief Overview of M5
 
 The M5 stack was designed to be a smart menu. There are three main task the menu had to accomplish. One was to record the dietary requirements of the user and set the maximum calories per meal. The other was get the restaurant list and menu items for that restaurant and flag any items that do not meet the dietary requirements and when the meal is over the calories limit. Lastly the menu must be able to save and display the last selected menu items. 
 
-Brief Overview of DESKTOP
+*Brief Overview of DESKTOP
 
 This desktop app is for restaurant chef, which can implement a little bit functions: add new dishes, delete existed menu, send new items to web and register a new restaurant. It could use JSON Package to communicate with the web database, and send the information of dishes including food name, food calories, if it is vegetarian food(use boolean), if contains nuts, if contains gluten(use boolean) as well as restaurant name and ID.
 
