@@ -72,14 +72,27 @@ These functions make the system of a restaurant_menu:
  
  When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
  
-  ATTENTION: *Data Structure in json* is uploaded in processing/data folder, you can also see it in processing draft@^ ^@
+  ATTENTION: *Data Structure in json* would be uploaded in processing/data folder!
   
+  - menu.json:
+  
+[
+  {
+    "foodName": "salad",
+    "containsGluten": false,
+    "containsNuts": false,
+    "calories": 500,
+    "vegan": true
+  }
+]
+
 - restaurant.json:
 
   {
     "name": "KFC",
     "id": "lawp"
   }
+  
 
 
 Communication protocols  
