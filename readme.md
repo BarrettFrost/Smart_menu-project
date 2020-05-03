@@ -49,11 +49,8 @@ So there are at least three main object:
 These functions make the system of a restaurant_menu:
 
   - adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
-  
   - editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
-  
   - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
-  
   - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
   
   
@@ -64,13 +61,10 @@ These functions make the system of a restaurant_menu:
 
  DESKTOP Data persistence 
  
- We have the need of persist data about menu and single restaurant in the daily life.
- 
- We use json file (menu.json, restaurant.json) as API instead of real database. 
- 
- In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
- 
- When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
+ - We have the need of persist data about menu and single restaurant in the daily life.
+ - We use json file (menu.json, restaurant.json) as API instead of real database. 
+ - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
+ - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
  
   ATTENTION: *Data Structure in json* would be uploaded in processing/data folder!
   
