@@ -39,6 +39,7 @@ DESKTOP Object oriented design
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 
 So there are at least three main object:
+
     class Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
     
     class Food - which contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
@@ -72,6 +73,13 @@ These functions make the system of a restaurant_menu:
  When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
  
   ATTENTION: *Data Structure in json* is uploaded in processing/data folder, you can also see it in processing draft@^ ^@
+  
+- restaurant.json:
+
+  {
+    "name": "KFC",
+    "id": "lawp"
+  }
 
 
 Communication protocols  
