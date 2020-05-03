@@ -1,0 +1,30 @@
+[
+  {
+    "foodName": "burger",
+    "containsGluten": true,
+    "containsNuts": false,
+    "calories": 30,
+    "vegan": false
+  },
+  {
+    "foodName": "chicken",
+    "containsGluten": true,
+    "containsNuts": false,
+    "calories": 400,
+    "vegan": false
+  },
+  {
+    "foodName": "fish",
+    "containsGluten": false,
+    "containsNuts": true,
+    "calories": 1000,
+    "vegan": false
+  },
+  {
+    "foodName": "salad",
+    "containsGluten": false,
+    "containsNuts": false,
+    "calories": 500,
+    "vegan": true
+  }
+]
