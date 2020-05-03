@@ -54,6 +54,19 @@ These functions make the system of a restaurant_menu:
   - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
   - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
   
+(d. The evolution of UI wireframes for key sub-systems)
+
+*DESKTOP UI wireframes*
+- EDITION 1.0: have 2 pages for desktop app 
+    - A restaurant menu page: show the items of menu, and for registration
+    - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
+- EDITION 2.0: have 2 pages, which including a restaurant menu page, a registration page 
+    - A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
+    - A registration page
+- EDITION 3.0: have 3 pages, which including a restaurant menu page, a registration page and a add/edit page
+    - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
+    - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
+    - A registration page
 
 
 Communication protocols  
