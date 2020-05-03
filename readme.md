@@ -45,6 +45,12 @@ This idea was quickly scrapped and we moved to a fully online system. Among othe
   c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
   d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
 
+The project was a success, so far as achieving its intended goals. We successfully implemented all the primary intended features, most crucially in a manner that was conducive to future iteration and improvement.
+
+Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial product but was excluded in our project scope. This would likely be a sim. Another significant additional function would be a feedback/report system. There is currently no built in form of communication between the intended user groups. While it was excluded on the grounds that it's not a core feature, this functionality is important in any commercial ready product to collect userbase feedback and communicate sentiment/service disruptions. Finally, significant additional UI/UX work could be made to make the product more visually appealing.
+
+The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles from the very start, steadily building up our product in layers and organizing 'functionality test' meetings regularly. 
+
 
 ////Unedited Assignment Brief
 
