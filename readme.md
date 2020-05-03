@@ -48,13 +48,13 @@ So there are at least three main object:
     
 These functions make the system of a restaurant_menu:
 
-  · adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
+  - adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
   
-  · editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
+  - editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
   
-  · deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
+  - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
   
-  · doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
+  - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
   
   
  (f. Details of the data persistence mechanisms in use)
