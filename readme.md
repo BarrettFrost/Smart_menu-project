@@ -53,8 +53,18 @@ These functions make the system of a restaurant_menu:
   - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
   - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
   
-  
- (f. Details of the data persistence mechanisms in use)
+
+
+Communication protocols  
+
+(e. Details of the communication protocols in use)
+
+The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices.  The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only  M5 stack would interpret the JSON string. 
+
+As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
+
+
+(f. Details of the data persistence mechanisms in use)
  M5 Data persistence 
  
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
@@ -69,7 +79,6 @@ These functions make the system of a restaurant_menu:
   ATTENTION: *Data Structure in json* would be uploaded in processing/data folder!
   
   - menu.json:
-  
 [
   {
     "foodName": "salad",
@@ -81,21 +90,19 @@ These functions make the system of a restaurant_menu:
 ]
 
 - restaurant.json:
-
   {
     "name": "KFC",
     "id": "lawp"
   }
   
 
-
-Communication protocols  
-
-The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices.  The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only  M5 stack would interpret the JSON string. 
-
 Brief Overview of M5
 
 The M5 stack was designed to be a smart menu. There are three main task the menu had to accomplish. One was to record the dietary requirements of the user and set the maximum calories per meal. The other was get the restaurant list and menu items for that restaurant and flag any items that do not meet the dietary requirements and when the meal is over the calories limit. Lastly the menu must be able to save and display the last selected menu items. 
+
+Brief Overview of DESKTOP
+
+This desktop app is for restaurant chef, which can implement a little bit functions: add new dishes, delete existed menu, send new items to web and register a new restaurant. It could use JSON Package to communicate with the web database, and send the information of dishes including food name, food calories, if it is vegetarian food(use boolean), if contains nuts, if contains gluten(use boolean) as well as restaurant name and ID.
 
 
 2. System Implementation [1000 words]:
