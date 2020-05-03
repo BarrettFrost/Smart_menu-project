@@ -31,11 +31,11 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 
 (b. Object-Oriented design of key sub-systems)
 
-- M5 Object oriented design
+#M5 Object oriented design#
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements. 
 
-- DESKTOP Object oriented design
+#DESKTOP Object oriented design# 
 
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 
