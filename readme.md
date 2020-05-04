@@ -131,6 +131,27 @@ The project first began with work on the users' (m5) end. Once we settled on the
 
 This idea was quickly scrapped and we moved to a fully online system. Among other reasons, we considered the burden of implementation for restaurants to be far too high. We also realized that the physical step was unnecessary. Put simply, they would achieve the intended result of recording their meal by saving it from the menu on the app, without the need for local verification.
 
+SPRINTS:
+
+- ideation 1.30-2.3
+We firstly got the idea that this M5 can be used to calculate calories!
+- Prototype 2.4-2.10
+We decided to use QR-CODE to help people to realize the calories in each food, and then, we plan to use M5 to calculate the total calories.
+We also have videos at this stage!
+- play with processing 2.11-2.17
+- play with M5 2.18-2.24
+- consider with the whole system 2.15-3.4
+This time we consider the 3 different parts of our system; at last we dicide to use M5 for selecting menu and calculating calories, to use web to send menu to M5 stack, and to use desktop for single restaurant to add, edit and delete their menu.
+In addition, at about 3.2, we also have our gitHub firstly.
+- data communication 3.5-3.15
+Sam write json package for whole team at first
+- the inividual work 3.16-4.16
+Have a meeting on 4.16 to test MQTT
+- group testing 4.17-4.22
+lots of meetings to ensure the communication
+- write reports 5.1-5.8
+
+
 [Something about the stages of designing the basic layout of the m5]
 
 
