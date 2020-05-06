@@ -1,2 +1,2 @@
 maybe the videos cannot work for everyone, no worries
-we have pic
+we will upload pics later then
