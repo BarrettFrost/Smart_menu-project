@@ -32,6 +32,11 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 
 (b. Object-Oriented design of key sub-systems)
 
+User story
+
+The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. They would already have set their dietary requirements and set the max calories per meal. The customer would first request a list of restaurants from the company running the system.  They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order. 
+
+
 *M5 Object oriented design*
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements. 
@@ -70,6 +75,9 @@ These functions make the system of a restaurant_menu:
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
     - A registration page
 
+Evolution of UI M5
+
+Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space. 
 
 
 Communication protocols  
