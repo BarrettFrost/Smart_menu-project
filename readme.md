@@ -31,13 +31,18 @@ A simple summary of the Smart_Menu pipeline across the three platforms (desktop,
 2. System Implementation [1000 words]:
   a. Breakdown of project into sprints (showing the users stories implemented in each).
 
-The project first began with work on the users' (m5) end. Once we settled on the general direction of our project (a combined menu browser + diet tracker) we started to outline what 'front-end' features such an interface would include. We initially envisioned a system that worked locally in the restaurant, where participating restaurants would encode the food date onto a unique identifier on each dish (conceptually, a QR code, or colored plate e.g. a sushi bar), to be scanned by restaurant patrons when ordering. This is captured by the captured footage of the paper prototype:
+Work on the project started with the consumer sub-service on the m5 stack. We did so because the website and desktop applications operated in the background for the consumer user. Thus, we judged that it was sufficient to simulate their functionality at this early stage for concept testing. Once we settled on the idea of our project, we first attempted the define the minimum features the m5 program should possess in order to fulfill the intended use of the sub-service. We agreed on two points and worked from there: a preference page to set/save dietary needs, and a menu browser that cross-referenced the saved preferences.
 
-This idea was quickly scrapped and we moved to a fully online system. Among other reasons, we considered the burden of implementation for restaurants to be far too high. We also realized that the physical step was unnecessary. Put simply, they would achieve the intended result of recording their meal by saving it from the menu on the app, without the need for local verification.
+The following video was captured during our first feedback test (with a paper prototype):
 
-[Something about the stages of designing the basic layout of the m5]
+Input collected during the test was considered for the next stage of our design cycle: a basic form of the m5 application. We also further fleshed out the app, adding more pages e.g. as a restaurant browser, and planning how the buttons on the m5 would be used.
 
+[b]User Story[/b]: One major change was that an extraneous feature in the initial design was dropped:
+We initially envisioned participating restaurants to implement some form of unique identifier on their dish (a QR code or colored plate e.g. a sushi bar), to be scanned by restaurant patrons when ordering. Feedback we received from test users suggested that this system was unintuitive to handle, and simply unnecessary in lieu of a simple checkbox system built into the m5's menu browser function.
 
+[Evidence of the v1 version of the app]
+
+For the next major cycle, we moved to planning the mqtt packet, i.e. the JSON data structure we would use, and the pipeline of all three subsystems in preparation for the implementation of networking(at this point, the m5 stack was still relying on dummy functions). 
 
   b. Details of how you evaluated your designs (techniques used & awareness of their limitations)
   c. Discussion of Social and Ethical implications of the work
