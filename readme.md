@@ -2,44 +2,23 @@ Smart_Menu
 
 ////Preliminary Draft
 
-Smart_Menu is a lightweight and simple Internet-of-Things interface that connects a restaurant menu database directly to user preferences. Combining the functions of a menu database service from food apps (e.g Yelp) and diet trackers (e.g. [insert app here]), Smart users are able to preemptively preview what dishes served in the restaurants fit their dietary profile, making dietary tracking more convenient.
-
-An Overview
-
-A simple summary of the Smart_Menu pipeline across the three sub-systems (desktop, web, m5 Stack) is as follows:
-
-
-  a. Desktop: This is the restaurants' end. Restaurants register with, and upload their menu to, the web application.
-
-  b. Web: This is the developer/service provider end. The web service registers restaurants(generating and assigning them a unique restaurant ID) and stores restaurant data to be accessed by consumers.
-
-  c. m5 Stack: This is the consumer end. Users configure their dietary preferences, which then provides assistance when navigating the restaurants registered on the service as they plan their order (e.g. by highlighting dishes that exceed their intended calorie intake or dietary restrictions).
+Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly to what's on the menu (in the restaurant)! By simply combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), the Smart_Menu makes planning your next meal a safer and more convenient than ever before.
 
 1. System Design [1000 words]:
 
-  a. Architecture of the entire system
+(a. Architecture): *Insert flow diagram*
 
-
-
-  b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web Application etc.)
-  c. Requirements of key sub-systems (in the form of selected user stories)
-  d. The evolution of UI wireframes for key sub-systems
-  e. Details of the communication protocols in use (including a rational for your choice)
-  f. Details of the data persistence mechanisms in use (including a rational for your choice)
-  g. Details of web technologies in use (including a rational for your choice)
-
-
+User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
 (b. Object-Oriented design of key sub-systems)
 
-User story
+All of our sub-systems were built around principles of object-oriented design. The reasons for this were obvious to us: we would be working predominantly with abstract data types, and handling multiple instances of the same objects, namely 'restaurants' and 'food'. Standardizing on OOP would also allow us to homogenize across all the subsystems, keeping things simple to understand and easy to debug.
 
-The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
+Excepts from our m5 and Desktop application design, that were most driven my these principles, are as follows:
 
+*M5*
 
-*M5 Object oriented design*
-
-The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
+The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
 *DESKTOP Object oriented design*
 
@@ -47,11 +26,11 @@ This model is for a restaurent which could connect with web - sending its restau
 
 So there are at least three main object:
 
-    class Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
+*Class* Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
 
-    class Food - which contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
+*Class* Food - which contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
 
-    class Menu - which contains an arraylist, Food[] foods.
+class Menu - which contains an arraylist, Food[] foods.
 
 These functions make the system of a restaurant_menu:
 
@@ -59,6 +38,17 @@ These functions make the system of a restaurant_menu:
   - editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
   - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
   - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
+
+Requirements for key sub-systems
+
+An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) were decided as follows:
+
+  a. The Desktop Application represents the restaurants' end. It would need to be able to register with the service, and be able to upload/update their data, e.g. name and menu, on the database.
+
+  b. The Web Application represents the developer/service provider end. It would need to handle restaurant registration and the service's database.
+
+  c. The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. The second is to access and browse restaurant menus saved on the web application. The user's configured preferences should be read as well, e.g. by highlighting dishes that exceed their intended calorie intake, or contain unsafe ingredients.
+
 
 
 (d. The evolution of UI wireframes for key sub-systems)
@@ -86,7 +76,7 @@ Communication protocols
 
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices.  The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only  M5 stack would interpret the JSON string.
 
-As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
+As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this form?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????//////////at to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
 
 
 
