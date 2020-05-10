@@ -127,7 +127,7 @@ From these, we decided that the web app's primary feature would be hosting a dat
 
 We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
 
-Sprint 3: JSON packet, MQTT
+Sprint 3: JSON packet, MQTT (March)
 
 A continuation of sprint 2, this sprint's big goal was replacing all the dummy data with proper networking code. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
 
@@ -135,29 +135,15 @@ Sprint 4: functionality testing, Desktop application
 
 Two goals were achieved for our fourth sprint. First, we began debugging/polishing of the m5 and Web App. Bootstrap was added to our web app at this stage.
 
-Secondly, we began to work on the Desktop application, meant to represent the restaurant.
-1) [the restaurant user]
-2) [the restaurant user] wants to add and update menu items easily, to keep their menu up to date.
+Secondly, we began to work on the Desktop application, meant to represent the restaurant. However, we kept the following user story in mind:
 
-Built M5 application (Feb): Feb
-We moved to write our paper prototype on the M5.
+1) [the restaurant user] wants to easily edit their data, so using the service will not be a hassle.
 
-Discussion of data Structure, Planning Web & Desktop application:
-With a firm idea of the front end features, we began to discuss networking, and the web/desktop applications.
+Accordingly, we decided that besides registration, the restaurant app also needed additional pages to edit its basic info, as well as its menu(covered in above sections).
 
-Finalizing JSON packet, experimenting with mqtt:
-We finalized . The group also tested mqtt with a basic form of the web application (communicating with the m5).
+Sprint 5: Full project testing (Late March - April)
 
-Individual work on M5, Web Application, Desktop application
-With a finalized data structure, we
-
-Testing of full interface, v1
-
-Testing of full interface, v2
-
-Testing of full interface, final
-
-Final touches, evaluation
+This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we hadn't broken anything following polish work.
 
 
   b. Details of how you evaluated your designs (techniques used & awareness of their limitations)
