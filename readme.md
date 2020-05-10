@@ -103,13 +103,44 @@ conID serves to identify unique conversations between devices. This ensure that 
 2. System Implementation [1000 words]:
   a. Breakdown of project into sprints (showing the users stories implemented in each).
 
-Ideation: Late Jan - Early Feb
-The project first began with work on the M5. Once we settled on the general direction of our project (a combined menu browser + diet tracker) we started to outline what 'front-end' features such an interface would include. We initially envisioned a system that worked locally in the restaurant, where participating restaurants would encode the food date onto a unique identifier on each dish (conceptually, a QR code, or colored plate e.g. a sushi bar), to be scanned by restaurant patrons when ordering. This is captured by the captured footage of the paper prototype:
+Ideation (late Jan - early Feb)
+Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our broad goals.
 
-This idea was quickly scrapped and we moved to a fully online system. Among other reasons, we considered the burden of implementation for restaurants to be far too high. We also received feedback from test participants that the physical step was unintuitive, requiring extensive explanation to grasp.
+1.) [the m5 user] wants to be more calorie conscious when ordering meals to ensure I do not overeat.
+1.) [the m5 user] wants to easily tell what ingredients are in each dish, to avoid dietary allergies.
 
-V1 of the M5 application (Feb): Feb
-We moved to write our paper prototype as a program on the M5.
+Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that paired a camera on the user's smartphone, with restaurants tagging their dishes with unique identifiers to be scanned (conceptually, a QR code, or colored plate e.g. a sushi bar). This is shown our captured paper prototype:
+
+We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth (i.e not 'easy' to use). We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
+
+Sprint 1: the M5 (Feb)
+
+Next, we built M5 program. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
+
+Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
+
+With a working M5 program, we next moved to build the web application, and experiment with sending JSON packets through MQTT. Our user stories at this stage were:
+
+1) [the m5 user] wants to see what restaurants were on the service.
+
+From these, we decided that the web app's primary feature would be hosting a database of restaurants on the service, to be queried by the m5. This was achieved with dummy templates at first. Correspondingly, we also added an extra page on the m5 to browse a restaurant list, in preparation to receive and display data from the web app (v1 of the m5 program only showed a single dummy restaurant).
+
+We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
+
+Sprint 3: JSON packet, MQTT
+
+A continuation of sprint 2, this sprint's big goal was replacing all the dummy data with proper networking code. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
+
+Sprint 4: functionality testing, Desktop application
+
+Two goals were achieved for our fourth sprint. First, we began debugging/polishing of the m5 and Web App. Bootstrap was added to our web app at this stage.
+
+Secondly, we began to work on the Desktop application, meant to represent the restaurant.
+1) [the restaurant user]
+2) [the restaurant user] wants to add and update menu items easily, to keep their menu up to date.
+
+Built M5 application (Feb): Feb
+We moved to write our paper prototype on the M5.
 
 Discussion of data Structure, Planning Web & Desktop application:
 With a firm idea of the front end features, we began to discuss networking, and the web/desktop applications.
