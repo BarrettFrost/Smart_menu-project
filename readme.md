@@ -20,7 +20,7 @@ Excepts from our m5 and Desktop application design, that were most driven my the
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
-*DESKTOP Object oriented design*
+*DESKTOP*
 
 This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items.
 
@@ -104,26 +104,26 @@ conID serves to identify unique conversations between devices. This ensure that 
   a. Breakdown of project into sprints (showing the users stories implemented in each).
 
 Ideation (late Jan - early Feb)
-Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our broad goals.
+Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our goals.
 
 1.) [the m5 user] wants to be more calorie conscious when ordering meals to ensure I do not overeat.
 1.) [the m5 user] wants to easily tell what ingredients are in each dish, to avoid dietary allergies.
 
 Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that paired a camera on the user's smartphone, with restaurants tagging their dishes with unique identifiers to be scanned (conceptually, a QR code, or colored plate e.g. a sushi bar). This is shown our captured paper prototype:
 
-We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth (i.e not 'easy' to use). We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
+We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
 
 Sprint 1: the M5 (Feb)
 
-Next, we built M5 program. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
+Next, we built the M5 application. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
 
 Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
 
 With a working M5 program, we next moved to build the web application, and experiment with sending JSON packets through MQTT. Our user stories at this stage were:
 
-1) [the m5 user] wants to see what restaurants were on the service.
+1) [the m5 user] wants to easily browse restaurants to find what to eat.
 
-From these, we decided that the web app's primary feature would be hosting a database of restaurants on the service, to be queried by the m5. This was achieved with dummy templates at first. Correspondingly, we also added an extra page on the m5 to browse a restaurant list, in preparation to receive and display data from the web app (v1 of the m5 program only showed a single dummy restaurant).
+From these, we decided that the web app's primary feature would be hosting a database of restaurants on the service, to be queried by the m5. This was achieved with dummy templates at first. Correspondingly, we also added an extra page on the m5 to browse a restaurant list, in preparation to receive and display data from the web app (the early form of the m5 program only showed a single dummy restaurant).
 
 We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
 
@@ -133,21 +133,47 @@ A continuation of sprint 2, this sprint's big goal was replacing all the dummy d
 
 Sprint 4: functionality testing, Desktop application
 
-Two goals were achieved for our fourth sprint. First, we began debugging/polishing of the m5 and Web App. Bootstrap was added to our web app at this stage.
+Two goals were achieved for our fourth sprint. Firstly, we began debugging/cosmetic work on the m5 and Web App. Bootstrap was added to our web app at this stage.
 
 Secondly, we began to work on the Desktop application, meant to represent the restaurant. However, we kept the following user story in mind:
 
 1) [the restaurant user] wants to easily edit their data, so using the service will not be a hassle.
 
-Accordingly, we decided that besides registration, the restaurant app also needed additional pages to edit its basic info, as well as its menu(covered in above sections).
+Accordingly, we decided that besides registration, the restaurant app also needed user friendly pages to easily edit its basic info and menu(covered in above sections).
 
 Sprint 5: Full project testing (Late March - April)
 
-This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we hadn't broken anything following polish work.
+This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
+How we evaluated our designs
+We primarily relied on a pass/fail technique when evaluating our design. this meant that we would determine beforehand the intended design objectives at the start of each stage/sprint, and follow up with an evaluation of whether those objectives were met at the end of the sprint period (most often coinciding with our meeting schedule). Tasks would be broken down to as many constituent parts and steps as possible for clarity. For example, even a simple feature like 'to read an mqtt packet' would be broken down into:
 
-  b. Details of how you evaluated your designs (techniques used & awareness of their limitations)
-  c. Discussion of Social and Ethical implications of the work
+//Sprint goals
+- 1) Can the app save JSON packets to file? Y/N
+- 2) Can the app load JSON packets from file? Y/N
+- 3) Can the app receive an mqtt message? Y/N
+- 4) Can the app parse the mqtt message as a JSON file? Y/N
+
+...and so on.
+
+We favored this technique for many reasons. Firstly, it kept us focused on achieving our core requirements. Secondly, it made it easy for all members on the team to communicate and understand the stages of development for each subsystem despite the distribution of work. Finally, it ensured that we abided by the agile design principle of 'just good enough', and did not waste manpower on unneccesary feature bloat.
+
+Some notable limitations was a lack of attention paid to user comfort. Our binary pass/fail system was poorly suited to assess more nuanced features like user comfort and interface. Another limitation was the lack of emphasis on external input. By sticking rigidly to our sprint checklists, rather than more openly assessing quality, the opportunity to receive general feedback was also limited.
+
+Overall, considering that our goal was to design a prototype, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
+
+Social and Ethical Implications of the work
+
+We consider our project to have minimal social and ethical implications. To come to this conclusion, we assessed the following two broad questions:
+
+Q1 (Data Security) - Would our product involve the use of sensitive personal data, or constitute a potential security risk of unwanted data exposure for users involved, sensitive or otherwise?
+
+No. Our service uses the following data: consumer dietary preferences, and public restaurant info (name, menu etc). User dietary preferences are only stored locally on the device and are inaccessible to others on the service. We do not collect any user data for the purposes of analytics. While the use of a public mqtt broker is a major privacy issue, it was a requirement of the project.
+
+Q2 (Ethical impact) - Would our product be, intentionally or otherwise, prejudicing or discriminating, or cause harm towards, particular individuals or communities?
+
+No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
+
 
 3. Project Evaluation [800 words]:
   a. Reflective discussion of the success of the project
@@ -155,7 +181,7 @@ This (final) sprint roughly encapsulated our several weeks of final testing, deb
   c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
   d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
 
-The project was a success, so far as achieving its intended goals. We successfully implemented all the primary intended features, most crucially in a manner that was conducive to future iteration and improvement.
+The project was a success, so far as achieving its intended goals. We successfully implemented and tested all the core intended features, most crucially in a manner that was conducive to future iteration and improvement.
 
 Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial product but was excluded in our project scope. This would likely be a sim. Another significant additional function would be a feedback/report system. There is currently no built in form of communication between the intended user groups. While it was excluded on the grounds that it's not a core feature, this functionality is important in any commercial ready product to collect userbase feedback and communicate sentiment/service disruptions. Finally, significant additional UI/UX work could be made to make the product more visually appealing.
 
@@ -168,12 +194,6 @@ All the main functions of the M5 were successfully implemented and during the te
 Future work
 
 The most obvious feature to improve for the M5 would be increase the maximum menu items. Both saving menu as an array and implanting a scroll feature on listing pages would rectify this. The scroll feature could implement using the built-in gyroscopes on the M5. Another useful feature to implement would be to display the dietary requirements and max calories that have set in all pages so that user does not have to enter the preference branch to find out. Better error handling when the M5 has not received a JSON String. All pages have a use for each button except for my order page were only 2 buttons were used, it would have good to implement another feature. Obviously, this is a prototype in a commercial product with a touch screen interface it would be possible to have less of branch layout and some pages could be combined. Also, the menu could be incorporated into a better design like being incorporated into a table in a restaurant.  
-
-Ethics
-
-One aspect that is worth consideration in the M5 is saving personal information about the user’s health. Though this is not an issue for
-the M5 as the data is only stored locally and no personal information is sent over any network.
-
 
 ////Unedited Assignment Brief
 
