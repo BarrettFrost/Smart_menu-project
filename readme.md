@@ -2,7 +2,7 @@ Smart_Menu
 
 ////Preliminary Draft
 
-Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu (in the restaurant)! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
+Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 1. System Design [1000 words]:
 
@@ -176,16 +176,12 @@ No. Our product should be used equally by users from all communities. As most of
 
 
 3. Project Evaluation [800 words]:
-  a. Reflective discussion of the success of the project
-  b. Discussion of future work (in terms of design, development and evaluation)
-  c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
-  d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
 
-The project was a success, so far as achieving its intended goals. We successfully implemented and tested all the core intended features, most crucially in a manner that was conducive to future iteration and improvement.
+Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
-Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial product but was excluded in our project scope. This would likely be a sim. Another significant additional function would be a feedback/report system. There is currently no built in form of communication between the intended user groups. While it was excluded on the grounds that it's not a core feature, this functionality is important in any commercial ready product to collect userbase feedback and communicate sentiment/service disruptions. Finally, significant additional UI/UX work could be made to make the product more visually appealing.
+Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial build but was excluded in our project scope. Next, we would like the devices to able to report issues to one another. While not a core feature, this would be very useful for devices to be able to communicate when there're errors or disruptions, ranging from mild (like an restaurant menu being out of date) to severe (features breaking with a new update). Further, as mentioned in earlier sections, a built in help/tutorial tool, also not critical, would improve usability. Finally, additional UI/UX work could be done to make the product more visually appealing.
 
-The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles from the very start, steadily building up our product in layers and organizing 'functionality test' meetings regularly.
+The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles, including working and testing in stages and focusing on a minimalism. Communication through the quarantine period was managed with regular online meetings. Overall, we believe that there was the quarantine caused minimal disruption to the group's ability to work. However, it impacted our ability to conduct user testing. Specifically, while we were able to test subsystems independently, we were unable to bring all the separate subsystems together in a public venue for a full test.
 
 Evaluation M5
 
@@ -203,7 +199,7 @@ The most obvious feature to improve for the M5 would be increase the maximum men
     Application etc.)
   c. Requirements of key sub-systems (in the form of selected user stories)
   d. The evolution of UI wireframes for key sub-systems
-  e. Details of the communication protocols in use (including a rational for your choice)
+  e. Details of the communication protocols in use (including a rational fo'['r your choice)
   f. Details of the data persistence mechanisms in use (including a rational for your choice)
   g. Details of web technologies in use (including a rational for your choice)
 
