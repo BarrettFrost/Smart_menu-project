@@ -2,7 +2,7 @@ Smart_Menu
 
 ////Preliminary Draft
 
-Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
+Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 1. System Design [1000 words]:
 
@@ -99,6 +99,16 @@ conID serves to identify unique conversations between devices. This ensure that 
  - We use json file (menu.json, restaurant.json) as API instead of real database.
  - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
  - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
+
+ Web Technologies in use
+
+ The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for future projects.
+
+ The primary browser used throughout development was Google Chrome, due to its ubiquity and light weight. The built in DevTools were also very helpful for debugging, especially for Javascript as an interpreted language. However, we also tested our site to work with Firefox.
+
+ Our framework of choice was Bootstrap. With Bootstrap, it was extremely easy to quickly implement useful UI features. The three main features of Bootstrap that were used was styling, containers and improved tables. First, working with and modifying Bootstrap's styling made the process of setting and changing fonts and colors much quicker than if we were to build our own stylesheet from scratch. Next, Bootstrap's containers were particular helpful at building a responsive layout that could wrap our page's elements to any screen size (prior to implementing Bootstrap's layout features, we had a lot of problems with text clipping given that our web page is dominated by two large tables). Finally, Bootstrap's tables tags allowed us to easily make our tables visually appealing and responsive.
+
+ Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
 
 2. System Implementation [1000 words]:
   a. Breakdown of project into sprints (showing the users stories implemented in each).
