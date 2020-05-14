@@ -65,6 +65,14 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
 ### d. The evolution of UI wireframes for key sub-systems
 
+
+##### M5
+
+![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
+
+Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
+
+
 ##### DESKTOP
 - EDITION 1.0: have 2 pages for desktop app
     - A restaurant menu page: show the items of menu, and for registration
@@ -80,13 +88,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
     - A registration page
-    
 
-##### M5
-
-![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
-
-Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
 ##### Web Application
 
