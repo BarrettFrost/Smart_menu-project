@@ -66,6 +66,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 - v2: 2 pages
     - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
+    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/v2.png)
 
 
 - v3: 3 pages
