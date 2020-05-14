@@ -9,12 +9,12 @@ Smart_Menu is an Internet of Things (IoT) solution that matches your dietary nee
 1.System Design [1000 words]:
 ----
 
-a. Architecture: *Insert flow diagram*
+# a. Architecture: *Insert flow diagram*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
 
-`b. Object-Oriented design of key sub-systems`
+`# b. Object-Oriented design of key sub-systems`
 
 All of our sub-systems were built around principles of object-oriented design. The reasons for this were obvious to us: we would be working predominantly with abstract data types, and handling multiple instances of the same objects, ('restaurants' and 'food'). Standardizing on OOP would also allow us to homogenize across all the subsystems, keeping things simple to understand and easy to debug.
 
@@ -22,14 +22,14 @@ Excepts from our m5 and Desktop application design, that were most driven my the
 
 
 
-`M5`
+# M5
 
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
 
 
-`DESKTOP`
+## DESKTOP
 
 
 The processing part of this project was developed based on Object-Oriented design. This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
@@ -63,9 +63,9 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
   c. The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. Next is recording an order. the M5 accesses and browses restaurant menus saved on the web application. The user's configured preferences should be read as the order is made, e.g. by flagging dishes that exceed their intended calorie intake, or contain unsafe ingredients.
 
-(d. The evolution of UI wireframes for key sub-systems)
+# d. The evolution of UI wireframes for key sub-systems
 
-*DESKTOP*
+## DESKTOP
 - EDITION 1.0: have 2 pages for desktop app
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
@@ -82,13 +82,13 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
     - A registration page
     
 
-*M5*
+## M5
 
 ![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
 
 Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
-*Web Application*
+## Web Application
 
 - Started with a basic html table displaying registered restaurant data.
 - Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
@@ -96,7 +96,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 - Further visual improvements through Bootstrap.
 
 
-Communication protocols  
+# Communication protocols  
 
 (e. Details of the communication protocols in use)
 
@@ -117,18 +117,18 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 (f. Details of the data persistence mechanisms in use)
 
-*M5*
+## M5 Data persistence
 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
-*DESKTOP Data persistence*
+## DESKTOP Data persistence
 
  - We have the need of persist data about menu and single restaurant in the daily life.
  - We use json file (menu.json, restaurant.json) as API instead of real database.
  - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
  - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
 
- Web Technologies in use
+## Web Technologies in use
 
  The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for future projects.
 
