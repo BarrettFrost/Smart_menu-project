@@ -20,21 +20,25 @@ Excepts from our m5 and Desktop application design, that were most driven my the
 
 
 
-```*M5*
+```
+*M5*
 
+```
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
 
 
+```
 *DESKTOP*
 
+```
 
 The processing part of this project was developed based on Object-Oriented design. This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
 In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are more close to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features. Finally, In a group job, each member focus on their own classes which enables the project to be of high quality.
 
 
-```
+
 
 So there are at least three main object:
 
@@ -209,6 +213,7 @@ No. Our product should be used equally by users from all communities. As most of
 3. 
 Project Evaluation [800 words]:
 
+```
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
@@ -235,7 +240,7 @@ The most obvious feature to improve for the M5 would be increase the maximum men
 As for the desktop app, we can further improve the function of the program and optimize the architecture of the program. For example, design a more concise JSON data format for the communication between the client and the server. Also, we could improve the user interface to make the user experience more friendly. Before submit the data user input to system API, we could do more verification job. For example, the name of food should has a maximum length and only contains alphanumeric characters and the value of calories should stay in a reasonable range.
 
 
-```
+
 
 ////Unedited Assignment Brief
 
