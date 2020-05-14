@@ -1,7 +1,7 @@
 Smart_Menu
 ===
 
-////Preliminary Draft
+##### Preliminary Draft
 
 
 Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
@@ -9,12 +9,12 @@ Smart_Menu is an Internet of Things (IoT) solution that matches your dietary nee
 1.System Design [1000 words]:
 ----
 
-#### a. Architecture: *Insert flow diagram*
+### a. Architecture: *Insert flow diagram*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
 
-# b. Object-Oriented design of key sub-systems
+### b. Object-Oriented design of key sub-systems
 
 All of our sub-systems were built around principles of object-oriented design. The reasons for this were obvious to us: we would be working predominantly with abstract data types, and handling multiple instances of the same objects, ('restaurants' and 'food'). Standardizing on OOP would also allow us to homogenize across all the subsystems, keeping things simple to understand and easy to debug.
 
@@ -22,14 +22,14 @@ Excepts from our m5 and Desktop application design, that were most driven my the
 
 
 
-## M5
+##### M5
 
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
 
 
-## DESKTOP
+##### DESKTOP
 
 
 The processing part of this project was developed based on Object-Oriented design. This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
@@ -63,9 +63,9 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
   c. The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. Next is recording an order. the M5 accesses and browses restaurant menus saved on the web application. The user's configured preferences should be read as the order is made, e.g. by flagging dishes that exceed their intended calorie intake, or contain unsafe ingredients.
 
-# d. The evolution of UI wireframes for key sub-systems
+### d. The evolution of UI wireframes for key sub-systems
 
-## DESKTOP
+##### DESKTOP
 - EDITION 1.0: have 2 pages for desktop app
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
@@ -82,13 +82,13 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
     - A registration page
     
 
-## M5
+##### M5
 
 ![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
 
 Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
-## Web Application
+##### Web Application
 
 - Started with a basic html table displaying registered restaurant data.
 - Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
@@ -96,7 +96,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 - Further visual improvements through Bootstrap.
 
 
-# Communication protocols  
+### Communication protocols  
 
 (e. Details of the communication protocols in use)
 
@@ -115,20 +115,20 @@ Our communication protocol is simple, relying on two variables, queryID and conI
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
-(f. Details of the data persistence mechanisms in use)
+### f. Details of the data persistence mechanisms in use)
 
-## M5 Data persistence
+##### M5 Data persistence
 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
-## DESKTOP Data persistence
+##### DESKTOP Data persistence
 
  - We have the need of persist data about menu and single restaurant in the daily life.
  - We use json file (menu.json, restaurant.json) as API instead of real database.
  - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
  - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
 
-## Web Technologies in use
+##### Web Technologies in use
 
  The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for future projects.
 
@@ -140,7 +140,7 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 2.System Implementation [1000 words]:
 ----
-  a. Breakdown of project into sprints (showing the users stories implemented in each).
+ ### a. Breakdown of project into sprints (showing the users stories implemented in each).
 
 Ideation (late Jan - early Feb)
 Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our goals.
@@ -152,11 +152,11 @@ Based on these goals, we decided that combining a diet tracking function and a d
 
 We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
 
-Sprint 1: the M5 (Feb)
+###### Sprint 1: the M5 (Feb)
 
 Next, we built the M5 application. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
 
-Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
+###### Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
 
 With a working M5 program, we next moved to build the web application, and experiment with sending JSON packets through MQTT. Our user stories at this stage were:
 
@@ -166,11 +166,11 @@ From these, we decided that the web app's primary feature would be hosting a dat
 
 We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
 
-Sprint 3: JSON packet, MQTT (March)
+###### Sprint 3: JSON packet, MQTT (March)
 
 A continuation of sprint 2, this sprint's big goal was replacing all the dummy data with proper networking code. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
 
-Sprint 4: functionality testing, Desktop application
+###### Sprint 4: functionality testing, Desktop application
 
 Two goals were achieved for our fourth sprint. Firstly, we began debugging/cosmetic work on the m5 and Web App. Bootstrap was added to our web app at this stage.
 
@@ -180,7 +180,7 @@ Secondly, we began to work on the Desktop application, meant to represent the re
 
 Accordingly, we decided that besides registration, the restaurant app also needed user friendly pages to easily edit its basic info and menu(covered in above sections).
 
-Sprint 5: Full project testing (Late March - April)
+###### Sprint 5: Full project testing (Late March - April)
 
 This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
@@ -229,18 +229,18 @@ The group worked well to accomplish its goal despite numerous challenges. Our de
 
 
 
-Evaluation M5
+##### Evaluation M5
 
 All the main functions of the M5 were successfully implemented and during the testing of the system the M5 performed as intended. Since the M5 was the system that had to initialise the networking. When buttons were pressed, they had to produce and send a JSON String to the server. Once the response is received then the M5 would move onto the next page. This response was very rapid during testing worked without flaw. Though an issue may arise if the M5 does not receive a response back from the MQTT as the M5 does not notify the user when this has occurred. Whereas during the initial setup of the M5 there is message displaying connecting which will notify the user when M5 cannot connect to the WI-FI. One of the M5 issues was it is not suited to be a menu due to the size of the screen. We had to use the smallest text size to fit as much menu items in the screen as possible. But this may cause difficulty in reading for some users and there had to be a limit on the number of menu items. Another UI issue was the cursor had to be made from a line which once again might be difficult to see.  Though overall the UI for the M5 is intuitive for the user due to the consistent layout (write about the layout in UI wireframe). The saving to permanent memory was successful for dietary requirement and max calories, for the menu it would have been better to save the menu as an array instead of multiple strings. For the structure of the code a switch was used to access each page, each of these had functions to display the UI. Some pages had reused functions such as draw_buttons() and line_cursor(). Of course each page had separate functions for specific tasks such JSON_publish_menu(), save_order() and set_cal().  So overall the code structure makes the system very maintainable for future updates.
 
-Evaluation DESKTOP
+##### Evaluation DESKTOP
 
 The Processing client is mainly divided into three parts: View, Model and Events.
 Each module is responsible for relatively independent functions. 
 	The View module is responsible for creating the GUI user interface. The View class can create the interface of registration, main interface, add and modify according to different parameters. The Model part is responsible for data saving and loading. The Food class represents a Menu item, while the Menu class represents the entire Menu and contains multiple food. Events module responsible for handling the events of the interface. For example, When a button (such as register button) is clicked, the corresponding Json packet is sent to server and the Json data from the server is processed. Based on this design, the whole client has a reasonable architecture and is easy to maintain and expand. The weak point of this program is that the data format between client and server is not concise enough, and there exists some redundant data items.
 
 
-Future work
+### Future work
 
 The most obvious feature to improve for the M5 would be increase the maximum menu items. Both saving menu as an array and implanting a scroll feature on listing pages would rectify this. The scroll feature could implement using the built-in gyroscopes on the M5. Another useful feature to implement would be to display the dietary requirements and max calories that have set in all pages so that user does not have to enter the preference branch to find out. Better error handling when the M5 has not received a JSON String. All pages have a use for each button except for my order page were only 2 buttons were used, it would have good to implement another feature. Obviously, this is a prototype in a commercial product with a touch screen interface it would be possible to have less of branch layout and some pages could be combined. Also, the menu could be incorporated into a better design like being incorporated into a table in a restaurant.  
 
@@ -249,7 +249,7 @@ As for the desktop app, we can further improve the function of the program and o
 
 
 
-////Unedited Assignment Brief
+##### Unedited Assignment Brief
 
 1. System Design [40pts]:
   a. Architecture of the entire system
