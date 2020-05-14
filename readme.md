@@ -6,7 +6,7 @@
 
 ### Architecture
 
-*[Insert UML Diagram here]*
+*[UML Diagram]*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
@@ -28,9 +28,9 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 The application uses three main objects:
 
-- *Restaurant*: contains (String) restaurant_name, (String) restaurant_id;
-- *Food*: contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
-- *Menu*: which contains an arraylist, Food[] foods.
+- Restaurant: contains (String) restaurant_name, (String) restaurant_id;
+- Food: contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
+- Menu: which contains an arraylist, Food[] foods.
 
 As an example of how these objects are handled, the following are functions in the *menu* object:
 
@@ -56,23 +56,23 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
 
-#### *Desktop Application*
+#### Desktop Application
 
-    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%202.png)
 - v1: 2 pages
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
+    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%202.png)
 
-    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
 - v2: 2 pages
-    - A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
+    - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
-
+    
 
 - v3: 3 pages
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
     - A registration page
+    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
 
 #### *Web Application*
 
@@ -129,11 +129,11 @@ Based on these goals, we decided that combining a diet tracking function and a d
 
 We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
 
-#### *Sprint 1: M5 (Feb)*
+#### Sprint 1: the M5 (Feb)
 
 Next, we built the M5 application. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
 
-#### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
+#### Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
 
 With a working M5 program, we next moved to build the web application, and experiment with sending JSON packets through MQTT. Our user stories at this stage were:
 
@@ -143,11 +143,11 @@ From these, we decided that the web app's primary feature would be hosting a dat
 
 We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
 
-#### *Sprint 3: JSON packet, MQTT (March)*
+#### Sprint 3: JSON packet, MQTT (March)
 
 A continuation of sprint 2, this sprint's big goal was replacing all the dummy data with proper networking code. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
 
-#### *Sprint 4: early functionality testing, Desktop application*
+#### Sprint 4: functionality testing, Desktop application
 
 Two goals were achieved for our fourth sprint. Firstly, we began debugging/cosmetic work on the m5 and Web App. Bootstrap was added to our web app at this stage.
 
@@ -157,7 +157,7 @@ Secondly, we began to work on the Desktop application, meant to represent the re
 
 Accordingly, we decided that besides registration, the restaurant app also needed user friendly pages to easily edit its basic info and menu(covered in above sections).
 
-#### *Sprint 5: Full project testing (Late March - April)*
+#### Sprint 5: Full project testing (Late March - April)
 
 This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
@@ -180,11 +180,11 @@ Some notable limitations was a lack of attention paid to user comfort. Our binar
 Overall, considering that our goal was to design a prototype, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
 
 ---
-#### *M5*
+#### Evaluation M5
 
 All the main functions of the M5 were successfully implemented and during the testing of the system the M5 performed as intended. Since the M5 was the system that had to initialise the networking. When buttons were pressed, they had to produce and send a JSON String to the server. Once the response is received then the M5 would move onto the next page. This response was very rapid during testing worked without flaw. Though an issue may arise if the M5 does not receive a response back from the MQTT as the M5 does not notify the user when this has occurred. Whereas during the initial setup of the M5 there is message displaying connecting which will notify the user when M5 cannot connect to the WI-FI. One of the M5 issues was it is not suited to be a menu due to the size of the screen. We had to use the smallest text size to fit as much menu items in the screen as possible. But this may cause difficulty in reading for some users and there had to be a limit on the number of menu items. Another UI issue was the cursor had to be made from a line which once again might be difficult to see.  Though overall the UI for the M5 is intuitive for the user due to the consistent layout (write about the layout in UI wireframe). The saving to permanent memory was successful for dietary requirement and max calories, for the menu it would have been better to save the menu as an array instead of multiple strings. For the structure of the code a switch was used to access each page, each of these had functions to display the UI. Some pages had reused functions such as draw_buttons() and line_cursor(). Of course each page had separate functions for specific tasks such JSON_publish_menu(), save_order() and set_cal().  So overall the code structure makes the system very maintainable for future updates.
 
-#### *Desktop*
+#### Evaluation Desktop
 
 The Processing client is mainly divided into three parts: View, Model and Events.
 
