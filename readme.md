@@ -98,9 +98,15 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 =======
 ### d. The evolution of UI wireframes for key sub-systems
 
+<<<<<<< HEAD
 
 ##### M5
 
+=======
+
+##### M5
+
+>>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 ![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
 
 Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
@@ -111,12 +117,20 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%202.png)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 - EDITION 2.0: have 2 pages, which including a restaurant menu page, a registration page
     - A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 - EDITION 3.0: have 3 pages, which including a restaurant menu page, a registration page and a add/edit page
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
@@ -146,8 +160,13 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 ```
 Drafts:
 
+<<<<<<< HEAD
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only M5 stack would interpret the JSON string.
 As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
+=======
+The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only M5 stack would interpret the JSON string. 
+As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40. 
+>>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 
 Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
 ```
@@ -302,7 +321,11 @@ All the main functions of the M5 were successfully implemented and during the te
 ##### Evaluation DESKTOP
 
 The Processing client is mainly divided into three parts: View, Model and Events.
+<<<<<<< HEAD
 Each module is responsible for relatively independent functions.
+=======
+Each module is responsible for relatively independent functions. 
+>>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 	The View module is responsible for creating the GUI user interface. The View class can create the interface of registration, main interface, add and modify according to different parameters. The Model part is responsible for data saving and loading. The Food class represents a Menu item, while the Menu class represents the entire Menu and contains multiple food. Events module responsible for handling the events of the interface. For example, When a button (such as register button) is clicked, the corresponding Json packet is sent to server and the Json data from the server is processed. Based on this design, the whole client has a reasonable architecture and is easy to maintain and expand. The weak point of this program is that the data format between client and server is not concise enough, and there exists some redundant data items.
 
 
