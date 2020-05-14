@@ -60,6 +60,8 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 - EDITION 2.0: have 2 pages, which including a restaurant menu page, a registration page
     - A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
+    
+    ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%202.png)
 - EDITION 3.0: have 3 pages, which including a restaurant menu page, a registration page and a add/edit page
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
