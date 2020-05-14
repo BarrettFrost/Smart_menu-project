@@ -3,11 +3,13 @@ Smart_Menu
 
 ////Preliminary Draft
 
+
 Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
-1. System Design [1000 words]:-----
+1.System Design [1000 words]:
+----
 
-#(a. Architecture): *Insert flow diagram*
+#a. Architecture: *Insert flow diagram*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
