@@ -20,11 +20,11 @@ All of our sub-systems were built around principles of object-oriented design. T
 
 Excepts from our m5 and Desktop application design, that were most driven my these principles, are as follows:
 
-#### *M5*
+#### M5
 
 The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
-#### *Desktop Application*
+#### Desktop Application
 
 The application uses three main objects:
 
@@ -86,7 +86,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
     - A registration page
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
 
-#### *Web Application*
+#### Web Application
 
 - v1: Started with a basic html table displaying registered restaurant data.
 - v2: Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
