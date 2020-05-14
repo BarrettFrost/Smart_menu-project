@@ -129,11 +129,11 @@ Based on these goals, we decided that combining a diet tracking function and a d
 
 We quickly scrapped this idea after receiving negative feedback during user testing. Our participants found this setup unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be far too high. After discussion, we decided that a menu browser, where restaurants simply uploaded their menus to a central database to be parsed in the app, was much simpler to build and use, while still achieving our objectives.
 
-#### Sprint 1: the M5 (Feb)
+#### *Sprint 1: the M5 (Feb)*
 
 Next, we built the M5 application. As this was simply a continuation of our objectives at the ideation step (we were simply building our paper prototype), our guiding user stories remained the same. Users found the new format much more user friendly. Regardless, we concluded that the app would benefit from a built in 'help' or 'tutorial' section (discussed in future work).
 
-#### Sprint 2: Web Application, MQTT testing(Late Feb - Early March)
+#### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
 
 With a working M5 program, we next moved to build the web application, and experiment with sending JSON packets through MQTT. Our user stories at this stage were:
 
@@ -143,11 +143,11 @@ From these, we decided that the web app's primary feature would be hosting a dat
 
 We also began experimenting with MQTT at this step. At the end of this sprint, both the m5 and web app were capable of sending dummy text to the mqtt broker.
 
-#### Sprint 3: JSON packet, MQTT (March)
+#### *Sprint 3: JSON packet, MQTT (March)*
 
 A continuation of sprint 2, this sprint's big goal was replacing all the dummy data with proper networking code. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
 
-#### Sprint 4: functionality testing, Desktop application
+#### *Sprint 4: functionality testing, Desktop application*
 
 Two goals were achieved for our fourth sprint. Firstly, we began debugging/cosmetic work on the m5 and Web App. Bootstrap was added to our web app at this stage.
 
@@ -157,7 +157,7 @@ Secondly, we began to work on the Desktop application, meant to represent the re
 
 Accordingly, we decided that besides registration, the restaurant app also needed user friendly pages to easily edit its basic info and menu(covered in above sections).
 
-#### Sprint 5: Full project testing (Late March - April)
+#### *Sprint 5: Full project testing (Late March - April)*
 
 This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
