@@ -19,6 +19,7 @@ All of our sub-systems were built around principles of object-oriented design. T
 Excepts from our m5 and Desktop application design, that were most driven my these principles, are as follows:
 
 
+
 ```*M5*
 
 
@@ -26,13 +27,14 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 
 
-```*DESKTOP*
+*DESKTOP*
 
 
 The processing part of this project was developed based on Object-Oriented design. This model is for a restaurent which could connect with web - sending its restaurant name, get its restaurant id and then send its menu items. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
 In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are more close to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features. Finally, In a group job, each member focus on their own classes which enables the project to be of high quality.
 
 
+```
 
 So there are at least three main object:
 
@@ -90,6 +92,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 - Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
 - Added menu browser.
 - Further visual improvements through Bootstrap.
+
 
 Communication protocols  
 
@@ -202,9 +205,10 @@ Q2 (Ethical impact) - Would our product be, intentionally or otherwise, prejudic
 No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
 
 
-3. 
-```Project Evaluation [800 words]:
 ```
+3. 
+Project Evaluation [800 words]:
+
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
@@ -231,6 +235,7 @@ The most obvious feature to improve for the M5 would be increase the maximum men
 As for the desktop app, we can further improve the function of the program and optimize the architecture of the program. For example, design a more concise JSON data format for the communication between the client and the server. Also, we could improve the user interface to make the user experience more friendly. Before submit the data user input to system API, we could do more verification job. For example, the name of food should has a maximum length and only contains alphanumeric characters and the value of calories should stay in a reasonable range.
 
 
+```
 
 ////Unedited Assignment Brief
 
