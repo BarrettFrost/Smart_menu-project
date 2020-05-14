@@ -119,7 +119,8 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 ### Project sprints
 
-Ideation (late Jan - early Feb)
+#### *Ideation (late Jan - early Feb)*
+
 Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our goals.
 
 - [the m5 user] wants to be more calorie conscious when ordering meals to ensure I do not overeat.
