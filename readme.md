@@ -76,6 +76,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
     - A restaurant menu page: show the items of menu, and for registration
     - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/v1.png)
+In this version 1.0, desktop firstly implement two functions - registration and showing the main menu. When a new user open this desktop application, he would firstly add his restaurant name into this app, and then click register. This process let the desktop app send a json string which has the new restaurant name in it, and then this app would receive a json package from the web in which contains its restaurant id. After receiveing this restaurantID, this desktop application would shift into the second page, which could show the information of this restaurant.
 
 - v2: 2 pages
     - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
