@@ -50,14 +50,15 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
 #####The evolution of UI wireframes for key sub-systems
 
-##### M5
+###### M5
 
 ![M5 UI](https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/UI.PNG)
 
 Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
 
-##### DESKTOP
+###### DESKTOP
+
 - v1: 2 pages
     a. A restaurant menu page: show the items of menu, and for registration
     b. A registration page: the users can input restaurant name and choose 'register' and 'cancel'
@@ -73,36 +74,23 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
     b. A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
     c. A registration page
 
+###### Web Application
 
-##### Web Application
-
-<<<<<<< HEAD
 - v1: Started with a basic html table displaying registered restaurant data.
 - v2: Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
 - v3: Added menu browser.
-- v4: Further visual improvements through Bootstrap.
-=======
-- Started with a basic html table displaying registered restaurant data.
-- Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
-- Added menu browser.
-- Further visual improvements through Bootstrap.
+- v4: Further visual improvements through
 
-
-### Communication protocols  
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
-
-###Communication protocols  
+#####Communication protocols  
 
 ```
 Drafts:
 
-<<<<<<< HEAD
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only M5 stack would interpret the JSON string.
 As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
 =======
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu Array of JSONObject. The menu JSONObject stores information about the individual foods in the menu. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code in the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier as when displaying the items in a list in a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple m5 stack were contacting the MQTT server they would only M5 stack would interpret the JSON string.
 As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.
->>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
 
 Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
 ```
@@ -113,32 +101,20 @@ Our communication protocol is simple, relying on two variables, queryID and conI
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
-<<<<<<< HEAD
-###Data Persistence
-=======
-### f. Details of the data persistence mechanisms in use)
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
+#####Data Persistence
 
-##### M5 Data persistence
+######M5
 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
-<<<<<<< HEAD
-*DESKTOP*
-=======
-##### DESKTOP Data persistence
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
+######DESKTOP
 
  - We have the need of persist data about menu and single restaurant in the daily life.
  - We use json file (menu.json, restaurant.json) as API instead of real database.
  - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
  - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
 
-<<<<<<< HEAD
- ###Web Technologies in use
-=======
 ##### Web Technologies in use
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
 
  The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for future projects.
 
@@ -148,15 +124,9 @@ conID serves to identify unique conversations between devices. This ensure that 
 
  Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
 
-<<<<<<< HEAD
-##System Implementation [1000 words]:
+####System Implementation:
 
-###Project sprints
-=======
-2.System Implementation [1000 words]:
-----
- ### a. Breakdown of project into sprints (showing the users stories implemented in each).
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
+#####Project sprints
 
 Ideation (late Jan - early Feb)
 Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our goals.
@@ -200,7 +170,7 @@ Accordingly, we decided that besides registration, the restaurant app also neede
 
 This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
-####Evaluation techniques
+#####Evaluation techniques
 
 We primarily relied on a pass/fail technique when evaluating our design. this meant that we would determine beforehand the intended design objectives at the start of each stage/sprint, and follow up with an evaluation of whether those objectives were met at the end of the sprint period (most often coinciding with our meeting schedule). Tasks would be broken down to as many constituent parts and steps as possible for clarity. For example, even a simple feature like 'to read an mqtt packet' would be broken down into:
 
@@ -218,7 +188,7 @@ Some notable limitations was a lack of attention paid to user comfort. Our binar
 
 Overall, considering that our goal was to design a prototype, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
 
-####Social and Ethical Implications
+#####Social and Ethical Implications
 
 We consider our project to have minimal social and ethical implications. To come to this conclusion, we assessed the following two broad questions:
 
@@ -230,25 +200,13 @@ Q2 (Ethical impact) - Would our product be, intentionally or otherwise, prejudic
 
 No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
 
-
-<<<<<<< HEAD
-##Project Evaluation:
-=======
-
-
-
-`3.Project Evaluation [800 words]:`
----
-
->>>>>>> 223f74ae77dd52676da8a737fe2b784979384fc4
+####Project Evaluation:
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
 Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial build but was excluded in our project scope. Next, we would like the devices to able to report issues to one another. While not a core feature, this would be very useful for devices to be able to communicate when there're errors or disruptions, ranging from mild (like an restaurant menu being out of date) to severe (features breaking with a new update). Further, as mentioned in earlier sections, a built in help/tutorial tool, also not critical, would improve usability. Finally, additional UI/UX work could be done to make the product more visually appealing.
 
 The group worked well to accomplish its goal despite numerous challenges. Our design sprints demonstrate that we practiced AGILE design principles, including working and testing in stages and focusing on a minimalism. Communication through the quarantine period was managed with regular online meetings. Overall, we believe that there was the quarantine caused minimal disruption to the group's ability to work. However, it impacted our ability to conduct user testing. Specifically, while we were able to test subsystems independently, we were unable to bring all the separate subsystems together in a public venue for a full test.
-
-
 
 ##### Evaluation M5
 
@@ -257,42 +215,15 @@ All the main functions of the M5 were successfully implemented and during the te
 ##### Evaluation DESKTOP
 
 The Processing client is mainly divided into three parts: View, Model and Events.
-<<<<<<< HEAD
+
 Each module is responsible for relatively independent functions.
 =======
 Each module is responsible for relatively independent functions.
->>>>>>> 7b601e68083070dd0770cbfb887ddbb1ab626920
+
 	The View module is responsible for creating the GUI user interface. The View class can create the interface of registration, main interface, add and modify according to different parameters. The Model part is responsible for data saving and loading. The Food class represents a Menu item, while the Menu class represents the entire Menu and contains multiple food. Events module responsible for handling the events of the interface. For example, When a button (such as register button) is clicked, the corresponding Json packet is sent to server and the Json data from the server is processed. Based on this design, the whole client has a reasonable architecture and is easy to maintain and expand. The weak point of this program is that the data format between client and server is not concise enough, and there exists some redundant data items.
 
-
-### Future work
+##### Future work
 
 The most obvious feature to improve for the M5 would be increase the maximum menu items. Both saving menu as an array and implanting a scroll feature on listing pages would rectify this. The scroll feature could implement using the built-in gyroscopes on the M5. Another useful feature to implement would be to display the dietary requirements and max calories that have set in all pages so that user does not have to enter the preference branch to find out. Better error handling when the M5 has not received a JSON String. All pages have a use for each button except for my order page were only 2 buttons were used, it would have good to implement another feature. Obviously, this is a prototype in a commercial product with a touch screen interface it would be possible to have less of branch layout and some pages could be combined. Also, the menu could be incorporated into a better design like being incorporated into a table in a restaurant.  
 
 As for the desktop app, we can further improve the function of the program and optimize the architecture of the program. For example, design a more concise JSON data format for the communication between the client and the server. Also, we could improve the user interface to make the user experience more friendly. Before submit the data user input to system API, we could do more verification job. For example, the name of food should has a maximum length and only contains alphanumeric characters and the value of calories should stay in a reasonable range.
-
-
-
-
-##### Unedited Assignment Brief
-
-1. System Design [40pts]:
-  a. Architecture of the entire system
-  b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web
-    Application etc.)
-  c. Requirements of key sub-systems (in the form of selected user stories)
-  d. The evolution of UI wireframes for key sub-systems
-  e. Details of the communication protocols in use (including a rational fo'['r your choice)
-  f. Details of the data persistence mechanisms in use (including a rational for your choice)
-  g. Details of web technologies in use (including a rational for your choice)
-
-2. System Implementation [40pts]:
-  a. Breakdown of project into sprints (showing the users stories implemented in each).
-  b. Details of how you evaluated your designs (techniques used & awareness of their limitations)
-  c. Discussion of Social and Ethical implications of the work
-
-3. Project Evaluation [20pts]:
-  a. Reflective discussion of the success of the project
-  b. Discussion of future work (in terms of design, development and evaluation)
-  c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
-  d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
