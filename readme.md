@@ -49,7 +49,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
 ### The evolution of UI wireframes for key sub-systems
 
-#### *M5*
+#### M5
 
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20preferences.PNG">
