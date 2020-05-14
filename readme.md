@@ -9,7 +9,7 @@ Smart_Menu is an Internet of Things (IoT) solution that matches your dietary nee
 1.System Design [1000 words]:
 ----
 
-#Architecture: *Insert flow diagram*
+a. Architecture: *Insert flow diagram*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
@@ -135,7 +135,8 @@ conID serves to identify unique conversations between devices. This ensure that 
 
  Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
 
-2. System Implementation [1000 words]:
+2.System Implementation [1000 words]:
+----
   a. Breakdown of project into sprints (showing the users stories implemented in each).
 
 Ideation (late Jan - early Feb)
@@ -210,11 +211,13 @@ Q2 (Ethical impact) - Would our product be, intentionally or otherwise, prejudic
 No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
 
 
-```
-3. 
-Project Evaluation [800 words]:
 
 ```
+3.Project Evaluation [800 words]:
+---
+
+```
+
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
