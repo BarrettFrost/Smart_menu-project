@@ -28,14 +28,14 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 The application uses three main objects:
 
-- *Restaurant*: contains (String) restaurant_name, (String) restaurant_id;
-- *Food*: contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
-- *Menu*: which contains an arraylist, Food[] foods.
+- *Restaurant* contains (String) restaurant_name, (String) restaurant_id;
+- *Food* contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
+- *Menu* which contains an arraylist, Food[] foods.
 
 As an example of how these objects are handled, the following are functions in the *menu* object:
 
-- adding new food [add_item(), doAdd() function]
-- editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
+- adding new food [add_item(), doAdd() function]: adds food objects to the menu arraylist;
+- editing existing food [edit_item(), doUpdata() function]: create a new food object like add_item, and then do some update, to send new items as json package;
 - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
 - registration [registration(), doRegister() function]: send menu item in the format of json Package.
 
@@ -85,10 +85,10 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 
 Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
 
-//10: M5 requesting restaurant list from web application. Reply: 11
-//20: M5 requesting menu from selected restaurant. Reply: 21
-//30: Desktop app (restaurant) registering with the web server. Reply: 31
-//40: Desktop app (restaurant) updating information with the web server. Reply: 41
+- 10: M5 requesting restaurant list from web application. Reply: 11
+- 20: M5 requesting menu from selected restaurant. Reply: 21
+- 30: Desktop app (restaurant) registering with the web server. Reply: 31
+- 40: Desktop app (restaurant) updating information with the web server. Reply: 41
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
