@@ -28,15 +28,9 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 The application uses three main objects:
 
-<<<<<<< HEAD
 - *Restaurant* contains (String) restaurant_name, (String) restaurant_id;
 - *Food* contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
 - *Menu* which contains an arraylist, Food[] foods.
-=======
-- Restaurant: contains (String) restaurant_name, (String) restaurant_id;
-- Food: contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
-- Menu: which contains an arraylist, Food[] foods.
->>>>>>> 13abd68dd03da77372ac849c7ccde46644e43b00
 
 As an example of how these objects are handled, the following are functions in the *menu* object:
 
@@ -72,7 +66,7 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 - v2: 2 pages
     - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
-    
+
 
 - v3: 3 pages
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
