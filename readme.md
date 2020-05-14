@@ -64,7 +64,6 @@ Peferences Branch
 </p>
 
 <p align="center">
-  display saved order branch
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20saveOrder.PNG">
 </p>
 
