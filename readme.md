@@ -1,16 +1,14 @@
-Smart_Menu
+#Smart_Menu
 
-////Preliminary Draft
+###Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
-Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. [insert app here]), Smart_Menu makes planning your next meal safer and more convenient than ever before.
+##System Design [1000 words]:
 
-1. System Design [1000 words]:
-
-(a. Architecture): *Insert flow diagram*
+###Architecture: *Insert flow diagram*
 
 User story: The system will be used initiated by a customer using the IOT device to order a meal from a restaurant. Before doing so, They would have first set their dietary preferences: restrictions and desired calories per meal. The customer would query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
-(b. Object-Oriented design of key sub-systems)
+###Object-Oriented design of key sub-systems
 
 All of our sub-systems were built around principles of object-oriented design. The reasons for this were obvious to us: we would be working predominantly with abstract data types, and handling multiple instances of the same objects, ('restaurants' and 'food'). Standardizing on OOP would also allow us to homogenize across all the subsystems, keeping things simple to understand and easy to debug.
 
@@ -26,20 +24,20 @@ This model is for a restaurent which could connect with web - sending its restau
 
 So there are at least three main object:
 
-*Class* Restaurant - which contains (String) restaurant_name, (String) restaurant_id;
+**Restaurant** - contains (String) restaurant_name, (String) restaurant_id;
 
-*Class* Food - which contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
+**Food** - contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
 
-class Menu - which contains an arraylist, Food[] foods.
+**Menu** - which contains an arraylist, Food[] foods.
 
 These functions make the system of a restaurant_menu:
 
-  - adding some new food [add_item(), doAdd() function]: pass name, calories,  vegetarian, gluten, nuts as parameters and create a new food object;
+  - adding new food [add_item(), doAdd() function]
   - editing existing food [edit_item(), doUpdata() function]: just create a new food object like add_item, and then do some update, to send new items as json package;
   - deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
   - doing registration [registration(), doRegister() function]: send menu item in the format of json Package.
 
-Requirements for key sub-systems
+###Requirements for key sub-systems
 
 An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) were decided as follows:
 
@@ -49,19 +47,19 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
   c. The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. Next is recording an order. the M5 accesses and browses restaurant menus saved on the web application. The user's configured preferences should be read as the order is made, e.g. by flagging dishes that exceed their intended calorie intake, or contain unsafe ingredients.
 
-(d. The evolution of UI wireframes for key sub-systems)
+###The evolution of UI wireframes for key sub-systems
 
 *DESKTOP*
-- EDITION 1.0: have 2 pages for desktop app
-    - A restaurant menu page: show the items of menu, and for registration
-    - A registration page: the users can input restaurant name and choose 'register' and 'cancel'
-- EDITION 2.0: have 2 pages, which including a restaurant menu page, a registration page
-    - A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
-    - A registration page
-- EDITION 3.0: have 3 pages, which including a restaurant menu page, a registration page and a add/edit page
-    - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
-    - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
-    - A registration page
+- v1: 2 pages
+    a. A restaurant menu page: show the items of menu, and for registration
+    b. A registration page: the users can input restaurant name and choose 'register' and 'cancel'
+- v2: 2 pages
+    a. A restaurant menu page: show the items of menu, and the user can select the specific items of this menu, which helps user to delete. Another function in this page is to register.
+    b. A registration page
+- v3: 3 pages
+    a. A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
+    b. A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
+    c. A registration page
 
 *M5*
 
@@ -69,14 +67,12 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 
 *Web Application*
 
-- Started with a basic html table displaying registered restaurant data.
-- Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
-- Added menu browser.
-- Further visual improvements through Bootstrap.
+- v1: Started with a basic html table displaying registered restaurant data.
+- v2: Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
+- v3: Added menu browser.
+- v4: Further visual improvements through Bootstrap.
 
-Communication protocols  
-
-(e. Details of the communication protocols in use)
+###Communication protocols  
 
 Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
 
@@ -87,20 +83,20 @@ Our communication protocol is simple, relying on two variables, queryID and conI
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
-(f. Details of the data persistence mechanisms in use)
+###Data Persistence
 
 *M5*
 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
-*DESKTOP Data persistence*
+*DESKTOP*
 
  - We have the need of persist data about menu and single restaurant in the daily life.
  - We use json file (menu.json, restaurant.json) as API instead of real database.
  - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
  - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
 
- Web Technologies in use
+ ###Web Technologies in use
 
  The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for future projects.
 
@@ -110,14 +106,15 @@ conID serves to identify unique conversations between devices. This ensure that 
 
  Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
 
-2. System Implementation [1000 words]:
-  a. Breakdown of project into sprints (showing the users stories implemented in each).
+##System Implementation [1000 words]:
+
+###Project sprints
 
 Ideation (late Jan - early Feb)
 Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories to define our goals.
 
-1.) [the m5 user] wants to be more calorie conscious when ordering meals to ensure I do not overeat.
-1.) [the m5 user] wants to easily tell what ingredients are in each dish, to avoid dietary allergies.
+- [the m5 user] wants to be more calorie conscious when ordering meals to ensure I do not overeat.
+- [the m5 user] wants to easily tell what ingredients are in each dish, to avoid dietary allergies.
 
 Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that paired a camera on the user's smartphone, with restaurants tagging their dishes with unique identifiers to be scanned (conceptually, a QR code, or colored plate e.g. a sushi bar). This is shown our captured paper prototype:
 
@@ -155,7 +152,8 @@ Sprint 5: Full project testing (Late March - April)
 
 This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
 
-How we evaluated our designs
+####Evaluation techniques
+
 We primarily relied on a pass/fail technique when evaluating our design. this meant that we would determine beforehand the intended design objectives at the start of each stage/sprint, and follow up with an evaluation of whether those objectives were met at the end of the sprint period (most often coinciding with our meeting schedule). Tasks would be broken down to as many constituent parts and steps as possible for clarity. For example, even a simple feature like 'to read an mqtt packet' would be broken down into:
 
 //Sprint goals
@@ -172,7 +170,7 @@ Some notable limitations was a lack of attention paid to user comfort. Our binar
 
 Overall, considering that our goal was to design a prototype, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
 
-Social and Ethical Implications of the work
+####Social and Ethical Implications
 
 We consider our project to have minimal social and ethical implications. To come to this conclusion, we assessed the following two broad questions:
 
@@ -185,7 +183,7 @@ Q2 (Ethical impact) - Would our product be, intentionally or otherwise, prejudic
 No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
 
 
-3. Project Evaluation [800 words]:
+##Project Evaluation:
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
