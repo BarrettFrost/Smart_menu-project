@@ -136,7 +136,11 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 #### overview
 
+We structured our design schedule to keep pace with the teaching material. We would meet at the start of the sprint to determine the intended design objectives. This took the form of in person meetings initially, transitioning to conference calls with the coronavirus outbreak.
 
+Upon determining a major feature we wanted, the tasks would be broken down to as many constituent parts and steps as possible, to be spread across several sprints. This was practising AGILE development: by staging our design process, our work plan was flexible, adaptable to if things were faster OR slower to build than expected (though overall, our project mostly keep to the predicted schedule). Also, our systems would compile and work at every step, rather than only coming together at the end. 
+
+Each sprint lasted 2-3 weeks, to account for planning, building and testing at each step. The exception was the final polishing, which was more fluid and involved more regular meetings as we made sure that final work had not inadvertedly broken any prior functionality.
 
 #### *Sprint 0, or Ideation (late Jan - early Feb)*
 Our project began at the ideation step. During initial brainstorming, once we'd decided that our project would be dietary related, We settled on two user stories that define our goals.
@@ -150,7 +154,7 @@ We scrapped this idea after receiving negative feedback during user testing. Thi
 
 #### *Sprint 1: M5 (Feb)*
 
-Based on the feedback to our demo, we replaced our scanner feature with a simple menu browser in the app, which still achieved our desired end goal. The lesson that we took in making this decision was that users preferred the most intuitive approach over technical sophistication. Case in point, we had initially rejected the menu solution because of a known limitation, namely that by not pushing users to record the meal right then and there, they might forget to record it later. However, our experiences in testing showed that this was preferable as with a more finicky solution, users might just not bother to use the service entirely.
+Based on the feedback to our demo, we replaced our scanner feature with a simple menu browser in the app, which still achieved our desired end goal. The lesson that we took in making this decision was that users preferred the most intuitive approach over technical sophistication. Case in point, we had initially rejected the menu solution because of a known limitation, namely that by not pushing users to record the meal right then and there, they might forget to record it later. However, our experiences in testing showed that this was preferable as with a more finicky solution, users might be too inconvenienced and just not bother to use the service entirely.
 
 Next, we aimed to build the M5 application during this sprint. This was a continuation of our ideation step (we were simply building our paper prototype). Because we had tested the device in paper form, building the application went smoothly. Once completed, we critiqued the build to plan for further improvements. Not all our ideas would be completed by the end of the project. For instance, we would have liked to build a 'help' or 'tutorial' tool, but could not find an elegant way to implement it considering the M5's limitations, namely the small screen size and limited buttons (discussed in evaluation).
 
@@ -164,37 +168,46 @@ We started with our user story for allowing users to browse restaurants and find
 
 From this, we decided that the web app's primary feature would be hosting a database of restaurants on the service, to be queried by the m5. Correspondingly, we also added an extra page on the m5 to browse a restaurant list.
 
-Because our networking features were not implemented yet, we were using dummy templates at this step. This was practising AGILE development: We had the local functions working using placeholders, allowing us to test and critique them. This would also save us debugging effort later when said networking code was added, as we would expect the local features to be working properly.
+Because our networking features were not implemented yet, we were using dummy templates at this step. We had the local functions working using placeholders, allowing us to test and critique them. This would also save us debugging effort later when said networking code was added, as we would expect the local features to be working properly.
 
 Simultaneously, we also began experimenting with MQTT at this step. Following a similar approach to the above, both the m5 and web app were capable of sending dummy text to the mqtt broker by the end of the sprint.
 
 #### *Sprint 3: JSON packet, MQTT (March)*
 
-This sprint's big goal was "connecting the halves": implementing MQTT. We finalized the structure of our JSON packet, and completed proper mqtt implementation between the M5 and the Web app.
+This sprint's big goal was "connecting the halves": we completed mqtt implementation between the M5 and the Web app.
 
+We started by finalizing the structure of our JSON packet (see Architecture). Once this was done, we wrote a packet class template (in Processing), which was then converted into the respective subsystems' languages for use. Starting from the same template saved work and minimized confusion: everyone knew that each subsystem would have the same variable names AND functions.
 
+Modifying our MQTT code to send and receive the packet, over dummy text, took no effort at all as it was all a single string. Similarly, as we had already built our local functions to read a dummy packet, it only took some minor modification, to account for the final changes to the JSON structure and read JSON packets from MQTT traffic rather than an offline dummy.
 
+#### *Sprint 4: functionality testing, Desktop application (March)*
 
+Two goals were achieved for our fourth sprint. Firstly, we began UI work and debugging on the m5 and Web App. We also began to work on the Desktop Application, meant to represent the restaurant.
 
-#### *Sprint 4: functionality testing, Desktop application*
+To improve the UI of the web application, we implemented the Bootstrap framework. This allowed us to quickly modify cosmetic features like layout and color scheme, and add advanced features like window responsiveness.
 
-Two goals were achieved for our fourth sprint. Firstly, we began debugging/cosmetic work on the m5 and Web App. Bootstrap was added to our web app at this stage.
+We conducted our first tests between the M5 and Web Application. During the test, we fixed minor bugs, such as accidental differences in capitalization for variable names between the different environments (which wouldn't be recognized by the other subsystem). Overall, testing went smoothly.
 
-Secondly, we began to work on the Desktop application, meant to represent the restaurant. However, we kept the following user story in mind:
+Building the Desktop Application was straightforward as we already had a clear idea of the features we wanted(at this point, we were already using dummies on the web Application to simulate traffic from it). Our user stories were:
 
+- [the restaurant user] wants to upload their menu online, to be browsed by its customers.
 - [the restaurant user] wants to easily edit their data, so using the service will not be a hassle.
 
-Accordingly, we decided that besides registration, the restaurant app also needed user friendly pages to easily edit its basic info and menu(covered in above sections).
+We knew that each restaurant had to have a unique key. Relying on restaurant name *resName* wasn't sufficient as restaurants could have similar names. It is also good practice to not have the key be user editable as it can lead to database corruption. So we implemented a random read-only alphanumeric key *resID* generator on the Web Application that would add a unique key whenever a restaurant registers with the service. This key was then checked whenever a restaurant wished to update their data.
 
 #### *Sprint 5: Polishing, Full project testing (Late March - April)*
 
-This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing. Notable changes made during this stage was adding the 'conID' variable. We met once a week to test core functionality to ensure that we had not broken anything following polish work.
+This (final) sprint roughly encapsulated our several weeks of final testing, debugging and polishing.
+
+Notable changes made during this stage was adding the *conID* variable. We realized in our testing that we had overlooked the need to identify unique conversations between devices. This was crucial to allow multiple simultaneous conversations to happen without disrupting each other (e.g. one M5 requesting the restaurant list would cause all M5s on the network to receive the response).
+
+*conID* was a random 4-digit integer generated on the M5 whenever it sent a query. To reduce the risk of corruption and tampering, we made *conID* a read-only variable. The Web Application simply copies the ID from the inbound query to the outbound response. the M5 also forgets the ID at the end of the conversation.
 
 ### Design Evaluation
 
 #### Technique used
 
-We primarily relied on a pass/fail technique when evaluating our design. this meant that we would determine beforehand the intended design objectives at the start of each stage/sprint, and follow up with an evaluation of whether those objectives were met at the end of the sprint period (most often coinciding with our meeting schedule). Tasks would be broken down to as many constituent parts and steps as possible for clarity. For example, even a simple feature like 'to read an mqtt packet' would be broken down into:
+We primarily relied on a pass/fail technique when evaluating our design. This meant that we would follow up each sprint with an evaluation of whether we'd met our objectives (most often right during, or before, our next meeting). An example of a checklist for assessing our mqtt implementation looked like:
 
 //Sprint goals
 - 1) Can the app save JSON packets to file? Y/N
@@ -204,7 +217,7 @@ We primarily relied on a pass/fail technique when evaluating our design. this me
 
 ...and so on.
 
-We favored this technique for many reasons. Firstly, it kept us focused on achieving our core requirements. Secondly, it made it easy for all members on the team to communicate and understand the stages of development for each subsystem despite the distribution of work. Finally, it ensured that we abided by the agile design principle of 'just good enough', and did not waste manpower on unneccesary feature bloat. Large goals were broken up, worked in pieces and built up incrementally so progress was continuous and clearly visible. Where this was most obvious was in our work on networking/mqtt implementation. We built the local functions in sprint 1, dummy networking in sprint 2, and connected the halves in sprint 3. This way, not only were we constantly testing at every step to ensure that the subsystems functioned, there was also less dependency between the two codeblocks, i.e. a much easier time debugging later.
+We favored this technique for many reasons. Firstly, it kept us focused on achieving our core requirements. Secondly, it made it easy for all members on the team to communicate and understand the stages of development for each subsystem despite the distribution of work. Finally, it ensured that we abided by the agile design principle of 'just good enough', and did not waste manpower on unneccesary feature bloat. Progress was continuous and clearly visible at every step. Where this was most obvious was in our work on networking/mqtt implementation. We built the local functions in sprint 1, dummy networking in sprint 2, and connected the halves in sprint 3. This way, not only were we constantly testing at every step to ensure that the subsystems functioned, there was also less dependency between the two codeblocks, i.e. a much easier time debugging later.
 
 #### Example: M5 Final evaluation
 ---
@@ -213,11 +226,11 @@ We favored this technique for many reasons. Firstly, it kept us focused on achie
 
 #### Limitations
 
-Some notable limitations was a lack of attention paid to user comfort. With hindsight, our binary pass/fail system was poorly suited to assess more nuanced features like user comfort and interface. Taking an technical approach to assessing all aspects ("Does the feature work?") probably contributed to why our UI work is quite sparse. Another limitation was the limits to outside input. By sticking rigidly to testing according to our sprint checklists, we limited opportunities for testers to give us more general feedback.
+Some notable limitations was a lack of attention paid to user comfort. With hindsight, our binary pass/fail system was poorly suited to assess more nuanced features like user comfort and interface. Taking an technical approach to assessing all aspects ("Does X feature work?") probably contributed to why our UI work is quite sparse. Another limitation was the limits to outside input. By sticking rigidly to testing according to our sprint checklists, we limited opportunities for testers to give us more general feedback.
 
 Overall, considering that our goal was to design a prototype than a final product, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
 
----
+
 ### Social and Ethical Implications
 
 We consider our project to have minimal social and ethical implications. To come to this conclusion, we assessed the following two broad questions:
