@@ -219,18 +219,6 @@ We primarily relied on a pass/fail technique when evaluating our design. This me
 
 We favored this technique for many reasons. Firstly, it kept us focused on achieving our core requirements. Secondly, it made it easy for all members on the team to communicate and understand the stages of development for each subsystem despite the distribution of work. Finally, it ensured that we abided by the agile design principle of 'just good enough', and did not waste manpower on unneccesary feature bloat. Progress was continuous and clearly visible at every step. Where this was most obvious was in our work on networking/mqtt implementation. We built the local functions in sprint 1, dummy networking in sprint 2, and connected the halves in sprint 3. This way, not only were we constantly testing at every step to ensure that the subsystems functioned, there was also less dependency between the two codeblocks, i.e. a much easier time debugging later.
 
-#### Example: M5 Final evaluation
----
-
-*All the main functions of the M5 were successfully implemented and during the testing of the system the M5 performed as intended. An issue may arise if the M5 does not receive a response back from the MQTT broker as the M5 does not notify the user when this has occurred. Notification IS given if the device failed to establish an internet connection.
-
-The M5's small screen size affected usability. We had to use the smallest text size to fit as much menu items in the screen as possible. But this may cause difficulty in reading for some users and there had to be a limit on the number of menu items. Another UI issue was the cursor had to be made from a line which once again might be difficult to see. Overall, the M5 is intuitive for the user due to the consistent layout.
-
-Data persistence was successful for dietary requirement and max calories. For the menu it would have been better to save the menu as an array instead of multiple strings. Some pages had reused functions, such as draw_buttons() and line_cursor(). Each page had separate functions for specific tasks such JSON_publish_menu(), save_order() and set_cal().
-
-Overall the code structure is good and very maintainable for future updates.*
-
----
 
 #### Limitations
 
@@ -238,6 +226,18 @@ Some notable limitations was a lack of attention paid to user comfort. With hind
 
 Overall, considering that our goal was to design a prototype than a final product, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
 
+##### Sample - M5 Final evaluation
+---
+
+*All the main functions of the M5 were successfully implemented and during the testing of the system the M5 performed as intended. An issue may arise if the M5 does not receive a response back from the MQTT broker as the M5 does not notify the user when this has occurred. Notification IS given if the device failed to establish an internet connection.*
+
+*The M5's small screen size affected usability. We had to use the smallest text size to fit as much menu items in the screen as possible. But this may cause difficulty in reading for some users and there had to be a limit on the number of menu items. Another UI issue was the cursor had to be made from a line which once again might be difficult to see. Overall, the M5 is intuitive for the user due to the consistent layout.*
+
+*Data persistence was successful for dietary requirement and max calories. For the menu it would have been better to save the menu as an array instead of multiple strings. Some pages had reused functions, such as draw_buttons() and line_cursor(). Each page had separate functions for specific tasks such JSON_publish_menu(), save_order() and set_cal().*
+
+*Overall the code structure is good and very maintainable for future updates.*
+
+---
 
 ### Social and Ethical Implications
 
