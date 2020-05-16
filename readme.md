@@ -91,10 +91,66 @@ In this version 1.0, desktop firstly implement two functions - registration and 
 
 #### *Web Application*
 
-- v1: Started with a basic html table displaying registered restaurant data.
-- v2: Basic Bootstrap implementation, e.g. responsive table, to improve user experience.
-- v3: Added menu browser.
-- v4: Further visual improvements through
+- v1: html table
+The Web Application started with a basic html table that displayed all entities in the arrayList *resTable*. The table was created dynamically from the objects in the table: table headers were variable of the restaurant JSONObject (resID, resName).
+
+  var col = [];
+  for (var i = 0; i < resTable.length; i++) {
+      for (var key in resTable[i]) {
+          if (col.indexOf(key) === -1) {
+              col.push(key);
+          }
+      }
+  }
+
+  //
+  for (var i = 0; i < col.length; i++) {
+      var th = document.createElement("th");     
+      th.innerHTML = col[i];
+      tr.appendChild(th);
+  }
+
+While a flashy implementation, this meant that the headers were ugly variable names. Also, this didnt work for object variables, like *menu* (would show as 'undefined')
+
+- v2: Improvements, Bootstrap
+Basic improvement to fix the issues above. the dynamic header *col* was replaced with fixed header names. *menu* was removed pending implementation of a separate menu table.
+
+Bootstrap framework was added. Bootstrap was used to add responsive features to the table, and modify the color scheme/font to be more appealing
+
+  //
+  function createTable(){
+    ...
+    var table = document.createElement("table");
+    table.className='table table-striped table-bordered';
+
+    //create table headers
+    var tr = table.insertRow();
+    tr.className='thead-dark';
+    ...etc.
+  }
+
+- v3: Menu table
+Added a second menu table. a *menu* button was added to each entry for the restaurant table, which would load the restaurant's menu.
+
+  //
+  tabCell.innerHTML = "<button type='button' class='btn btn-light' onclick='createMenu(this)'>see menu</button>";
+
+Adding the second table caused clipping issues even though the tables were responsive. This was because the sheer size of the two tables would take up the whole window.
+
+- v4: Bootstrap containers
+The last addition was a responsive layout with containers, to solve the above issue. Now when the window was resized, the second table would move below the first if there was not enough space.
+
+  //
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg'>
+        <table class='table' id="showrestaurants" name="showrestaurants"></table>
+      </div>
+      <div class='col-sm'>
+        <table class='table' id="showmenu"></table>
+      </div>
+    </div>
+  </div>
 
 ### Communication protocols  
 
@@ -109,16 +165,15 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 ### Data Persistence
 
+The M5 and Desktop Application have data persistence.
+
 #### *M5*
 
  The ardiuno-esp32 Preferences library allowed us to save the contents to flash memory on the M5 stack for permanent storage. This was necessary for the M5 stack to save the user dietary requirements, maximum calories per meal and the contents of the order they want to place. The preferences library had partitioning for the variables and each variable could be assessed using a key. The dietary requirements were saved as integers with 0(false) and 1(true). The max calories were saved as integer as well and the menu items and restaurant name were saved as a string.
 
 #### *Desktop Application*
 
- - We have the need of persist data about menu and single restaurant in the daily life.
- - We use json file (menu.json, restaurant.json) as API instead of real database.
- - In processing desktop, we use functions such as loadMenu() and loadReataurant() to load the json file, and to use this database.
- - When the user add/edit/delete the food, or register a new restaurant, the data would be changed in the saved json file!
+ The application needed to persist the menu so restaurants didn't have to re-register and remake their menu every time the system was closed. This was implemented by saving the data as a JSON file. Functions (loadMenu(), loadRestaurant()) would run at initialization to load data from the save files. Lastly, whenever the user edited the data, e.g. registering as a new restaurant or changing the menu, the changes will also be written into the JSON save file!
 
 ### Web Technologies
 
@@ -225,7 +280,6 @@ We favored this technique for many reasons. Firstly, it kept us focused on achie
 Some notable limitations was a lack of attention paid to user comfort. With hindsight, our binary pass/fail system was poorly suited to assess more nuanced features like user comfort and interface. Taking an technical approach to assessing all aspects ("Does X feature work?") probably contributed to why our UI work is quite sparse. Another limitation was the limits to outside input. By sticking rigidly to testing according to our sprint checklists, we limited opportunities for testers to give us more general feedback.
 
 Overall, considering that our goal was to design a prototype than a final product, we accept the compromise that our evaluation technique brought. It greatly lubricated our workflow, minimizing the impact of the quarantine on our project. Working to rigid requirements also kept our development process lightweight and quick, rather than being bogged down with obsessing to work to arbitrary standards. However, we acknowledged that it led to an underprioritization of less 'technical' features, like visual work. In retrospect, It would have likely been possible to transition from a binary to a scaled detailed assessment criteria, e.g. a evaluation matrix, towards the final stages of the project once the core requirements had been satisfied.
-
 
 ---
 
