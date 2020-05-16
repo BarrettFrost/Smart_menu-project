@@ -134,11 +134,11 @@ conID serves to identify unique conversations between devices. This ensure that 
 
 ### Project sprints
 
-#### overview
+#### Overview
 
 We structured our design schedule to keep pace with the teaching material. We would meet at the start of the sprint to determine the intended design objectives. This took the form of in person meetings initially, transitioning to conference calls with the coronavirus outbreak.
 
-Upon determining a major feature we wanted, the tasks would be broken down to as many constituent parts and steps as possible, to be spread across several sprints. This was practising AGILE development: by staging our design process, our work plan was flexible, adaptable to if things were faster OR slower to build than expected (though overall, our project mostly keep to the predicted schedule). Also, our systems would compile and work at every step, rather than only coming together at the end. 
+Upon determining a major feature we wanted, the tasks would be broken down to as many constituent parts and steps as possible, to be spread across several sprints. This was practising AGILE development: by staging our design process, our work plan was flexible, adaptable to if things were faster OR slower to build than expected (though overall, our project mostly keep to the predicted schedule). Also, our systems would compile and work at every step, rather than only coming together at the end.
 
 Each sprint lasted 2-3 weeks, to account for planning, building and testing at each step. The exception was the final polishing, which was more fluid and involved more regular meetings as we made sure that final work had not inadvertedly broken any prior functionality.
 
