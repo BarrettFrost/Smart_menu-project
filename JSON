@@ -1,22 +1,22 @@
 type query struct{
-     queryID         int         'json': "queryID"
+     queryID         int         'json : "queryID"'
      converstionID   int         'json : "conID"'
      listSize        int         'json : "listSize"'
      restaurantList  *restaurant 'json : "resList"'
-     restaurant      restaurant  'json': "restaurantSingle"
+     restaurant      restaurant  'json : "restaurantSingle"'
 }
 
 type restaurant struct{
-     restaurantName  String     'json': "resName"
-     menuSize        int        'json': "menuSize"
-     restaurantID    int        'json': "resID"
-     menu            *menu      'json': "menu"
+     restaurantName  String     'json : "resName"'
+     menuSize        int        'json : "menuSize"'
+     restaurantID    int        'json : "resID"'
+     menu            *menu      'json : "menu"'
 }
 
 type menu struct{
-    foodName       String      'json': "foodName"
-    containsGluten Boolean     'json': "containsGluten"
-    containsNuts   Boolean     'json': "containsNuts"
-    veganFood      Boolean     'json': "vegan"
-    calories       int         'json': "calories"
+    foodName       String      'json : "foodName"'
+    containsGluten Boolean     'json : "containsGluten"'
+    containsNuts   Boolean     'json : "containsNuts"'
+    veganFood      Boolean     'json : "vegan"'
+    calories       int         'json : "calories"'
 }
