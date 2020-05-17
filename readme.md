@@ -79,11 +79,13 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
 #### *M5*
 *Preferences Branch*
+---
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20preferences.PNG">
 </p>
 
 *Order Branch*
+---
 
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20restaurants.PNG">
@@ -94,6 +96,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 </p>
 
 *Saved order branch*
+---
 
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20saveOrder.PNG">
