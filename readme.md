@@ -114,8 +114,8 @@ Due to the limited buttons we had to divide access to pages between 3 separate b
 In this version 1.0, desktop firstly implement two functions - registration and showing the main menu. When a new user open this desktop application, he would firstly add his restaurant name into this app, and then click register. This process let the desktop app send a json string which has the new restaurant name in it, and then this app would receive a json package from the web in which contains its restaurant id. After receiveing this restaurantID, this desktop application would switch into the second page, which could show the information of this restaurant.
 
 - v2: 2 pages
-    - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
-    - A registration page
+    - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. 
+    - A registration page (which has been implemented before)
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/v2.png)
 In this version 2.0, we prioritized the add new function, because this is the most basic one for samrt menu; we also add the select function, which could help restaurant to choose specific dishes. This choose function could be used for DELECT/EDIT functions in version 3.0.
 
@@ -123,8 +123,9 @@ In this version 2.0, we prioritized the add new function, because this is the mo
 - v3: 3 pages
     - A restaurant menu page: the user can select the specific items not only for deleting items, but also for edit items. Totally there are 4 functions in this page: ADD, EDIT, DELETE, REGISTER_NEW (means the regiatration for a new restaurant)
     - A add/edit page: the user could add the information of particular food item into the menu, which includs the name of food, food calories, and set if this food contains meat, nuts and gluten...the user could also edit those information in a page that has the memory of privious food information
-    - A registration page
+    - A registration page: also we implement REGISTER function this time in the main page.
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
+    In this version 3.0, we use the select function to implement further functions, like EDIT/DELETE. If the users doesn't select an item before edit/delete dishes, the system would have a warning - to remind the users that 
     
     
 
