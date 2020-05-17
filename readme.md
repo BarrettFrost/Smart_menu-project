@@ -14,30 +14,30 @@ Firstly the system will be initiated by a customer using the IOT device to find 
 
 ### JSON Model
 
-<pre> type query struct{ 
-     queryID         int         'json : "queryID"' 
+<pre> type query struct{
+     queryID         int         'json : "queryID"'
      converstionID   int         'json : "conID"'
      listSize        int         'json : "listSize"'
      restaurantList  *restaurant 'json : "resList"'
-     restaurant      restaurant  'json : "restaurantSingle"' 
+     restaurant      restaurant  'json : "restaurantSingle"'
 }
 
 type restaurant struct{  
-     restaurantName  String     'json : "resName"' 
+     restaurantName  String     'json : "resName"'
      menuSize        int        'json : "menuSize"'  
-     restaurantID    int        'json : "resID"' 
-     menu            *menu      'json : "menu"' 
+     restaurantID    int        'json : "resID"'
+     menu            *menu      'json : "menu"'
 }
 
 type menu struct{  <br />
-    foodName       String      'json : "foodName"' 
-    containsGluten Boolean     'json : "containsGluten"' 
+    foodName       String      'json : "foodName"'
+    containsGluten Boolean     'json : "containsGluten"'
     containsNuts   Boolean     'json : "containsNuts"'  
     veganFood      Boolean     'json : "vegan"'   
     calories       int         'json : "calories"'  
 }  </pre>
 
-The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu. The menu is a JSONObject which stores information about the individual foods in the menu such as calories, name and etc. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code for the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier because the items are being displayed from a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple IOT devices were contacting the MQTT server they would only one IOT device would interpret the JSON string. From the UML diagram you able to see which system is sending and using each part of the JSON. 
+The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu. The menu is a JSONObject which stores information about the individual foods in the menu such as calories, name and etc. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code for the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier because the items are being displayed from a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple IOT devices were contacting the MQTT server they would only one IOT device would interpret the JSON string. From the UML diagram you able to see which system is sending and using each part of the JSON.
 
 (((As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.)))(delete this part???)
 
@@ -77,12 +77,12 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 ### The evolution of UI wireframes for key sub-systems
 
 #### *M5*
-### Preferences Branch
+*Preferences Branch*
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20preferences.PNG">
 </p>
 
-### Order Branch
+*Order Branch*
 
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20restaurants.PNG">
@@ -92,7 +92,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20menu.PNG">
 </p>
 
-### Saved order branch
+*Saved order branch*
 
 <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/M5%20pictures%20graph/ui%20saveOrder.PNG">
@@ -144,6 +144,8 @@ The Web Application started with a basic html table that displayed all entities 
 
 While a flashy implementation, this meant that the headers were ugly variable names. Also, this didnt work for object variables, like *menu* (would show as 'undefined')
 
+![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/webapp%20home.png)
+
 - v2: Improvements, Bootstrap
 Basic improvement to fix the issues above. the dynamic header *col* was replaced with fixed header names. *menu* was removed pending implementation of a separate menu table.
 
@@ -169,6 +171,8 @@ Added a second menu table. a *menu* button was added to each entry for the resta
 
 Adding the second table caused clipping issues even though the tables were responsive. This was because the sheer size of the two tables would take up the whole window.
 
+![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20hor.png)
+
 - v4: Bootstrap containers
 The last addition was a responsive layout with containers, to solve the above issue. Now when the window was resized, the second table would move below the first if there was not enough space.
 
@@ -183,6 +187,8 @@ The last addition was a responsive layout with containers, to solve the above is
       </div>
     </div>
   </div>
+
+![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20vert.png)
 
 ### Communication protocols  
 
