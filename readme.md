@@ -117,7 +117,6 @@ In this version 1.0, desktop firstly implement two functions - registration and 
     - A restaurant menu page: show the items of menu, and the user can ADD and select the specific items of this menu, which helps user to delete. Another function in this page is to register.
     - A registration page
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/v2.png)
-    
 In this version 2.0, we prioritized the add new function, because this is the most basic one for samrt menu; we also add the select function, which could help restaurant to choose specific dishes. This choose function could be used for DELECT/EDIT functions in version 3.0.
 
 
