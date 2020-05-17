@@ -126,6 +126,7 @@ In this version 1.0, desktop firstly implement two functions - registration and 
 - v1: html table
 The Web Application started with a basic html table that displayed all entities in the arrayList *resTable*. The table was created dynamically from the objects in the table: table headers were variable of the restaurant JSONObject (resID, resName).
 
+```
   var col = [];
   for (var i = 0; i < resTable.length; i++) {
       for (var key in resTable[i]) {
@@ -141,6 +142,7 @@ The Web Application started with a basic html table that displayed all entities 
       th.innerHTML = col[i];
       tr.appendChild(th);
   }
+```
 
 While a flashy implementation, this meant that the headers were ugly variable names. Also, this didnt work for object variables, like *menu* (would show as 'undefined')
 
@@ -151,7 +153,7 @@ Basic improvement to fix the issues above. the dynamic header *col* was replaced
 
 Bootstrap framework was added. Bootstrap was used to add responsive features to the table, and modify the color scheme/font to be more appealing
 
-  //
+```
   function createTable(){
     ...
     var table = document.createElement("table");
@@ -162,12 +164,14 @@ Bootstrap framework was added. Bootstrap was used to add responsive features to 
     tr.className='thead-dark';
     ...etc.
   }
+```
 
 - v3: Menu table
 Added a second menu table. a *menu* button was added to each entry for the restaurant table, which would load the restaurant's menu.
 
-  //
+```
   tabCell.innerHTML = "<button type='button' class='btn btn-light' onclick='createMenu(this)'>see menu</button>";
+```
 
 Adding the second table caused clipping issues even though the tables were responsive. This was because the sheer size of the two tables would take up the whole window.
 
@@ -176,7 +180,7 @@ Adding the second table caused clipping issues even though the tables were respo
 - v4: Bootstrap containers
 The last addition was a responsive layout with containers, to solve the above issue. Now when the window was resized, the second table would move below the first if there was not enough space.
 
-  //
+```
   <div class='container'>
     <div class='row'>
       <div class='col-lg'>
@@ -187,6 +191,7 @@ The last addition was a responsive layout with containers, to solve the above is
       </div>
     </div>
   </div>
+```
 
 ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20vert.png)
 
