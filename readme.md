@@ -20,6 +20,13 @@ Firstly the system will be initiated by a customer using the IOT device to find 
 </p>
 
 
+The interface of M5 Stack is relatively complex, which includes 3 different bruches:
+1. choose customers' preference: a main menu, a page to save/set calories, and a page to save/set dietary preferences 
+2. order meals: a page to show the list of restaurant, a page to show the smart menu, and a page to show the selected menu
+3. save orders: a page to dispaly the saved order
+
+When a customer pick up M5 and is ready to get some orders, he/she would firstly set the expected value of calories per meal and choose their preference in this device. The second step for them is to choose the restaurant they are in. M5 stack would send the requestment at this time, and the service provider would give the respond and let it know the restaurant lists for customers to make a choice. After the restaurant is chosen by the customers, M5 stack would send the defferent preference to the company (service provider) again, but this time it would receive the smart menu with customers' particular preference. After that, the customer could get the returned menu, and order the food at the reataurant.
+
 ### JSON Model
 ```
 <pre> type query struct{
