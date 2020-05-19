@@ -70,7 +70,7 @@ The application uses three main objects:
 - *Menu* which contains an arraylist, Food[] foods.
   
   <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-projectG">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/Untitled%20Diagram-2.png" width="700">
 </p>
 
 
