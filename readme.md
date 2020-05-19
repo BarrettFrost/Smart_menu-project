@@ -268,6 +268,8 @@ Based on these goals, we decided that combining a diet tracking function and a d
 
 <div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/sprits0.gif"/></div>
 
+<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/sprits0.1.gif"/></div>
+
 We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. The user testing consisted of a paper prototype of the proposed product. We wanted to see whether the participants could use the product without any guidence. But our participants found the scanning the colored plates to be unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating. During this time the group learned how to perform networking with the MQTT for the M5 stack. Also, learned how to use displays in M5 and processing. For instance display text or spuares and creating buttons in each respective platform.  
 
 #### *Sprint 1: M5 (Feb)*
