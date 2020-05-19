@@ -19,9 +19,6 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
-#### M5 Stack
-M5 is an smart menu which is for the customers to get different orders according to their own preferance. It could help users solve the problems of how to avoid eating too much calories in a meal by displaying the 'proper claories' food for people. Also, this smart menu also has the functions to filter out some allergic food, which could help the customers choose vegetarian food, food containing nuts, or food containing gluten if they would like
-
 
 ### JSON Model
 ```
@@ -65,9 +62,11 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 #### *Desktop Application*
 
-The processing part of this project was developed based on Object-Oriented design. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
+The processing part of this project was developed based on Object-Oriented design. However, object-oriented design can make Processing program have a more reasonable architecture and easier to maintain and extend.
 
-In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are more close to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features. Finally, In a group job, each member focus on their own classes which enables the project to be of high quality.
+In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are closer to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features.
+
+For the desktop app is maintained by the restaurant and needs to be able to save, edit and add food to a menu. Object oriented programming is perfect to implement features in code. The qualities of the food could be the variables and methods could be used to save ,edit and add food items.  
 
 The application uses three main objects:
 
