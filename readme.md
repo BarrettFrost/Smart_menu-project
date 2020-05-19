@@ -69,6 +69,7 @@ The application uses three main objects:
 - *Food* contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
 - *Menu* which contains an arraylist, Food[] foods.
 
+  ![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project)
 
 
 ### Requirements for key sub-systems
