@@ -19,6 +19,9 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
+#### M5 Stack
+M5 is an smart menu which is for the customers to get different orders according to their own preferance. It could help users solve the problems of calculating 
+
 
 ### JSON Model
 ```
