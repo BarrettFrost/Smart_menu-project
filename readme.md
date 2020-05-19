@@ -20,7 +20,7 @@ Firstly the system will be initiated by a customer using the IOT device to find 
 </p>
 
 #### M5 Stack
-M5 is an smart menu which is for the customers to get different orders according to their own preferance. It could help users solve the problems of calculating 
+M5 is an smart menu which is for the customers to get different orders according to their own preferance. It could help users solve the problems of how to avoid eating too much calories in a meal by displaying the 'proper claories' food for people. Also, this smart menu also has the functions to filter out some allergic food, which could help the customers choose vegetarian food, food containing nuts, or food containing gluten if they would like
 
 
 ### JSON Model
