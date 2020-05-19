@@ -4,7 +4,6 @@
 
 #### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
-<div align=center><img width="600" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/head_pic.png"/></div>
 
 ## System Design:
 
@@ -374,4 +373,4 @@ The group worked well to accomplish its goal despite numerous challenges. As cov
 
 Communication through the quarantine period was managed with regular online meetings. The quarantine caused minimal disruption to the group's performance with regards to building the systems. This was because we were alreading working in a distributed workflow. However, it impacted our ability to conduct user testing. Specifically, while we were able to test subsystems independently, we were unable to do significant public testing, especially with the whole system in one location. This most likely had some impact on the final quality of the product, such as the UI/UX work being mediocre.
 
-<div align=center><img width="350" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
+<div align=center><img width="600" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/head_pic.png"/></div>
