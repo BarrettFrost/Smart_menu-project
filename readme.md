@@ -19,27 +19,6 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
-#### *M5*
-M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
- 
-The interface of M5 Stack is relatively complex, which includes 3 different bruches:
-1. choose customers' preference: a main menu, a page to save/set calories, and a page to save/set dietary preferences 
-2. order meals: a page to show the list of restaurant, a page to show the smart menu, and a page to show the selected menu
-3. save orders: a page to dispaly the saved order
-
-When a customer pick up M5 and is ready to get some orders, he/she would firstly set the expected value of calories per meal and choose their preference in this device. The second step for them is to choose the restaurant they are in. M5 stack would send the requestment at this time, and the service provider would give the respond and let it know the restaurant lists for customers to make a choice. After the restaurant is chosen by the customers, M5 stack would send the defferent preference to the company (service provider) again, but this time it would receive the smart menu with customers' particular preference. After that, the customer could get the returned menu, and order the food at the reataurant.
-
-  #### *DESKTOP Application*
-The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
-
-The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
-
-When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
-
-#### *Web Application*
-Web application, as a service provider, could be used as an company which have the record of all of the restaurants which have used this 'smart menu' system. This service provider has the whole database of the smart menu system, which could be always seen as bridge between the M5 devices and the desktop apps. When the M5 device send the menu request to the MQTT, the web would respond and send the specific menu back to it. For the consideration of safety, the kitchen don't need to send menu to the customers directly. Instead, the web application would act as the service provider, receiving the menu and reataurantID from the kitchen, and give the same menu to the customers if necessary.
-
-The interface of web application includes a page that displays a table of restaurants and a page that desplays the menu of the reataurant.
 
 ### JSON Model
 ```
@@ -287,7 +266,7 @@ Our project began at the ideation step. During initial brainstorming, once we'd 
 
 Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that asked users to scan their meal as they ordered: restaurants would tag their dishes with identifiers(a QR code or colored plate, ala a sushi bar) to be scanned using a camera. This may be seen in our paper prototype demo:
 
-We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. Our participants found this setup unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating.
+We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. The user testing consisted of a paper prototype of the proposed product. We wanted to see whether the participants could use the product without any guidence. But our participants found the scanner part of the prototpye to be unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating.
 
 #### *Sprint 1: M5 (Feb)*
 
