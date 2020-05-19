@@ -19,23 +19,6 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
-#### *M5*
-M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
- 
-The interface of M5 Stack is relatively complex, which includes 3 different bruches:
-1. choose customers' preference: a main menu, a page to save/set calories, and a page to save/set dietary preferences 
-2. order meals: a page to show the list of restaurant, a page to show the smart menu, and a page to show the selected menu
-3. save orders: a page to dispaly the saved order
-
-When a customer pick up M5 and is ready to get some orders, he/she would firstly set the expected value of calories per meal and choose their preference in this device. The second step for them is to choose the restaurant they are in. M5 stack would send the requestment at this time, and the service provider would give the respond and let it know the restaurant lists for customers to make a choice. After the restaurant is chosen by the customers, M5 stack would send the defferent preference to the company (service provider) again, but this time it would receive the smart menu with customers' particular preference. After that, the customer could get the returned menu, and order the food at the reataurant.
-
-  #### *DESKTOP*
-The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
-
-The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
-
-When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
-
 
 ### JSON Model
 ```
@@ -62,6 +45,8 @@ type menu struct{  <br />
     calories       int         'json : "calories"'  
 }  </pre>
 ``` 
+For the networking aspect of the system to most important information was to send menu items over the network. This so the smart menu could get the most up to data menu from the restaurant to user wants to visit. Since the restaurant's desk top app had the most up to date menu and the smart menu doesn't contain any, this justified the networking aspect of the project. The smart menu also needed to able obtain different menu from different  restaurant, the webapp was needed to relay the menu and from the requested restaurant from he list of resgistered restaurant it has on its system. Since mulitiple smart menu devices would be in circulation in the live product there also needs to be mechanism to only send information to one particular device that makes a request.  
+
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu. The menu is a JSONObject which stores information about the individual foods in the menu such as calories, name and etc. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code for the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier because the items are being displayed from a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple IOT devices were contacting the MQTT server they would only one IOT device would interpret the JSON string. From the UML diagram you able to see which system is sending and using each part of the JSON.
 
 (((As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.)))(delete this part???)
@@ -74,7 +59,7 @@ Excepts from our m5 and Desktop application design, that were most driven my the
 
 #### *M5*
 
-The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of list and menu once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
+The smart menu design featured the List and menu classes. Since the menu must be able to display, select and flag an unknown number of restaurant names or menu items, object-oriented design seemed to most appropriate approach.  The code had an array of List and menu objects once the items have been received via JSON. The classes allow variables to be associated with each menu item e.g. the name. These variables could then be manipulated, for instance selecting an item and using method to change the selection integer or changing the flag depending on Booleans for dietary requirements.
 
 #### *Desktop Application*
 
