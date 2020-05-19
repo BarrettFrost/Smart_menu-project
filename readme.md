@@ -60,18 +60,16 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 #### *Desktop Application*
 
+The processing part of this project was developed based on Object-Oriented design. Although Object-oriented programming is not required for Processing, However, object-oriented design can make Processing program has more reasonable architecture and easier to maintain and extend.
+In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are more close to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features. Finally, In a group job, each member focus on their own classes which enables the project to be of high quality.
+
 The application uses three main objects:
 
 - *Restaurant* contains (String) restaurant_name, (String) restaurant_id;
 - *Food* contains (String) food_name, (int) food_calories,  (boolean) if_vegetarian, (boolean) ifcontain_gluten,    (boolean) ifcontain_nuts;
 - *Menu* which contains an arraylist, Food[] foods.
 
-As an example of how these objects are handled, the following are functions in the *menu* object:
 
-- adding new food [add_item(), doAdd() function]: adds food objects to the menu arraylist;
-- editing existing food [edit_item(), doUpdata() function]: create a new food object like add_item, and then do some update, to send new items as json package;
-- deleting existing food [delete(), doDelete() function]: we use menu object, and delete the selected index;
-- registration [registration(), doRegister() function]: send menu item in the format of json Package.
 
 ### Requirements for key sub-systems
 
