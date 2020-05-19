@@ -266,7 +266,7 @@ Our project began at the ideation step. During initial brainstorming, once we'd 
 
 Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that asked users to scan their meal as they ordered: restaurants would tag their dishes with identifiers(a QR code or colored plate, ala a sushi bar) to be scanned using a camera. This may be seen in our paper prototype demo:
 
-We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. The user testing consisted of a paper prototype of the proposed product. We wanted to see whether the participants could use the product without any guidence. But our participants found the scanner part of the prototpye to be unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating.
+We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. The user testing consisted of a paper prototype of the proposed product. We wanted to see whether the participants could use the product without any guidence. But our participants found the scanning the colored plates to be unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating.
 
 #### *Sprint 1: M5 (Feb)*
 
