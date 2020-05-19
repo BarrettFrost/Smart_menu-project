@@ -1,8 +1,8 @@
 ## Smart_Menu
 
-#### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
-
 ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/smart_menu_poster.png)
+
+#### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 ## System Design:
 
