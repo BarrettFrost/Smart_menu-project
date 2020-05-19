@@ -19,6 +19,12 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
+#### *M5*
+M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
+
+#### *DESKTOP*
+The application for desktop is men
+
 
 ### JSON Model
 ```
