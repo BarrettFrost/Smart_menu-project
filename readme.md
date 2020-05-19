@@ -276,7 +276,7 @@ Next, we aimed to build the M5 application during this sprint. This was a contin
 
 #### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
 
-With a working M5 program, we moved to build the web application, and experiment with sending JSON packets through MQTT. When experimenting with MQTT and M5 a problem was discovered the M5 could only accept a certain number of characters via JSON from MQTT. This was issue because our JSON String we quite long due the all menu items and each indivual items data. With some research it was discovered that the PubSubClient library has a max MQTT JSON Packet size of 256. This was subsequently increased to 1000.
+With a working M5 program, we moved to build the web application, and experiment with sending JSON packets through MQTT.
 
 We started with our user story for allowing users to browse restaurants and find what to eat:
 
