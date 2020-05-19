@@ -266,10 +266,6 @@ Our project began at the ideation step. During initial brainstorming, once we'd 
 
 Based on these goals, we decided that combining a diet tracking function and a dish ingredients filter would achieve these goals. We initially envisioned a system that asked users to scan their meal as they ordered: restaurants would tag their dishes with identifiers(a QR code or colored plate, ala a sushi bar) to be scanned using a camera. This may be seen in our paper prototype demo:
 
-<p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/sprint_demo.gif" width="700">
-</p>
-
 We scrapped this idea after receiving negative feedback during user testing. This was a learning experience for us. The user testing consisted of a paper prototype of the proposed product. We wanted to see whether the participants could use the product without any guidence. But our participants found the scanning the colored plates to be unintuitive and too much hassle than it was worth. We also questioned the burden of implementation for restaurants to be too high and would turn them off from participating. During this time the group learned how to perform networking with the MQTT for the M5 stack. Also, learned how to use displays in M5 and processing. For instance display text or spuares and creating buttons in each respective platform.  
 
 #### *Sprint 1: M5 (Feb)*
@@ -280,7 +276,7 @@ Next, we aimed to build the M5 application during this sprint. This was a contin
 
 #### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
 
-With a working M5 program, we moved to build the web application, and experiment with sending JSON packets through MQTT.
+With a working M5 program, we moved to build the web application, and experiment with sending JSON packets through MQTT. When experimenting with MQTT and M5 a problem was discovered the M5 could only accept a certain number of characters via JSON from MQTT. This was issue because our JSON String we quite long due the all menu items and each indivual items data. With some research it was discovered that the PubSubClient library has a max MQTT JSON Packet size of 256. This was subsequently increased to 1000.
 
 We started with our user story for allowing users to browse restaurants and find what to eat:
 
