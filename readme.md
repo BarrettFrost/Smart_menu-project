@@ -19,16 +19,6 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
-#### *M5*
-M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
-
-#### *DESKTOP*
-The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
-
-The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
-
-When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
-
 
 ### JSON Model
 ```
@@ -54,8 +44,7 @@ type menu struct{  <br />
     veganFood      Boolean     'json : "vegan"'   
     calories       int         'json : "calories"'  
 }  </pre>
-```
-
+``` 
 The JSON structure can be seen in the diagram above. The queryID JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The resList is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu. The menu is a JSONObject which stores information about the individual foods in the menu such as calories, name and etc. These two arrays store information that will be useful for the user to inform them in their food choices. The restaurantSingle Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code for the M5 stack have less nesting and easier to understand. The menuSize and listSize JSON integers were also used to make coding easier because the items are being displayed from a for loop. Lastly, the conID integer was a random digit from 1-1000. This was used to make sure when multiple IOT devices were contacting the MQTT server they would only one IOT device would interpret the JSON string. From the UML diagram you able to see which system is sending and using each part of the JSON.
 
 (((As for the desktop app, the users usually send the data containing menu of food in the restaurant! We have a format for this transformation. When new users want to register this restaurant, it should send its reataurant name using this format to the Web and set the queryID is 30; and then the manager of web would return a new json package which contains a new restaurant id and using queryID 31; when this restaurant wants to send the new menu to web after adding, editing or deleting, it would use the same format but set the queryID to 40.)))(delete this part???)
@@ -76,7 +65,7 @@ The processing part of this project was developed based on Object-Oriented desig
 
 In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are closer to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features.
 
-For the desktop app is maintained by the restaurant and needs to be able to save, edit and add food to a menu. Object oriented programming is perfect to implement features in code. The qualities of the food could be the variables and methods could be used to save ,edit and add food items.  
+For the desktop app was designed for restaurant and needed to be able to save, edit, delete and add food to a menu and eventually send the menu over an network. Object oriented programming is perfect to implement these features in code. For instance for the food object we are able the contain all the qualities of the food object in one object eg calories and name. The menu object contained an array of foods and methods used to add and delete certain foods and to transform food data into a JSON array for the networking aspect of the system. Since all food data was in the food object this allowed the transfer of data extremely easy. 
 
 The application uses three main objects:
 
@@ -243,7 +232,7 @@ The ardiuno-esp32 Preferences library allowed us to save the contents to flash m
 
 #### *Desktop Application*
 
- The application needed to persist the menu so restaurants didn't have to re-register and remake their menu every time the system was closed. This was implemented by saving the data as a JSON file. Functions (loadMenu(), loadRestaurant()) would run at initialization to load data from the save files. Lastly, whenever the user edited the data, e.g. registering as a new restaurant or changing the menu, the changes will also be written into the JSON save file!
+ The application needed to save the menu so restaurant manager didn't have to re-register and remake their menu every time the system was closed. This was implemented by saving the data as a JSON file. Functions (loadMenu(), loadRestaurant()) would run at initialization to load data from the save files. Lastly, whenever the user edited the data, e.g. registering as a new restaurant or changing the menu, the changes will also be written into the JSON save file!
 
 ### Web Technologies
 
