@@ -19,6 +19,16 @@ Firstly the system will be initiated by a customer using the IOT device to find 
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
+#### *M5*
+M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
+
+ #### *DESKTOP*
+The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
+
+The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
+
+When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
+
 
 ### JSON Model
 ```
