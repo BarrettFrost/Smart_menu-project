@@ -1,5 +1,7 @@
 ## Smart_Menu
 
+<div align=center><img width="350" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
+
 #### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 <div align=center><img width="600" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/head_pic.png"/></div>
@@ -362,8 +364,6 @@ No. Our product should be used equally by users from all communities. As most of
 
 ## Project Evaluation:
 
-<div align=center><img width="350" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
-
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
 Among considered directions for future work would be a persistent database for the web server. This would certainly be essential in a true final commercial build but was excluded in our project scope. Next, we would like the devices to able to report issues to one another. While not a core feature, this would be very useful for devices to be able to communicate when there are errors or disruptions, ranging from mild (like an restaurant menu being out of date) to severe (features breaking with a new update). Further, as mentioned in earlier sections, a built in help/tutorial tool, also not critical, would improve usability. Finally, additional UI/UX work could be done to make the product more visually appealing.
@@ -373,3 +373,5 @@ The most obvious feature to improve for the M5 would be increase the maximum men
 The group worked well to accomplish its goal despite numerous challenges. As covered in the previous section *design sprints*, we have demonstrated that we practiced AGILE development principles extensively. The principles emphasized a flexible, modular and minimalist design process, which prioritized breaking the project into small milestones to be accomplished incrementally. This was beneficial in many ways: our code was made more modular, as it was written and tested in small pieces, rather than as a big codeblock. This means that any future development would have a much easier time adding additional features, as it will not have to untangle dependencies. Distributing tasks between different team members was also easier with this process. One complication was that because our team are new programmers unfamiliar with working as a team, we were not practiced with writing code to a common standard. Hence, there were occasional frustrations merging code written by different authors. This project was, therefore, also a learning opportunity that taught us something that we might not have learned by working purely on solo projects.
 
 Communication through the quarantine period was managed with regular online meetings. The quarantine caused minimal disruption to the group's performance with regards to building the systems. This was because we were alreading working in a distributed workflow. However, it impacted our ability to conduct user testing. Specifically, while we were able to test subsystems independently, we were unable to do significant public testing, especially with the whole system in one location. This most likely had some impact on the final quality of the product, such as the UI/UX work being mediocre.
+
+<div align=center><img width="350" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
