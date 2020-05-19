@@ -286,7 +286,7 @@ From this, we decided that the web app's primary feature would be hosting a data
 
 Because our networking features were not implemented yet, we were using dummy templates at this step. We had the local functions working using placeholders, allowing us to test and critique them. This would also save us debugging effort later when said networking code was added, as we would expect the local features to be working properly.
 
-Simultaneously, we also began experimenting with MQTT at this step. Following a similar approach to the above, both the m5 and web app were capable of sending dummy text to the mqtt broker by the end of the sprint.
+When experimenting with MQTT and M5 a problem was discovered the M5 could only accept a certain number of characters via JSON from MQTT. This was issue because our JSON String we quite long due the all menu items and each indivual items data. With some research it was discovered that the PubSubClient library has a max MQTT JSON Packet size of 256. This was subsequently increased to 1000. By the end both the m5 and web app were capable of sending dummy text to the mqtt broker by the end of the sprint.
 
 #### *Sprint 3: JSON packet, MQTT (March)*
 
