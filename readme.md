@@ -25,6 +25,10 @@ M5 is an IoT device which could be used as a smart menu. It has helped the custo
 #### *DESKTOP*
 The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
 
+The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
+
+When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
+
 
 ### JSON Model
 ```
