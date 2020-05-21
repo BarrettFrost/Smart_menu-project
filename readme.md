@@ -63,7 +63,7 @@ We have developed a system that can solve these issues for the restaurant indust
 
 ![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png)
 
-Our architecture shown above illustrates how information moves between Web App: service Provider, M5: user, Desktop: restaurant. This allows us to send menus with each dishes details and restaurant lists with individual details over a network, which is essential to menu browser apps. Additionally each section of the system has individual functions to request and obtain data via JSON string. Once the data is obtained each section can use the data for it's need.  
+Our architecture shown above illustrates how information moves between Web App: service Provider, M5: user, Desktop: restaurant. This allows us to send and recieve menus with each dishes details and restaurant lists with individual details over a network, which is essential to menu browser apps. Additionally each section of the system has individual functions to request and obtain data via JSON string. Once the data is obtained each section can use the data for it's need.  
 
 [Back to contents](#Contents)
 
