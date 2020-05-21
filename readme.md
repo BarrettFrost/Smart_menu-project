@@ -1,4 +1,4 @@
-<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
+<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/logo2.png"/></div>
 
 ## Smart_Menu
 
