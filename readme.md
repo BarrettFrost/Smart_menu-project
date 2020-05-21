@@ -368,6 +368,8 @@ Based on the feedback to our demo, we replaced our scanner feature with a simple
 
 Next, we aimed to build the M5 application during this sprint. This was a continuation of our ideation step (we were simply building our paper prototype). Because we had tested the device in paper form, building the application went smoothly. For the M5 implementation to be sucessful several new techniques has to be learned. To display the lists object oriented programming in the ardiuno (which was like C++) had to learned. Also to implement the saving feature for the M5 the preferences.h library has to be understood. The testing of the individual M5 involved printing output to the serial monitor to check if the feature was working as intended, for instance the integer for calories set.  Once completed, we critiqued the build to plan for further improvements. Not all our ideas would be completed by the end of the project. For instance, we would have liked to build a 'help' or 'tutorial' tool, but could not find an elegant way to implement it considering the M5's limitations, namely the small screen size and limited buttons (discussed in evaluation).
 
+We also think through how the system could be implement and could connect with each other. Web application, according to Sam, has been designed as a service provider who can send the menu to the M5. Desktop app, as a restaurant 
+
 #### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
 
 With a working M5 program, we moved to build the web application, and experiment with sending JSON packets through MQTT.
