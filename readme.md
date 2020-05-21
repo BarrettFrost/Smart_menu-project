@@ -11,8 +11,13 @@
 # Contents  
 - [System Design](#System-Design)  
   - [Architecture](#Architecture) 
-  - [JSON Model](#JSON-Model) 
+  - [JSON Model](#JSON-Model)
+  - [Communication protocols](#Communication-protocols) 
   - [Object-Oriented design of key sub-systems](#Object-Oriented-design-of-key-sub-systems) 
+  - [Requirements for key sub-systems](#Requirements-for-key-sub-systems) 
+  - [The evolution of UI wireframes for key sub-systems](#The-evolution-of-UI-wireframes-for-key-sub-systems) 
+  - [Data Persistence](#Data-Persistence) 
+  - [Web Technologies](#Web-Technologies) 
 - [Preface](#preface)  
 - [Design idea and innovation point](#design-idea-and-innovation-point)  
   - [Background](#background) 
@@ -93,6 +98,17 @@ The JSON structure can be seen in the diagram above. The **queryID** JSON Number
 - **The interaction process between M5 Stack and the web:** When customers use M5 Stack in the SmartMenu restaurant, they could firstly choose the restaurant they are in. M5 Stack at this time will send a JSON Package to MQTT, setting the queryID == 10. If the service provider could respond, it would return a list of reataurants to this M5 Stack, with the queryID == 11. After selecting their restaurant, the customer would order some food provided by M5, so the M5 would need a menu sent by the restaurant. This menu would be sent from the company which uses the web application. When the menu request send from M5 to the web application, we would set the queryID == 20, and when the web give an update of menu to M5 Stack, it would use the queryID == 21. This is the whole process of how a customer may order their food in a SmartMenu restaurant and how M5 Stack and web application would interact with each other during this period of time.
 
 - **The interaction process between the desktop and the web:** When a SmartMenu restaurant owners want to register their restaurant in the service provider, the desktop application would send a JSON Package with the queryID == 30 and its restaurant name. After that, if the service provice respond and approve this restaurant, it would generate a new reataurant id and return that resID with the queryID == 31. Sometimes it would be necessary to update the menu of this reataurant, at this time the kitchen would just need use the ADD/UPDATE/DELEE functions in app, and then the desktop application would send the menu list which includes the food name, food clories, if contains nuts, if contains gluten, and if vegetarian food to the web, setting the queryID == 40. And the web application would receive this updated menu and update its virtual databases after that. 
+
+### Communication protocols  
+
+Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
+
+- 10: M5 requesting restaurant list from web application. Reply: 11
+- 20: M5 requesting menu from selected restaurant. Reply: 21
+- 30: Desktop app (restaurant) registering with the web server. Reply: 31
+- 40: Desktop app (restaurant) updating information with the web server. Reply: 41
+
+conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
 
 ### Object-Oriented design of key sub-systems
@@ -257,16 +273,6 @@ The last addition was a responsive layout with containers, to solve the above is
 
 ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20vert.png)
 
-### Communication protocols  
-
-Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
-
-- 10: M5 requesting restaurant list from web application. Reply: 11
-- 20: M5 requesting menu from selected restaurant. Reply: 21
-- 30: Desktop app (restaurant) registering with the web server. Reply: 31
-- 40: Desktop app (restaurant) updating information with the web server. Reply: 41
-
-conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
 ### Data Persistence
 
