@@ -32,7 +32,7 @@
 - [System Implementation](#System0-Implementation) 
   - [Project sprints](#Project-sprints) 
     - [Sprint 0, or Ideation](#Sprint-0,-or-Ideation) 
-    - [Sprint 1: M5 Design](#Sprint-1:-M5-Design) 
+    - [Sprint 1: M5  & DESKTOP Design](#Sprint-1:-M5-&-DESKTOP-Design) 
     - [Sprint 2: Web Application, MQTT testing](#Sprint-2:-Web-Application,-MQTT-testing(Late-Feb---Early-March)) 
     - [Sprint 3: JSON packet, MQTT](#Sprint-3:-JSON-packet,-MQTT) 
     - [Sprint 4: functionality testing, Desktop applicationg](#Sprint-4:-functionality-testing,-Desktop-application)
@@ -362,7 +362,7 @@ We scrapped this idea after receiving negative feedback during user testing. Thi
 
 <div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/sprits0.1.gif"/></div>
 
-#### *Sprint 1: M5 Design(Feb)*
+#### *Sprint 1: M5 & DESKTOP Design(Feb)*
 
 Based on the feedback to our demo, we replaced our scanner feature with a simple menu browser in the app, which still achieved our desired end goal. The lesson that we took in making this decision was that users preferred the most intuitive approach over technical sophistication. Case in point, we had initially rejected the menu solution because of a known limitation, namely that by not pushing users to record the meal right then and there, they might forget to record it later. However, our experiences in testing showed that this was preferable as with a more finicky solution, users might be too inconvenienced and just not bother to use the service entirely.
 
