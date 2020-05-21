@@ -49,9 +49,7 @@
 
 ### Architecture
 
-<p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png" width="800">
-</p>
+![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png)
 
 [Back to contents](#Contents)
 
@@ -62,28 +60,28 @@ When you want to go out for something to each sometimes the choice can be overwh
 We have developed a system that can solve these issues for the restaurant industry. Firstly the system will be initiated by a customer using the IOT device to find a meal from a restaurant. Before doing so, They would have first set their dietary preferences and desired calories per meal. The customer would then query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
  <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/UML2.png" width="700">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2-2.png" width="700">
 </p>
 
 #### *M5*
- M5 is an IoT device which could be used as a smart menu. It has helped the customer to fliter out items which doesn't meet their ordering habits. For example, some customers could eat a meal within 800 calories, so this M5 device would given them a menu that includes food less than 800 claories; if some customers may have the preference of vagan or they're just  allergic to nuts, thissmart menu would help them to fliter out some food, and display the menu that only meets customers' needs. This M5 device has attress the problem of how to help the customer to select the healthy food and display a defferent menu according to the user' needs.
+ M5 is an IoT device which will be used as the smart menu. The user will use it to flag items which doesn't meet their dietary needs or if the meal is too high in calories. For example, user could set there max carlorie intake per meal and any order over 800 calories would be flagged. If the user may have the preference of vegan, the M5 will any flag any items which are non vegan. This M5 device has addressed the problem of how to help the customer to select the healthier food.
 
- The interface of M5 Stack is relatively complex, which includes 3 different bruches:
+ The interface of M5 Stack is relatively complex, which includes 3 different branches:
  1. choose customers' preference: a main menu, a page to save/set calories, and a page to save/set dietary preferences 
  2. order meals: a page to show the list of restaurant, a page to show the smart menu, and a page to show the selected menu
  3. save orders: a page to dispaly the saved order
 
- When a customer pick up M5 and is ready to get some orders, he/she would firstly set the expected value of calories per meal and choose their preference in this device. The second step for them is to choose the restaurant they are in. M5 stack would send the requestment at this time, and the service provider would give the respond and let it know the restaurant lists for customers to make a choice. After the restaurant is chosen by the customers, M5 stack would send the defferent preference to the company (service provider) again, but this time it would receive the smart menu with customers' particular preference. After that, the customer could get the returned menu, and order the food at the reataurant.
+ When the user is ready to get some orders, he/she would first set the calories per meal and choose their dietary requirement and this will be saved to permanant storage. Then the user could choose the restaurant they want to see the menu from and the M5 stack would send the request to the service provider. The service provider will respond with a list of restaurant lists. After the restaurant is chosen by the user, M5 stack will request the menu from the service provider. Once the menu is recieved the food items that meet the dietary requirements of the user will be flagged. The user would then choose there meal and the M5 would display there raise a flag if the meal is over the max calroies value. The user could then save his chosen meal the permanant storage for reference. 
 
    #### *DESKTOP Application*
- The application for desktop is an adding-menu system for the kitchen of some 'smartmenu' restaurants. It has helped the kitchen to quickly make some changes for the smart menu by ADD/EDIT/DELETE dishes in this menu system. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
+ The application for desktop is an menu management system for restaurants. It will help the restaurant to quickly make some changes for to the menu by providing ADD/EDIT/DELETE function for dishes. For example, if the chef wants to add a new dish for reataurant, he could directly edit the menu in the desktop app in his kitchen. The new menu would send to the company and then that new dish would be updated in the smart menu device!
 
  The interface of desktop has a main page in which the users(chef in the kitchen) could choose some items and add/edit/delete dishes. Another page of that is a registration page for a new user to send its reataurant name to the service provider. 
 
- When a reataurant name is sent as a new restaurant, the service provider would send back a new restaurant id to the desktop. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
+ The restaurant can register with the service providing its name. The service provider will then send back a new restaurant id to the desktop all. This information would be saved in JSON String "SingleRestaurant", and every time when this restaurant would like to send a menu to the company, this restaurantID would be used as a key between the service provider and the restaurant. 
 
  #### *Web Application*
- Web application, as a service provider, could be used as an company which have the record of all of the restaurants which have used this 'smart menu' system. This service provider has the whole database of the smart menu system, which could be always seen as bridge between the M5 devices and the desktop apps. When the M5 device send the menu request to the MQTT, the web would respond and send the specific menu back to it. For the consideration of safety, the kitchen don't need to send menu to the customers directly. Instead, the web application would act as the service provider, receiving the menu and reataurantID from the kitchen, and give the same menu to the customers if necessary.
+ Web application, is the service provider, this app is used to record all of the restaurants which have resgistered with the system. The app can be seen as bridge between the M5 devices and the desktop apps. When the M5 device send the restaurant list or menu request to the MQTT, the web would respond and send the specific list back to it. The web app will receive the menu and restaurant name from the restaurant, and give the same menu to the users when requested.
 
  The interface of web application includes a page that displays a table of restaurants and a page that desplays the menu of the reataurant.
 
@@ -120,7 +118,7 @@ For the networking aspect of the system to most important information was to sen
 The JSON structure can be seen in the diagram above. The **queryID** JSON Number was used so that each system could determine whether they should ignore the JSON string or interpret the string. For instance, when the M5 stack sends a queryID = 10 to request a restaurant list, the desktop app will ignore the query but the web app will have an if statement to interpret the contents and send back a list of restaurants. The **resList** is an array of JSONObjects which stores the information about the restaurant such as name, ID and menu. The **menu** is a JSONObject which stores information about the individual foods in the menu such as calories, name and etc. These two arrays store information that will be useful for the user to inform them in their food choices. The **restaurantSingle** Object is identical to resList only it is not an array and only stores the information of one restaurant. This was done to make the code for the M5 stack have less nesting and easier to understand. The **menuSize** and **listSize** JSON integers were also used to make coding easier because the items are being displayed from a for loop. Lastly, the **conID** integer was a random digit from 1-1000. This was used to make sure when multiple IOT devices were contacting the MQTT server they would only one IOT device would interpret the JSON string. From *the UML diagram* you able to see which system is sending and using each part of the JSON.
 
 <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/Untitled%20Diagram.png" width="800">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png" width="700">
 </p>
 
 
@@ -371,9 +369,7 @@ Based on the feedback to our demo, we replaced our scanner feature with a simple
 
 Next, we aimed to build the M5 application during this sprint. This was a continuation of our ideation step (we were simply building our paper prototype). Because we had tested the device in paper form, building the application went smoothly. For the M5 implementation to be sucessful several new techniques has to be learned. To display the lists object oriented programming in the ardiuno (which was like C++) had to learned. Also to implement the saving feature for the M5 the preferences.h library has to be understood. The testing of the individual M5 involved printing output to the serial monitor to check if the feature was working as intended, for instance the integer for calories set.  Once completed, we critiqued the build to plan for further improvements. Not all our ideas would be completed by the end of the project. For instance, we would have liked to build a 'help' or 'tutorial' tool, but could not find an elegant way to implement it considering the M5's limitations, namely the small screen size and limited buttons (discussed in evaluation).
 
-We also think through how the system could be implement and could connect with each other. Web application, according to Sam, has been designed as a service provider who can send the menu to the M5. Desktop app, as the kitchen side, would send the menu consistantly and update to the web service provider. As for the desktop app, we have design some functions to cooperate with the need of M5, e.g. adding the new meal and updating the menu, showing the main page of all the dishes, and registering a new restaurant. The desktop user interface design *below* could really help us get some ideas to build the dreamed system step by step!
-
- <div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/processingUI.gif"/></div>
+We also think through how the system could be implement and could connect with each other. Web application, according to Sam, has been designed as a service provider who can send the menu to the M5. Desktop app, as a restaurant 
 
 #### *Sprint 2: Web Application, MQTT testing(Late Feb - Early March)*
 
@@ -477,6 +473,8 @@ No. Our product should be used equally by users from all communities. As most of
 
 
 ## Project Evaluation:
+
+<div align=center><img width="600" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/head_pic.png"/></div>
 
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
