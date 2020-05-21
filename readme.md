@@ -153,11 +153,9 @@ The smart menu design featured the List and menu classes. Since the menu must be
 
 #### *Desktop Application*
 
-The processing part of this project was developed based on Object-Oriented design. However, object-oriented design can make Processing program have a more reasonable architecture and easier to maintain and extend.
+The processing part of this project was developed based on Object-Oriented design. However, object-oriented design can make the program easier to maintain and extend.
 
-In Object-Oriented design, A complicate system consists of one or more classes. One class encapsulates the state of the object and provides the behavior (class functions) to others. Such methods to solve problems are closer to daily life and natural way of thinking which helps to improve the efficiency and quality of software development. Due to the existence of inheritance, even If the requirements are changed, the maintenance is only in the local module, so it is very convenient to maintain and expand the existing features.
-
-For the desktop app was designed for restaurant and needed to be able to save, edit, delete and add food to a menu and eventually send the menu over an network. Object oriented programming is perfect to implement these features in code. For instance for the food object we are able the contain all the qualities of the food object in one object eg calories and name. The menu object contained an array of foods and methods used to add and delete certain foods and to transform food data into a JSON array for the networking aspect of the system. Since all food data was in the food object this allowed the transfer of data extremely easy. 
+The desktop app was designed for use in restaurant and needed to be able to save, edit, delete and add food to a menu and eventually send the menu over an network. Object oriented programming is perfect to implement these features in code. For instance for the food object we are able the contain all the qualities of the food object in one object eg calories and name. The menu object contained an array of foods and methods used to add and delete certain foods and to transform food data into a JSON array for the networking aspect of the system. Since all food data was in the food object this allowed the transfer of data extremely easy. 
 
 The application uses three main objects:
 
