@@ -8,6 +8,19 @@
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/head_pic2.gif" width="600">
 </p>
 
+# Contents  
+- [System Design](#System Design)  
+  - [Architecture](#Architecture) 
+  - [JSON Model](#JSON Model) 
+  - [Architecture](#Architecture) 
+- [Preface](#preface)  
+- [Design idea and innovation point](#design-idea-and-innovation-point)  
+  - [Background](#background) 
+  - [Design inspirations](#design-inspirations) 
+  - [Innovation point](#innovation-point)  
+  - [Developmental vision](#developmental-vision) 
+
+
 ## System Design:
 
 ### Architecture
