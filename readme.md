@@ -10,7 +10,9 @@
 
 # Contents  
 - [System Design](#System-Design)  
-  - [Architecture](#Architecture) 
+  - [Architecture](#Architecture)
+  - [Overview of System](#Overview-of-System)
+    - [M5](#M5)
   - [JSON Model](#JSON-Model)
   - [Communication protocols](#Communication-protocols) 
   - [Object-Oriented design of key sub-systems](#Object-Oriented-design-of-key-sub-systems) 
