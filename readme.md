@@ -12,7 +12,7 @@
 - [System Design](#System Design)  
   - [Architecture](#Architecture) 
   - [JSON Model](#JSON Model) 
-  - [Architecture](#Architecture) 
+  - [Object-Oriented design of key sub-systems](#Object-Oriented design of key sub-systems) 
 - [Preface](#preface)  
 - [Design idea and innovation point](#design-idea-and-innovation-point)  
   - [Background](#background) 
