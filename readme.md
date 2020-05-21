@@ -8,7 +8,7 @@
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/head_pic2.gif" width="600">
 </p>
 
-# Contents  
+## Contents  
 - [System Design](#System-Design)  
   - [Architecture](#Architecture)
   - [Overview of System](#Overview-of-System)
