@@ -9,10 +9,10 @@
 </p>
 
 # Contents  
-- [System Design](#System Design)  
+- [System Design](#System-Design)  
   - [Architecture](#Architecture) 
-  - [JSON Model](#JSON Model) 
-  - [Object-Oriented design of key sub-systems](#Object-Oriented design of key sub-systems) 
+  - [JSON Model](#JSON-Model) 
+  - [Object-Oriented design of key sub-systems](#Object-Oriented-design-of-key-sub-systems) 
 - [Preface](#preface)  
 - [Design idea and innovation point](#design-idea-and-innovation-point)  
   - [Background](#background) 
