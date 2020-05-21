@@ -478,8 +478,6 @@ No. Our product should be used equally by users from all communities. As most of
 
 ## Project Evaluation:
 
-<div align=center><img width="600" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/head_pic.png"/></div>
-
 
 Our project successfully achieved its two goals. Firstly, we aimed to create a project that satisfied our user stories. Above that, we wanted our project to be robust and easily expanded further, i.e. to be condusive to smoothly segueing into further work and development (as we were only building a 'proof of concept' prototype at this stage).
 
