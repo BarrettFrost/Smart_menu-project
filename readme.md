@@ -1,11 +1,11 @@
-<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
+<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/logo2.png"/></div>
 
 ## Smart_Menu
 
 #### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/logo2.png" width="600">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/head_pic2.gif" width="600">
 </p>
 
 ## Contents  
