@@ -33,7 +33,7 @@
   - [Project sprints](#Project-sprints) 
     - [Sprint 0, or Ideation](#Sprint-0,-or-Ideation) 
     - [Sprint 1: M5 Design](#Sprint-1:-M5-Design) 
-    - [Sprint 2: Web Application, MQTT testing](#Sprint-2:-Web-Application,-MQTT-testing) 
+    - [Sprint 2: Web Application, MQTT testing](#Sprint-2:-Web-Application,-MQTT-testing(Late-Feb---Early-March)) 
     - [Sprint 3: JSON packet, MQTT](#Sprint-3:-JSON-packet,-MQTT) 
     - [Sprint 4: functionality testing, Desktop applicationg](#Sprint-4:-functionality-testing,-Desktop-application)
     - [Sprint 5: Polishing, Full project testing](#Sprint-5:-Polishing,-Full-project-testing) 
