@@ -121,9 +121,6 @@ The JSON structure can be seen in the diagram above. The **queryID** JSON Number
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png" width="700">
 </p>
 
-- **The interaction process between M5 Stack and the web:** When customers use M5 Stack, they need to first select the restaurant they want they want to see the menu. M5 Stack at this time will send a JSON Package to MQTT, setting the queryID == 10. If the service provider will respond and return a list of reataurants to this M5 Stack, with the queryID == 11. After selecting their restaurant, the M5 will request a menu from that restaurant with a queryID == 20. This menu would be sent from the company which uses the web application with a queryID == 21. This is the whole process of how a customer may order their food in a restaurant and how M5 Stack and web application would interact with each other during this period of time.
-
-- **The interaction process between the desktop and the web:** When a restaurant owners want to register their restaurant with service provider, the desktop application would send a JSON Package with the queryID == 30 and its restaurant name. After that, the service provider will respond and approve this restaurant, it would generate a new reataurant id and return the queryID == 31. Sometimes it would be necessary to update the menu of this reataurant, at this time the restaurant would just need use the ADD/UPDATE/DELEE functions in app, and then the desktop application would send the updated menu list to the web, setting the queryID == 40. And the web application would receive this updated menu and update its databases after that. 
 
 [Back to contents](#Contents)
 
