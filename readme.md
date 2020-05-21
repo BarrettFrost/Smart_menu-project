@@ -56,7 +56,7 @@ When you want to go out for something to eat sometimes the choice can be overwhe
 We have developed a system that can solve these issues for the restaurant industry. Firstly the system will be initiated by a user using the IOT device to find a meal from a restaurant. Before doing so, They would have first set their dietary preferences and desired calories per meal. The user would then query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the user which they would choose their meal and save their order.
 
  <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/Untitled%20Diagram-7.png" width="700">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/UML2.png" width="700">
 </p>
 
 
