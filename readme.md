@@ -50,7 +50,7 @@
 ### Architecture
 
 <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png" width="700">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png" width="850">
 </p>
 
 [Back to contents](#Contents)
