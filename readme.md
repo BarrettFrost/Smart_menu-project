@@ -1,11 +1,11 @@
-<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/logo2.png"/></div>
+<div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/logo.png"/></div>
 
 ## Smart_Menu
 
 #### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
 
 <p align="center">
-  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/head_pic2.gif" width="600">
+  <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/logo2.png" width="600">
 </p>
 
 ## Contents  
@@ -54,6 +54,8 @@
 [Back to contents](#Contents)
 
 ### Overview of System
+
+When you want to go out for something to each sometimes the choice can be overwhelming and many establishment may not meet your requirements. For instance, if you are a vegan or watching your weight then a restaurant with limited choice of vegan options or high caloric foods wouldn't be a good choice to spend the evening there. Research into the restaurants can take up precious time. A system that could filter based on preferences could lessen this time needed to conduct the research. The restaurants business can be very stressful especially when introducing new items to the menu. Most restaurants nowadays still have there menus on paper and this makes updating very time consuming as you have to print out a new sets of menu everytime the menu changes. The system that could make this easier help restaurants during those challenging times.    
 
 Firstly the system will be initiated by a customer using the IOT device to find a meal from a restaurant. Before doing so, They would have first set their dietary preferences and desired calories per meal. The customer would then query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
 
