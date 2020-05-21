@@ -47,12 +47,6 @@
 
 ## System Design:
 
-### Architecture
-
-![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png)
-
-[Back to contents](#Contents)
-
 ### Overview of System
 
 When you want to go out for something to eat sometimes the choice can be overwhelming and many establishment may not meet your requirements. For instance, if you are a vegan or watching your weight then a restaurant with limited choice of vegan options or high caloric foods wouldn't be a good choice to spend the evening there. Research into the restaurants can take up precious time. A system that could filter based on preferences could lessen this time needed to conduct the research. The restaurants business can be very stressful especially when introducing new items to the menu. Most restaurants nowadays still have there menus on paper and this makes updating very time consuming as you have to print out a new sets of menu everytime the menu changes. The system that could make this easier could help restaurants during those challenging times.    
@@ -62,6 +56,14 @@ We have developed a system that can solve these issues for the restaurant indust
  <p align="center">
   <img src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/Untitled%20Diagram-7.png" width="700">
 </p>
+
+
+### Architecture
+
+![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png)
+
+[Back to contents](#Contents)
+
 
 #### *M5*
  M5 is an IoT device which will be used as the smart menu. The user will use it to flag items which doesn't meet their dietary needs or if the meal is too high in calories. For example, user could set there max carlorie intake per meal and any order over 800 calories would be flagged. If the user may have the preference of vegan, the M5 will any flag any items which are non vegan. This M5 device has addressed the problem of how to help the customer to select the healthier food.
