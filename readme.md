@@ -205,6 +205,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 
 For the UI of the smart menu needed to display multiple different types of information such as setting calories and dietary requiments and listing and flagging menu items. Also the user has to able to easily use the device without any prior knowledge of said device. Since the M5 was small this information needed to be diveded between pages. Due to the limited buttons we had to divide access to pages between 3 separate branches as seen from the diagrams above. There is a consistent layout for all pages to make the user experience more intuitive. This layout consisted of a title at the top and below displayed whatever functions the page served. At the bottom there are buttons squares with names attached describing the certain function of the button, whether it be moving to another page or saving an order. The buttons on screen were designed to line up with the buttons on the physical device so that the user knew which button did what. For the flagging of menu items red circles was chosen to be used. The M5 stack provides several ways to do this but it needs to be non-obtrusive and striking. The red colour draws the user’s attention and the small circle does not take up too much space.
 
+[Back to contents](#Contents)
 
 #### Desktop Application
 
@@ -227,7 +228,8 @@ In this version 2.0, we prioritized the add new function, because this is the mo
     - A registration page: also we implement REGISTER function this time in the main page.
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
     In this version 3.0, we use the select function to implement further functions, like EDIT/DELETE. If the users doesn't select an item before edit/delete dishes, the system would have a warning - to remind the users that nothing has been selected.
-    
+
+[Back to contents](#Contents)
 
 #### *Web Application*
 
