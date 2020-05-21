@@ -13,19 +13,36 @@
   - [Architecture](#Architecture)
   - [Overview of System](#Overview-of-System)
     - [M5](#M5)
+    - [DESKTOP Application](#DESKTOP-Application)
+    - [Web Application](#Web-Application)
   - [JSON Model](#JSON-Model)
   - [Communication protocols](#Communication-protocols) 
   - [Object-Oriented design of key sub-systems](#Object-Oriented-design-of-key-sub-systems) 
+    - [M5](#M5)
+    - [DESKTOP Application](#DESKTOP-Application)
   - [Requirements for key sub-systems](#Requirements-for-key-sub-systems) 
   - [The evolution of UI wireframes for key sub-systems](#The-evolution-of-UI-wireframes-for-key-sub-systems) 
+    - [M5](#M5)
+    - [DESKTOP Application](#DESKTOP-Application)
+    - [Web Application](#Web-Application)
   - [Data Persistence](#Data-Persistence) 
+    - [M5](#M5)
+    - [DESKTOP Application](#DESKTOP-Application)
   - [Web Technologies](#Web-Technologies) 
-- [Preface](#preface)  
-- [Design idea and innovation point](#design-idea-and-innovation-point)  
-  - [Background](#background) 
-  - [Design inspirations](#design-inspirations) 
-  - [Innovation point](#innovation-point)  
-  - [Developmental vision](#developmental-vision) 
+- [System Implementation](#System0-Implementation) 
+  - [Project sprints](#Project-sprints) 
+    - [Sprint 0, or Ideation](#Sprint-0,-or-Ideation) 
+    - [Sprint 1: M5 Design](#Sprint-1:-M5-Design) 
+    - [Sprint 2: Web Application, MQTT testing](#Sprint-2:-Web-Application,-MQTT-testing) 
+    - [Sprint 3: JSON packet, MQTT](#Sprint-3:-JSON-packet,-MQTT) 
+    - [Sprint 4: functionality testing, Desktop applicationg](#Sprint-4:-functionality-testing,-Desktop-application)
+    - [Sprint 5: Polishing, Full project testing](#Sprint-5:-Polishing,-Full-project-testing) 
+  - [Design Evaluation](#Design-Evaluation)
+    - [Technique used](#Technique-used)
+    - [Limitations](#Limitations)
+    - [Sample: M5 Final evaluation](#Sample:-M5-Final-evaluation)
+  - [Social and Ethical Implications](#Social-and-Ethical-Implications)  
+- [Project Evaluation](#Project-Evaluation) 
 
 
 ## System Design:
@@ -324,7 +341,7 @@ We scrapped this idea after receiving negative feedback during user testing. Thi
 
 <div align=center><img width="550" src="https://github.com/BarrettFrost/Smart_menu-project/blob/master/UMLdiagrams/sprits0.1.gif"/></div>
 
-#### *Sprint 1: M5 (Feb)*
+#### *Sprint 1: M5 Design(Feb)*
 
 Based on the feedback to our demo, we replaced our scanner feature with a simple menu browser in the app, which still achieved our desired end goal. The lesson that we took in making this decision was that users preferred the most intuitive approach over technical sophistication. Case in point, we had initially rejected the menu solution because of a known limitation, namely that by not pushing users to record the meal right then and there, they might forget to record it later. However, our experiences in testing showed that this was preferable as with a more finicky solution, users might be too inconvenienced and just not bother to use the service entirely.
 
