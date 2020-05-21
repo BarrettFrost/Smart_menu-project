@@ -81,6 +81,7 @@ Firstly the system will be initiated by a customer using the IOT device to find 
 
  The interface of web application includes a page that displays a table of restaurants and a page that desplays the menu of the reataurant.
 
+- [Back to contents](#Contents)
 
 
 ### JSON Model
@@ -118,6 +119,8 @@ The JSON structure can be seen in the diagram above. The **queryID** JSON Number
 
 - **The interaction process between the desktop and the web:** When a SmartMenu restaurant owners want to register their restaurant in the service provider, the desktop application would send a JSON Package with the queryID == 30 and its restaurant name. After that, if the service provice respond and approve this restaurant, it would generate a new reataurant id and return that resID with the queryID == 31. Sometimes it would be necessary to update the menu of this reataurant, at this time the kitchen would just need use the ADD/UPDATE/DELEE functions in app, and then the desktop application would send the menu list which includes the food name, food clories, if contains nuts, if contains gluten, and if vegetarian food to the web, setting the queryID == 40. And the web application would receive this updated menu and update its virtual databases after that. 
 
+- [Back to contents](#Contents)
+
 ### Communication protocols  
 
 Our communication protocol is simple, relying on two variables, queryID and conID, stored in our JSON packet to distinguish packets. queryID is a two digit integer sequence that identifies the type of query. The first digit in the sequence denotes the query type, while the second digit, either '0' or '1', denotes when the packet is a query or a reply ('0' = query, '1' = reply). All used sequences are labelled below:
@@ -129,6 +132,7 @@ Our communication protocol is simple, relying on two variables, queryID and conI
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
+- [Back to contents](#Contents)
 
 ### Object-Oriented design of key sub-systems
 
@@ -159,6 +163,8 @@ The application uses three main objects:
 </p>
 
 
+- [Back to contents](#Contents)
+
 ### Requirements for key sub-systems
 
 An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) were decided as follows:
@@ -166,6 +172,8 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 - The Desktop Application represents the restaurants' end. It would need to be able to register with the service, and be able to upload/update their data, e.g. name and menu, on the database.
 - The Web Application represents the developer/service provider end. It would need to handle restaurant registration and the service's database.
 - The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. Next is recording an order. the M5 accesses and browses restaurant menus saved on the web application. The user's configured preferences should be read as the order is made, e.g. by flagging dishes that exceed their intended calorie intake, or contain unsafe ingredients.
+
+- [Back to contents](#Contents)
 
 ### The evolution of UI wireframes for key sub-systems
 
@@ -215,7 +223,6 @@ In this version 2.0, we prioritized the add new function, because this is the mo
     - A registration page: also we implement REGISTER function this time in the main page.
     ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/desktop_videos/version%203.png)
     In this version 3.0, we use the select function to implement further functions, like EDIT/DELETE. If the users doesn't select an item before edit/delete dishes, the system would have a warning - to remind the users that nothing has been selected.
-    
     
 
 #### *Web Application*
@@ -293,6 +300,8 @@ The last addition was a responsive layout with containers, to solve the above is
 ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20vert.png)
 
 
+- [Back to contents](#Contents)
+
 ### Data Persistence
 
 The M5 and Desktop Application have data persistence.
@@ -305,6 +314,8 @@ The ardiuno-esp32 Preferences library allowed us to save the contents to flash m
 
  The application needed to save the menu so restaurant manager didn't have to re-register and remake their menu every time the system was closed. This was implemented by saving the data as a JSON file. Functions (loadMenu(), loadRestaurant()) would run at initialization to load data from the save files. Lastly, whenever the user edited the data, e.g. registering as a new restaurant or changing the menu, the changes will also be written into the JSON save file!
 
+- [Back to contents](#Contents)
+
 ### Web Technologies
 
  The website is built with the three standard languages: HTML, CSS and Javascript. They were chosen because of the extensive support material available (online tutorials through Youtube, w3schools, geeksforgeeks, etc.). Choosing a well supported language set helped speed up the learning process, leading to a shorter development time. It was also good practice to work with industry standard languages and built familiarity for use in future projects.
@@ -314,6 +325,8 @@ The ardiuno-esp32 Preferences library allowed us to save the contents to flash m
  Our framework of choice was Bootstrap. With Bootstrap, it was extremely easy to quickly implement useful UI features. The three main features of Bootstrap that were used was styling, containers and improved tables. First, working with and modifying Bootstrap's styling made the process of setting and changing fonts and colors much quicker than if we were to build our own stylesheet from scratch. Next, Bootstrap's containers were particular helpful at building a responsive layout that could wrap our page's elements to any screen size (prior to implementing Bootstrap's layout features, we had a lot of problems with text clipping given that our web page is dominated by two large tables). Finally, Bootstrap's tables tags allowed us to easily make our tables visually appealing and responsive.
 
  Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
+
+- [Back to contents](#Contents)
 
 ## System Implementation:
 
