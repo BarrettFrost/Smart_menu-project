@@ -2,7 +2,7 @@
 
 ## Smart_Menu
 
-### Samuel Goh Kean Hau(ft19226), Barrett Frost(dy19474), Bruce Xu(rq19169), Ray Ma(rm16797), Haomin Yang(ma19230)
+##### Samuel Goh Kean Hau(ft19226), Barrett Frost(dy19474), Bruce Xu(rq19169), Ray Ma(rm16797), Haomin Yang(ma19230)
 
 
 #### Smart_Menu is an Internet of Things (IoT) solution that matches your dietary needs directly with what's on the menu ! Combining a menu browser (common in food finding apps, e.g Yelp) with a diet planner (e.g. Mealime), Smart_Menu makes planning your next meal safer and more convenient than ever before.
