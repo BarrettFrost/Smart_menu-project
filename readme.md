@@ -100,7 +100,7 @@ type restaurant struct{
      menu            *menu      'json : "menu"'
 }
 
-type menu struct{  <br />
+type menu struct{  
     foodName       String      'json : "foodName"'
     containsGluten Boolean     'json : "containsGluten"'
     containsNuts   Boolean     'json : "containsNuts"'  
