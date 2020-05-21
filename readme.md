@@ -51,6 +51,8 @@
 
 ![UML Diagram](https://github.com/BarrettFrost/Smart_menu-project/blob/master/UML2.0.png)
 
+[Back to contents](#Contents)
+
 ### Overview of System
 
 Firstly the system will be initiated by a customer using the IOT device to find a meal from a restaurant. Before doing so, They would have first set their dietary preferences and desired calories per meal. The customer would then query the Web Application for a list of restaurants from the company running the system. They would then select the restaurant they want to order food from and send that information to the company. Then the company would ask the restaurant owner for the menu. After the company would relay this menu to the customer which they would choose their meal and save their order.
@@ -81,7 +83,7 @@ Firstly the system will be initiated by a customer using the IOT device to find 
 
  The interface of web application includes a page that displays a table of restaurants and a page that desplays the menu of the reataurant.
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 
 ### JSON Model
@@ -119,7 +121,7 @@ The JSON structure can be seen in the diagram above. The **queryID** JSON Number
 
 - **The interaction process between the desktop and the web:** When a SmartMenu restaurant owners want to register their restaurant in the service provider, the desktop application would send a JSON Package with the queryID == 30 and its restaurant name. After that, if the service provice respond and approve this restaurant, it would generate a new reataurant id and return that resID with the queryID == 31. Sometimes it would be necessary to update the menu of this reataurant, at this time the kitchen would just need use the ADD/UPDATE/DELEE functions in app, and then the desktop application would send the menu list which includes the food name, food clories, if contains nuts, if contains gluten, and if vegetarian food to the web, setting the queryID == 40. And the web application would receive this updated menu and update its virtual databases after that. 
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ### Communication protocols  
 
@@ -132,7 +134,7 @@ Our communication protocol is simple, relying on two variables, queryID and conI
 
 conID serves to identify unique conversations between devices. This ensure that replies are received and read properly.
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ### Object-Oriented design of key sub-systems
 
@@ -163,7 +165,7 @@ The application uses three main objects:
 </p>
 
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ### Requirements for key sub-systems
 
@@ -173,7 +175,7 @@ An overview of the key requirements of our sub-systems (desktop, web, m5 Stack) 
 - The Web Application represents the developer/service provider end. It would need to handle restaurant registration and the service's database.
 - The Arduino/m5 Stack represents the consumer end. It has two primary feature. The first is allowing users to configure their dietary preferences. Next is recording an order. the M5 accesses and browses restaurant menus saved on the web application. The user's configured preferences should be read as the order is made, e.g. by flagging dishes that exceed their intended calorie intake, or contain unsafe ingredients.
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ### The evolution of UI wireframes for key sub-systems
 
@@ -300,7 +302,7 @@ The last addition was a responsive layout with containers, to solve the above is
 ![Image](https://github.com/BarrettFrost/Smart_menu-project/blob/master/webapp%20photos/menu%20vert.png)
 
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ### Data Persistence
 
@@ -326,7 +328,7 @@ The ardiuno-esp32 Preferences library allowed us to save the contents to flash m
 
  Finally, we used the mqtt plugin by paho to implement mqtt functionality into our site.
 
-- [Back to contents](#Contents)
+[Back to contents](#Contents)
 
 ## System Implementation:
 
@@ -405,6 +407,8 @@ Notable changes made during this stage was adding the *conID* variable. We reali
 
 *conID* was a random 4-digit integer generated on the M5 whenever it sent a query. To reduce the risk of corruption and tampering, we made *conID* a read-only variable. The Web Application simply copies the ID from the inbound query to the outbound response. the M5 also forgets the ID at the end of the conversation.
 
+[Back to contents](#Contents)
+
 ### Design Evaluation
 
 #### Technique used
@@ -442,6 +446,8 @@ Overall, considering that our goal was to design a prototype than a final produc
 
 ---
 
+[Back to contents](#Contents)
+
 ### Social and Ethical Implications
 
 We consider our project to have minimal social and ethical implications. To come to this conclusion, we assessed the following two broad questions:
@@ -453,6 +459,8 @@ No. Our service uses the following data: consumer dietary preferences, and publi
 #### *Ethical impact: Would our product be, intentionally or otherwise, prejudicing or discriminating, or cause harm towards, particular individuals or communities?*
 
 No. Our product should be used equally by users from all communities. As most of the data processing is handled locally on the m5, there is minimal risk of other actors gaining access to such data for unwarranted purposes.
+
+[Back to contents](#Contents)
 
 
 ## Project Evaluation:
@@ -469,4 +477,7 @@ The most obvious feature to improve for the M5 would be increase the maximum men
 The group worked well to accomplish its goal despite numerous challenges. As covered in the previous section *design sprints*, we have demonstrated that we practiced AGILE development principles extensively. The principles emphasized a flexible, modular and minimalist design process, which prioritized breaking the project into small milestones to be accomplished incrementally. This was beneficial in many ways: our code was made more modular, as it was written and tested in small pieces, rather than as a big codeblock. This means that any future development would have a much easier time adding additional features, as it will not have to untangle dependencies. Distributing tasks between different team members was also easier with this process. One complication was that because our team are new programmers unfamiliar with working as a team, we were not practiced with writing code to a common standard. Hence, there were occasional frustrations merging code written by different authors. This project was, therefore, also a learning opportunity that taught us something that we might not have learned by working purely on solo projects.
 
 Communication through the quarantine period was managed with regular online meetings. The quarantine caused minimal disruption to the group's performance with regards to building the systems. This was because we were alreading working in a distributed workflow. However, it impacted our ability to conduct user testing. Specifically, while we were able to test subsystems independently, we were unable to do significant public testing, especially with the whole system in one location. This most likely had some impact on the final quality of the product, such as the UI/UX work being mediocre.
+
+[Back to contents](#Contents)
+
 
